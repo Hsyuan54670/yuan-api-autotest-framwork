@@ -2,6 +2,6 @@
 __pycache__/
 .env
 scripts/
-data/*
+data/
 config/config.yaml
 
