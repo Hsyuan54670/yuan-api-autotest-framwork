@@ -1,4 +1,7 @@
+.idea/
+__pycache__/
 .env
 scripts/
-data/*
-./config/config.yaml
+data/
+config/config.yaml
+
