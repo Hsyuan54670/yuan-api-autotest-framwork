@@ -1,0 +1,1 @@
+[32mINFO    [0m Hsyuan:test_login_api.py:68 登录成功，获取的token：, eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1MTY4Mzh9.5aXTQbxj7RyY5oRUPC5Y8mRpmfLbzPFSThHxFXfWnFw
