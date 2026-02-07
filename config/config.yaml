@@ -1,0 +1,7 @@
+env: test
+dev:
+  base_url: http://localhost:8080
+test:
+  base_url: http://115.191.47.61
+prod:
+  base_url: http://115.191.47.61

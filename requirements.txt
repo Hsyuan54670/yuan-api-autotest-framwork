@@ -2,3 +2,5 @@ requests
 pytest
 allure-pytest
 pyyaml
+cryptography
+python-dotenv
