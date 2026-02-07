@@ -5,7 +5,7 @@ import requests
 def test_get_public_key():
     """测试获取RSA公钥接口"""
     # 发送GET请求获取公钥
-    resp = requests.request("GET", "http://115.191.47.61/api/login/auth/publicKey")
+    resp = requests.request("GET", "http://localhost:8080/api/login/auth/publicKey")
     # 断言响应状态码和内容
     assert resp.status_code == 200
     assert resp.json()["code"] == 200
