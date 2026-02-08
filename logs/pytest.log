@@ -1,3 +1,19 @@
-2026-02-07 22:14:03 - INFO - 初始配置，获取TOKEN成功！
- TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1MTY4Mzd9.iSZIBmLB_9ZEDMWluX5LYLJRNxjaAtnsCZwUtbFjDzg
-2026-02-07 22:14:05 - INFO - 登录成功，获取的token：, eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1MTY4Mzh9.5aXTQbxj7RyY5oRUPC5Y8mRpmfLbzPFSThHxFXfWnFw
+2026-02-08 18:08:10 - INFO - 初始化配置，获取TOKEN成功！
+ TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1ODg0ODh9.bzAf0uABnLJlzlXgUU8sGvJxgFvPV2kbPo3V5IjeR8w
+2026-02-08 18:08:10 - INFO - 测试会话开始，执行前置操作
+2026-02-08 18:08:10 - INFO - 1.正在发送请求
+2026-02-08 18:08:10 - INFO - {'method': 'GET', 'url': '/login/auth/publicKey', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-08 18:08:10 - INFO - 2.正在断言响应
+2026-02-08 18:08:10 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['publicKey', 'timestamp', 'algorithm'], 'algorithm': 'RSA'}}}
+2026-02-08 18:08:10 - INFO - resp.json{'code': 200, 'msg': 'success', 'data': {'publicKey': 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB', 'algorithm': 'RSA', 'timestamp': '1770545288715'}}
+2026-02-08 18:08:10 - INFO - 3.正在提取变量
+2026-02-08 18:08:10 - INFO - 提取变量成功: publicKey = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB
+2026-02-08 18:08:10 - INFO - 1.正在发送请求
+2026-02-08 18:08:10 - INFO - {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'SROyfvfHw2ZzT2pkjylc8IXmOC/2q6z/uA+0pWdOOVDGY2syFjJH9CNinx0MTmFSrCrCRfjv7S6BpYMs0LiBkyTowfqzJaEKoQwG9SqJNlA7A9kELWf4UnswAEr31UHfMd6u/LntDIX3MS+i971x1qN5IGh81jnsaeoeN63Y1Iu4n7QRZmmmMZIqqtAoM3V9IgPupQ/2q1CJwPuTjrm/jp2j136OIIrxY7E2DHCt6HT0NM49rHfoEobfhtQ2/N51UQk8U9/tEqzWU4pg1beQn+NNiyySU3rZg9aD0PGkKONV5DX7uvGscRKonePIUnfgHf/WWxMutZeRJ6elQ0MP1A==', 'userType': 'admin', 'timestamp': 1770545290969}, 'params': {}, 'headers': {}}
+2026-02-08 18:08:11 - INFO - 2.正在断言响应
+2026-02-08 18:08:11 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'userType': 'admin'}}}
+2026-02-08 18:08:11 - INFO - resp.json{'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1ODg0ODh9.bzAf0uABnLJlzlXgUU8sGvJxgFvPV2kbPo3V5IjeR8w', 'userType': 'admin'}}
+2026-02-08 18:08:11 - INFO - 3.正在提取变量
+2026-02-08 18:08:11 - INFO - 提取变量成功: token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1ODg0ODh9.bzAf0uABnLJlzlXgUU8sGvJxgFvPV2kbPo3V5IjeR8w
+2026-02-08 18:08:11 - INFO - 登录成功！
+2026-02-08 18:08:11 - INFO - 测试会话结束，执行后置操作

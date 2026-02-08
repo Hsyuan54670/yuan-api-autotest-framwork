@@ -4,6 +4,8 @@ from common.config import PUBLIC_KEY, SERVER_URL
 import pytest
 import time
 import requests
+
+from utils.data_utils import clear_extract_yaml
 from utils.rsa_utils import PasswordEncryptor
 import logging
 
@@ -32,8 +34,18 @@ def get_token():
     resp.raise_for_status()
     token = resp.json()["data"]["token"]
     logger.info(f"初始化配置，获取TOKEN成功！\n TOKEN:{token}")
+
     os.environ["TOKEN"] = token
     return token
+
+@pytest.fixture(scope='session',autouse=True)
+def setup_and_teardown():
+    logger = logging.getLogger("Hsyuan")
+    logger.info("测试会话开始，执行前置操作")
+    clear_extract_yaml()
+    yield
+    logger.info("测试会话结束，执行后置操作")
+
 
 
 

@@ -24,3 +24,12 @@ def read_yaml(file_path):
         s = f.read()
         data = yaml.safe_load(s)
         return data
+
+def extract_yaml(key,value):
+    with open("config/extract.yaml", 'a+', encoding='utf-8') as f:
+        data = {key:value}
+        yaml.dump(data,f,allow_unicode=True)
+
+def clear_extract_yaml():
+    with open("config/extract.yaml", 'w', encoding='utf-8') as f:
+        f.write("")

@@ -11,7 +11,6 @@ from common.config import SERVER_URL
 @pytest.mark.api
 def test_get_projects_approval_list():
     TOKEN = os.environ["TOKEN"]
-    print(TOKEN)
     headers = {
         "Token": TOKEN
     }

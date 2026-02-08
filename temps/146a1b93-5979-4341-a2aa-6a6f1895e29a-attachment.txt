@@ -1,0 +1,9 @@
+[32mINFO    [0m Hsyuan:api_utils.py:51 1.正在发送请求
+[32mINFO    [0m Hsyuan:api_utils.py:52 {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'SROyfvfHw2ZzT2pkjylc8IXmOC/2q6z/uA+0pWdOOVDGY2syFjJH9CNinx0MTmFSrCrCRfjv7S6BpYMs0LiBkyTowfqzJaEKoQwG9SqJNlA7A9kELWf4UnswAEr31UHfMd6u/LntDIX3MS+i971x1qN5IGh81jnsaeoeN63Y1Iu4n7QRZmmmMZIqqtAoM3V9IgPupQ/2q1CJwPuTjrm/jp2j136OIIrxY7E2DHCt6HT0NM49rHfoEobfhtQ2/N51UQk8U9/tEqzWU4pg1beQn+NNiyySU3rZg9aD0PGkKONV5DX7uvGscRKonePIUnfgHf/WWxMutZeRJ6elQ0MP1A==', 'userType': 'admin', 'timestamp': 1770545290969}, 'params': {}, 'headers': {}}
+[32mINFO    [0m Hsyuan:api_utils.py:55 2.正在断言响应
+[32mINFO    [0m Hsyuan:api_utils.py:56 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'userType': 'admin'}}}
+[32mINFO    [0m Hsyuan:api_utils.py:29 resp.json{'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1ODg0ODh9.bzAf0uABnLJlzlXgUU8sGvJxgFvPV2kbPo3V5IjeR8w', 'userType': 'admin'}}
+[32mINFO    [0m Hsyuan:api_utils.py:59 3.正在提取变量
+[32mINFO    [0m Hsyuan:api_utils.py:39 提取变量成功: token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1ODg0ODh9.bzAf0uABnLJlzlXgUU8sGvJxgFvPV2kbPo3V5IjeR8w
+[32mINFO    [0m Hsyuan:test_login_api.py:50 登录成功！
+[32mINFO    [0m Hsyuan:conftest.py:47 测试会话结束，执行后置操作

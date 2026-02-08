@@ -1,2 +1,0 @@
-[32mINFO    [0m Hsyuan:conftest.py:34 初始配置，获取TOKEN成功！
- TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1MTY4Mzd9.iSZIBmLB_9ZEDMWluX5LYLJRNxjaAtnsCZwUtbFjDzg

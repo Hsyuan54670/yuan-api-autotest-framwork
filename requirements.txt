@@ -1,4 +1,6 @@
 requests
+pytest-xdist
+pytest-ordering
 pytest
 allure-pytest
 pyyaml
