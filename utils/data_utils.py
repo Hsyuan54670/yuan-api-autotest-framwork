@@ -25,6 +25,9 @@ def read_yaml(file_path):
         data = yaml.safe_load(s)
         return data
 
+def read_yaml_list(file_path):
+    return list(read_yaml(file_path).values())
+
 def extract_yaml(key,value):
     with open("config/extract.yaml", 'a+', encoding='utf-8') as f:
         data = {key:value}

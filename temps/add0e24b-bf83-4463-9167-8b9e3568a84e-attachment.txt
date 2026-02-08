@@ -1,3 +1,0 @@
-[32mINFO    [0m Hsyuan:conftest.py:36 初始化配置，获取TOKEN成功！
- TOKEN:eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA1ODg0ODh9.bzAf0uABnLJlzlXgUU8sGvJxgFvPV2kbPo3V5IjeR8w
-[32mINFO    [0m Hsyuan:conftest.py:44 测试会话开始，执行前置操作

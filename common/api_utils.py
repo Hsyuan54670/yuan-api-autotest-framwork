@@ -9,11 +9,13 @@ logger = logging.getLogger("Hsyuan")
 
 class ApiRunner:
 
-    session = requests.Session()
+
     resp = None
 
-    def __init__(self,steps):
+    def __init__(self,session,steps,case_id):
+        self.session = session
         self.steps = steps
+        self.case_id = case_id
 
     def send_request(self,**kwargs):
         try:
@@ -64,7 +66,9 @@ class ApiRunner:
                     logger.info('无法提取变量，因为请求失败，没有响应对象。')
 
     def run(self):
+        logger.info(f"============================================================测试用例{self.case_id}============================================================")
         for k,v in self.steps.items():
             self.core(k,v)
+        logger.info("============================================================当前接口测试执行完成============================================================")
 
 

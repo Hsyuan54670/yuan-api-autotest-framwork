@@ -1,7 +1,0 @@
-[32mINFO    [0m Hsyuan:api_utils.py:51 1.正在发送请求
-[32mINFO    [0m Hsyuan:api_utils.py:52 {'method': 'GET', 'url': '/login/auth/publicKey', 'headers': {}, 'params': {}, 'json': {}}
-[32mINFO    [0m Hsyuan:api_utils.py:55 2.正在断言响应
-[32mINFO    [0m Hsyuan:api_utils.py:56 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['publicKey', 'timestamp', 'algorithm'], 'algorithm': 'RSA'}}}
-[32mINFO    [0m Hsyuan:api_utils.py:29 resp.json{'code': 200, 'msg': 'success', 'data': {'publicKey': 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB', 'algorithm': 'RSA', 'timestamp': '1770545288715'}}
-[32mINFO    [0m Hsyuan:api_utils.py:59 3.正在提取变量
-[32mINFO    [0m Hsyuan:api_utils.py:39 提取变量成功: publicKey = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB

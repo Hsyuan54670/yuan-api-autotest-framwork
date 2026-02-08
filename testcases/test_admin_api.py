@@ -1,25 +1,21 @@
-import allure
+import logging
 import pytest
-import requests
-import os
+from common.api_utils import ApiRunner
 
-from common.config import SERVER_URL
+from utils.allure_utils import AllureUtils
+from utils.data_utils import read_yaml_list
 
-@allure.epic("InvEntropy")
-@allure.feature("管理员模块")
-@allure.story("获取项目审批列表接口")
-@pytest.mark.api
-def test_get_projects_approval_list():
-    TOKEN = os.environ["TOKEN"]
-    headers = {
-        "Token": TOKEN
-    }
-    resp = requests.request("GET", SERVER_URL+"/admin/projectsApprovalList",
-                            headers=headers,
-                            params={"page": 1, "size": 5}
-                            )
-    assert resp.status_code == 200
-    assert resp.json()["code"] == 200
-    assert resp.json()["msg"] == "success"
-    assert 'data' in resp.json()
-    assert 'records' in resp.json()['data']
+logger = logging.getLogger("Hsyuan")
+allure_utils = AllureUtils()
+
+@pytest.mark.usefixtures("get_admin_token")
+class TestAdminAPI:
+
+    @pytest.mark.parametrize("data", read_yaml_list("data/test_data/admin_get_projects_approval_list.yaml"))
+    @pytest.mark.api
+    def test_get_projects_approval_list(self, data,get_admin_token):
+
+        allure_utils.allure_load(data["allure"])
+
+        runner = ApiRunner(get_admin_token,data["steps"],data["case_id"])
+        runner.run()

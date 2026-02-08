@@ -1,0 +1,37 @@
+get_list:
+  case_id: "AD001"
+  # 1. 用例元信息
+  allure:
+    title: "审批列表"
+    description: "待审批项目列表"
+    epic: "InvEntropy"
+    feature: "管理员模块"
+    story: "获取待审批项目列表接口"
+    tag: [ "管理员", "接口测试" ]
+    pytest_mark: "api"
+
+  steps:
+    # 2. 请求信息
+    request:
+      method: "GET"
+      url: "/admin/projectsApprovalList"
+      headers: {}
+      params: {
+                "page": 1,
+                "size": 5
+      }
+      json: {}
+
+    # 3. 预期断言规则
+    expected:
+      status_code: 200  # 响应状态码
+      response:
+        code: 200       # 业务码
+        msg: "success"  # 提示信息
+        data:
+          # 校验data下的字段是否存在
+          required_fields: ["records"]
+          records_type: list  # 校验records字段类型为列表
+          # 校验records列表中每个元素的字段
+          records_fields: ["id", "projectName", "applicant", "status"]
+

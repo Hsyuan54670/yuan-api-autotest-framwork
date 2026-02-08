@@ -1,0 +1,8 @@
+INFO     Hsyuan:api_utils.py:69 ============================================================测试用例login_error============================================================
+INFO     Hsyuan:api_utils.py:53 1.正在发送请求
+INFO     Hsyuan:api_utils.py:54 {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'qeYcuqauO3+BdLFkzoLUpDsE+85wuC/k6Zu4DtsOcDDGA5oIKiB8YEzK+feal60DhsUXzUgZ8tE7gPzTEQDPekqzBmBJODU01r6GM4cT6IrWjYUIajFg6+wP1C1aBk66189bd2AVSFiAaBCfSsiB9wnT+71QbtGr0sZd7zjtcDsyiXvcaqzA9l9JoNDtq3dprNymrQHh9VtDkO9JOwnAkjgdztRXc0ah1160CHLXibjBy2rhzohsGTB1ywz+3jaDpYUnf/jrpqniKMtoC/qIjjOFAFQFZx5UXcMAF0Uc/CJtyBu77HU25MG9SldMub/MEjo3cGd1SlwOz2upkKiSnA==', 'userType': 'admin', 'timestamp': 1770563088063}, 'params': {}, 'headers': {}}
+INFO     Hsyuan:api_utils.py:57 2.正在断言响应
+INFO     Hsyuan:api_utils.py:58 {'status_code': 200, 'response': {'code': 401, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'userType': 'admin', 'extract': {'token': '$.data.token'}}}}
+INFO     Hsyuan:api_utils.py:31 resp.json{'code': 400, 'msg': '用户名或密码错误', 'data': None}
+INFO     Hsyuan:api_utils.py:72 ============================================================当前接口测试执行完成============================================================
+INFO     Hsyuan:conftest.py:66 测试会话结束...关闭测试环境...
