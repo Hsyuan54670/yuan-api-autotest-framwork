@@ -49,3 +49,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: report
           publish_branch: gh-pages
+          force_orphan: true
+
+
+          # https://Hsyuan54670.github.io/yuan-api-autotest-framwork/
