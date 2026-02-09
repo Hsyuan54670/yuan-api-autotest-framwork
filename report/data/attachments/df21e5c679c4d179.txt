@@ -1,0 +1,9 @@
+INFO     Hsyuan:api_utils.py:74 =======================================================登录接口失败测试用例=======================================================
+INFO     Hsyuan:api_utils.py:56 1.正在发送请求
+INFO     Hsyuan:api_utils.py:57 {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'bYyY3VNBsjbu2A84hW1QnlfSfCYn6B0UgqE6yasA12RJ8H9sC245V3K37ptKd1arH15zor7OUY5/1lh7P7HByImFpt6Dx3i1Q1sFUq0NadoUg1RgUFC+Pe1IcUX6BZDxBm/kfDmorjZagKh8u4y+w+fT0mbsS7FFf+M6LxY//l0BThw1QqFEbVE1NP0ooeFKmA+75CjcdmsVT03vSABQ4AwwtNAJEsaZUwUZi6wQzElFOzn/q6BxmnP/wkRC/H1ItJgZf0sLUEctNTCgbvoB6iGZxLTA2YlGnvXCRA046NfTcPgQVe/4qI4MDBlQPowgb3IpGQQ27DiJiV0QNSpr/g==', 'userType': 'admin', 'timestamp': 1770642206410}, 'params': {}, 'headers': {}}
+INFO     Hsyuan:api_utils.py:60 2.正在断言响应
+INFO     Hsyuan:api_utils.py:61 {'status_code': 200, 'response': {'code': 401, 'msg': '用户名或密码错误', 'data': None}}
+INFO     Hsyuan:response_checker.py:103 resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+ERROR    Hsyuan:response_checker.py:139 共 1 个断言失败:
+  - 响应字段: 期望 code=401, 实际 400
+INFO     Hsyuan:conftest.py:66 测试会话结束...关闭测试环境...
