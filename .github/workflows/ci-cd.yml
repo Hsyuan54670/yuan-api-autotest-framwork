@@ -17,7 +17,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          sudo apt update && sudo apt intall -y allure
+          sudo wget -qO - https://repo.maven.apache.org/maven2/org/aspectj/aspectjweaver/1.9.20.1/aspectjweaver-1.9.20.1.pom | sudo apt-key add -
+          echo "deb https://dl.bintray.com/qameta/generic stable main" | sudo tee -a /etc/apt/sources.list.d/qameta.list
+          sudo apt update && sudo apt install -y allure
 
       - name: 执行启动程序
         run: |
