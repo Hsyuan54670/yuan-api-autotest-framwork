@@ -32,6 +32,11 @@ jobs:
           sudo ln -s /opt/allure/bin/allure /usr/local/bin/allure
           allure --version
 
+      - name: 生成.env配置文件
+        run: |
+          echo "API_BASE_URL=${{ secrets.SERVER_URL }}" >> .env
+          echo "DB_PASSWORD=${{ secrets.PUBLIC_KEY }}" >> .env
+
       - name: 执行启动程序
         run: |
           python3 start.py
