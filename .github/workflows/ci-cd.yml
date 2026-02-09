@@ -41,8 +41,6 @@ jobs:
       - name: 执行启动程序
         run: |
           python3 start.py
-          ls -la
-          ls -la report/
 
       - name: 部署报告到 Github Pages
         uses: peaceiris/actions-gh-pages@v4
@@ -52,5 +50,3 @@ jobs:
           publish_branch: gh-pages
           force_orphan: true
 
-
-          # https://Hsyuan54670.github.io/yuan-api-autotest-framwork/
