@@ -5,6 +5,11 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # 允许推送分支、创建标签等内容写入操作
+      pages: write     # 增强GitHub Pages相关权限
+      id-token: write  # 兼容新版GitHub Pages认证
+
     steps:
       - name: 拉取仓库代码
         uses: actions/checkout@v4
@@ -35,5 +40,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports        # 指向目录，不是文件
+          publish_dir: ./reports
           publish_branch: gh-pages      # 修正参数名拼写
