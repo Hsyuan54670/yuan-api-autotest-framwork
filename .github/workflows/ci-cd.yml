@@ -34,8 +34,8 @@ jobs:
 
       - name: 生成.env配置文件
         run: |
-          echo "API_BASE_URL=${{ secrets.SERVER_URL }}" >> .env
-          echo "DB_PASSWORD=${{ secrets.PUBLIC_KEY }}" >> .env
+          echo "SERVER_URL=${{ secrets.SERVER_URL }}" >> .env
+          echo "PUBLIC_KEY=${{ secrets.PUBLIC_KEY }}" >> .env
 
       - name: 执行启动程序
         run: |
