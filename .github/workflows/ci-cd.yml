@@ -45,5 +45,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./reports
+          publish_dir: ./report
           publish_branch: gh-pages      # 修正参数名拼写

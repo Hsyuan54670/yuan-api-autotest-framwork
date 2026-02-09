@@ -1,36 +1,36 @@
-2026-02-09 17:29:33 - INFO - 初始化配置中...测试会话即将开始...
-2026-02-09 17:29:33 - INFO - 初始化配置完成,测试会话开始!
-2026-02-09 17:29:34 - INFO - ==========================================================审批列表==========================================================
-2026-02-09 17:29:34 - INFO - 1.正在发送请求
-2026-02-09 17:29:34 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': {}, 'params': {'page': 1, 'size': 5}, 'json': {}}
-2026-02-09 17:29:34 - INFO - 2.正在断言响应
-2026-02-09 17:29:34 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'page', 'pageSize'], 'assert': {'type': {'records': 'list'}}, 'list_check': {'records': {'length': 5, 'object_required_items': ['id', 'projectName', 'projectType', 'applicant', 'funds', 'status']}}}}}
-2026-02-09 17:29:34 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 19, 'records': [{'id': 11, 'projectName': '项目1', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 34243.0, 'remainingFunds': 34243.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目1.docx', 'startTime': '2026-01-07T16:53:52', 'deadline': '2026-01-08T10:58:16', 'updateTime': '2026-01-07T08:53:52', 'status': 0, 'reason': '暂未审批'}, {'id': 12, 'projectName': '项目2', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 324324.0, 'remainingFunds': 324324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目2.docx', 'startTime': '2026-01-07T16:54:18', 'deadline': '2026-03-12T00:00:00', 'updateTime': '2026-01-07T08:54:18', 'status': 0, 'reason': '暂未审批'}, {'id': 17, 'projectName': '项目6', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 432432.0, 'remainingFunds': 432432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目6.docx', 'startTime': '2026-01-07T16:56:14', 'deadline': '2028-01-14T00:00:00', 'updateTime': '2026-01-07T08:56:14', 'status': 0, 'reason': '暂未审批'}, {'id': 18, 'projectName': '项目7', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 5435435.0, 'remainingFunds': 5435435.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目7.docx', 'startTime': '2026-01-07T16:56:40', 'deadline': '2026-04-10T00:00:00', 'updateTime': '2026-01-07T08:56:40', 'status': 0, 'reason': '暂未审批'}, {'id': 19, 'projectName': '项目8', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 354.0, 'remainingFunds': 354.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目8.docx', 'startTime': '2026-01-07T16:57:29', 'deadline': '2028-02-17T00:00:00', 'updateTime': '2026-01-07T08:57:29', 'status': 0, 'reason': '暂未审批'}]}}
-2026-02-09 17:29:34 - INFO - 所有断言通过
-2026-02-09 17:29:34 - INFO - ======================================================获取登录公钥接口测试用例======================================================
-2026-02-09 17:29:34 - INFO - 1.正在发送请求
-2026-02-09 17:29:34 - INFO - {'method': 'GET', 'url': '/login/auth/publicKey', 'headers': {}, 'params': {}, 'json': {}}
-2026-02-09 17:29:34 - INFO - 2.正在断言响应
-2026-02-09 17:29:34 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['publicKey', 'timestamp', 'algorithm'], 'algorithm': 'RSA'}}}
-2026-02-09 17:29:34 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'publicKey': 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB', 'algorithm': 'RSA', 'timestamp': '1770629368883'}}
-2026-02-09 17:29:34 - INFO - 所有断言通过
-2026-02-09 17:29:34 - INFO - 3.正在提取变量
-2026-02-09 17:29:34 - INFO - 提取变量成功: publicKey = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB
-2026-02-09 17:29:34 - INFO - =======================================================登录接口成功测试用例=======================================================
-2026-02-09 17:29:34 - INFO - 1.正在发送请求
-2026-02-09 17:29:34 - INFO - {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'VercQhAdua1qEAGLzbgO9oFROfU8Pjqh5DL9CtYfYKYAza3dTyioN3msWFqv1IgePDOIpLcvD6NUTFUACtp3S2VZrhF3MDXPOBABdWdimhDHRgeS/k/M0Pnrg/fj/n6anWhEOUxbtZH8+5nwZW637ey8qE1SVVWQGZaih2ZZynaplNf+GuDVMlB/8RUokvOTc/UtNoUiEj350BHL5BHBR7vDPdL8CX75WaVkpgzKOtzpGFMrph1csSBW55Ny6Riw7xOFyQwdXk/UQdgMof3ki74MnHMNRaybi98PBxFxHjy6dbcEbRWvnrLJES38TYoEpgPuc5urUm0rzoAnUIk6EA==', 'userType': 'admin', 'timestamp': 1770629374212}, 'params': {}, 'headers': {}}
-2026-02-09 17:29:34 - INFO - 2.正在断言响应
-2026-02-09 17:29:34 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'assert': {'eq': {'userType': 'admin'}}}}}
-2026-02-09 17:29:34 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA2NzI1Njh9.y7ais1ZeSATaN9KWpCK09YzLaqq6ITWDLFCWKRFK--s', 'userType': 'admin'}}
-2026-02-09 17:29:34 - INFO - 所有断言通过
-2026-02-09 17:29:34 - INFO - 3.正在提取变量
-2026-02-09 17:29:34 - INFO - 提取变量成功: token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA2NzI1Njh9.y7ais1ZeSATaN9KWpCK09YzLaqq6ITWDLFCWKRFK--s
-2026-02-09 17:29:34 - INFO - =======================================================登录接口失败测试用例=======================================================
-2026-02-09 17:29:34 - INFO - 1.正在发送请求
-2026-02-09 17:29:34 - INFO - {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'NXTSxuSUp4sUvoMPR3ljeSloXwf94i87fje/87AIy2CAZsIqmc16IW+kyQXIvwnb1NQG1RK9ouuZEjr/8Dyb92f0tJlhwtN3q2oat63GPE7hba4aeySFcH9xZeW0ekGn7Guc6EDCiee6mndoVl6Ld54NHI6gzYseaI4f6Wgi5xVJmOCQqjAb6mzbaofE6Cpf0iFAqUkxHsuD3yQfI77d8Tw+Ta3K+IoVNLhD54KKAGTqPmw6ia6LvISED8s89xXayNJsrR+Kg0F8djHHUxzUssmZr0vbLuOL3zXusYE2WbtkDZ5Z6H5e8Y0kra0jPU3uecXbNQmYEEVkYYKzw9lhTg==', 'userType': 'admin', 'timestamp': 1770629374299}, 'params': {}, 'headers': {}}
-2026-02-09 17:29:34 - INFO - 2.正在断言响应
-2026-02-09 17:29:34 - INFO - {'status_code': 200, 'response': {'code': 401, 'msg': '用户名或密码错误', 'data': None}}
-2026-02-09 17:29:34 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
-2026-02-09 17:29:34 - ERROR - 共 1 个断言失败:
+2026-02-09 21:03:25 - INFO - 初始化配置中...测试会话即将开始...
+2026-02-09 21:03:25 - INFO - 初始化配置完成,测试会话开始!
+2026-02-09 21:03:26 - INFO - ==========================================================审批列表==========================================================
+2026-02-09 21:03:26 - INFO - 1.正在发送请求
+2026-02-09 21:03:26 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': {}, 'params': {'page': 1, 'size': 5}, 'json': {}}
+2026-02-09 21:03:26 - INFO - 2.正在断言响应
+2026-02-09 21:03:26 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'page', 'pageSize'], 'assert': {'type': {'records': 'list'}}, 'list_check': {'records': {'length': 5, 'object_required_items': ['id', 'projectName', 'projectType', 'applicant', 'funds', 'status']}}}}}
+2026-02-09 21:03:26 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 19, 'records': [{'id': 11, 'projectName': '项目1', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 34243.0, 'remainingFunds': 34243.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目1.docx', 'startTime': '2026-01-07T16:53:52', 'deadline': '2026-01-08T10:58:16', 'updateTime': '2026-01-07T08:53:52', 'status': 0, 'reason': '暂未审批'}, {'id': 12, 'projectName': '项目2', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 324324.0, 'remainingFunds': 324324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目2.docx', 'startTime': '2026-01-07T16:54:18', 'deadline': '2026-03-12T00:00:00', 'updateTime': '2026-01-07T08:54:18', 'status': 0, 'reason': '暂未审批'}, {'id': 17, 'projectName': '项目6', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 432432.0, 'remainingFunds': 432432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目6.docx', 'startTime': '2026-01-07T16:56:14', 'deadline': '2028-01-14T00:00:00', 'updateTime': '2026-01-07T08:56:14', 'status': 0, 'reason': '暂未审批'}, {'id': 18, 'projectName': '项目7', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 5435435.0, 'remainingFunds': 5435435.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目7.docx', 'startTime': '2026-01-07T16:56:40', 'deadline': '2026-04-10T00:00:00', 'updateTime': '2026-01-07T08:56:40', 'status': 0, 'reason': '暂未审批'}, {'id': 19, 'projectName': '项目8', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 354.0, 'remainingFunds': 354.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目8.docx', 'startTime': '2026-01-07T16:57:29', 'deadline': '2028-02-17T00:00:00', 'updateTime': '2026-01-07T08:57:29', 'status': 0, 'reason': '暂未审批'}]}}
+2026-02-09 21:03:26 - INFO - 所有断言通过
+2026-02-09 21:03:26 - INFO - ======================================================获取登录公钥接口测试用例======================================================
+2026-02-09 21:03:26 - INFO - 1.正在发送请求
+2026-02-09 21:03:26 - INFO - {'method': 'GET', 'url': '/login/auth/publicKey', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-09 21:03:26 - INFO - 2.正在断言响应
+2026-02-09 21:03:26 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['publicKey', 'timestamp', 'algorithm'], 'algorithm': 'RSA'}}}
+2026-02-09 21:03:26 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'publicKey': 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB', 'algorithm': 'RSA', 'timestamp': '1770642199938'}}
+2026-02-09 21:03:26 - INFO - 所有断言通过
+2026-02-09 21:03:26 - INFO - 3.正在提取变量
+2026-02-09 21:03:26 - INFO - 提取变量成功: publicKey = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB
+2026-02-09 21:03:26 - INFO - =======================================================登录接口成功测试用例=======================================================
+2026-02-09 21:03:26 - INFO - 1.正在发送请求
+2026-02-09 21:03:26 - INFO - {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'XxhzZoxoUGfwNNFt99aWnh302jxQBsSAPiR5oXA+UCuHHcyw1tUo+QKmU4w/aH0JLLrPf4G/EKNG0q0I46pCnV4RboWDjc9kJGP873iVsuHHvQ1qOzHtmtltP8DT/MXAN4Sx0FcQljQSRDl9AqOrw1UCqfZDDlDMK5oF2vx8IMDMOSRMQWwFTeUl+STNH0buNIskeLQyLC5+SDJW/mc0xoXP4VmZ59WWRbO6zS0BkLo8C6QEQju7NnL0n7GS/92gRKsAHVDkrF8yloGCfXD11T+ZBMJhtQ0+noqObrLrt/dmC0syMcxCB2XvEZ5/z/4ALLAXf7xiEGJUgAyqXmVXVg==', 'userType': 'admin', 'timestamp': 1770642206323}, 'params': {}, 'headers': {}}
+2026-02-09 21:03:26 - INFO - 2.正在断言响应
+2026-02-09 21:03:26 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'assert': {'eq': {'userType': 'admin'}}}}}
+2026-02-09 21:03:26 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA2ODU0MDB9.jA_Hztf569c4nV7D0Kyn93yJ3soMsyzFl-A-OyORmeE', 'userType': 'admin'}}
+2026-02-09 21:03:26 - INFO - 所有断言通过
+2026-02-09 21:03:26 - INFO - 3.正在提取变量
+2026-02-09 21:03:26 - INFO - 提取变量成功: token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA2ODU0MDB9.jA_Hztf569c4nV7D0Kyn93yJ3soMsyzFl-A-OyORmeE
+2026-02-09 21:03:26 - INFO - =======================================================登录接口失败测试用例=======================================================
+2026-02-09 21:03:26 - INFO - 1.正在发送请求
+2026-02-09 21:03:26 - INFO - {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'bYyY3VNBsjbu2A84hW1QnlfSfCYn6B0UgqE6yasA12RJ8H9sC245V3K37ptKd1arH15zor7OUY5/1lh7P7HByImFpt6Dx3i1Q1sFUq0NadoUg1RgUFC+Pe1IcUX6BZDxBm/kfDmorjZagKh8u4y+w+fT0mbsS7FFf+M6LxY//l0BThw1QqFEbVE1NP0ooeFKmA+75CjcdmsVT03vSABQ4AwwtNAJEsaZUwUZi6wQzElFOzn/q6BxmnP/wkRC/H1ItJgZf0sLUEctNTCgbvoB6iGZxLTA2YlGnvXCRA046NfTcPgQVe/4qI4MDBlQPowgb3IpGQQ27DiJiV0QNSpr/g==', 'userType': 'admin', 'timestamp': 1770642206410}, 'params': {}, 'headers': {}}
+2026-02-09 21:03:26 - INFO - 2.正在断言响应
+2026-02-09 21:03:26 - INFO - {'status_code': 200, 'response': {'code': 401, 'msg': '用户名或密码错误', 'data': None}}
+2026-02-09 21:03:26 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+2026-02-09 21:03:26 - ERROR - 共 1 个断言失败:
   - 响应字段: 期望 code=401, 实际 400
-2026-02-09 17:29:34 - INFO - 测试会话结束...关闭测试环境...
+2026-02-09 21:03:26 - INFO - 测试会话结束...关闭测试环境...
