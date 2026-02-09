@@ -1,4 +1,0 @@
-"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
-"待审批项目列表","79","审批列表","testcases","2026-02-08","passed","2026-02-08","TestAdminAPI","test_admin_api","",""
-"测试登录接口,使用正确的管理员账号和密码（RSA加密密码）","85","登录接口成功测试用例","testcases","2026-02-08","passed","2026-02-08","TestLoginAPI","test_login_api","",""
-"测试登录接口，使用错误的管理员账号和密码（RSA加密密码）","84","登录接口失败测试用例","testcases","2026-02-08","passed","2026-02-08","TestLoginAPI","test_login_api","",""

@@ -1,16 +1,14 @@
 # 登录模块测试用例数据
 get_public_key:
-  case_id: "TC001"
   # 1. 用例元信息
   allure:
-    allure:
-      title: "获取登录公钥接口测试用例"
-      description: "获取公钥接口"
-      epic: "InvEntropy"
-      feature: "登录模块"
-      story: "获取登录公钥接口"
-      tag: [ "登录", "接口测试" ]
-      pytest_mark: "api"
+    title: "获取登录公钥接口测试用例"
+    description: "获取公钥接口"
+    epic: "InvEntropy"
+    feature: "登录模块"
+    story: "获取登录公钥接口"
+    tag: [ "登录", "接口测试" ]
+    pytest_mark: "api"
 
 
   steps:

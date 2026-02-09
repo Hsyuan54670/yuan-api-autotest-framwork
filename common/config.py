@@ -6,6 +6,8 @@ import os
 load_dotenv()
 
 PUBLIC_KEY = os.getenv('PUBLIC_KEY')
+
+# url配置
 SERVER_URL = os.getenv("SERVER_URL")
 
 

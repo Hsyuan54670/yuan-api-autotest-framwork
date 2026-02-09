@@ -1,5 +1,4 @@
 get_list:
-  case_id: "AD001"
   # 1. 用例元信息
   allure:
     title: "审批列表"
@@ -30,8 +29,27 @@ get_list:
         msg: "success"  # 提示信息
         data:
           # 校验data下的字段是否存在
-          required_fields: ["records"]
-          records_type: list  # 校验records字段类型为列表
-          # 校验records列表中每个元素的字段
-          records_fields: ["id", "projectName", "applicant", "status"]
+          required_fields: ["records", "total","page", "pageSize"]
+          # 校验records是一个列表
+          assert:
+            type:
+              records: list
+          # 校验records列表的长度
+          list_check:
+            records:
+              length: 5
+              object_required_items:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+
+
+
+
+
+
+
 

@@ -1,9 +1,0 @@
-INFO     Hsyuan:api_utils.py:69 ============================================================测试用例login_success============================================================
-INFO     Hsyuan:api_utils.py:53 1.正在发送请求
-INFO     Hsyuan:api_utils.py:54 {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'lnO/ZblDp/4eeGXsXHhb6Wep2ennSK9Vp6xGm1JNseQBEITQon13sEhtJrJcGkcIcmjQaQafFM//XUHNwbheW+KXupW/wU2g4skqOTsumkaRUywvV5sTHLNCem+EjNCi0VfVbiYP4JgN3gHDcJ1khZd/Lgx4Izbp+3czxjmdHzw9fPSWTtrhraWBGFrbZ7p3QX2Ub9yHRXH8ibeKUz6kpTZTykg+aPNxXOEVkGNk55S+f855sOmC54vK4qRS2lULT7FfP/m8ihNMFWQr2qqh+AxpzILPoJ2KkvJH5mVNHt1LAyMqzB0CzZDv19rNOhlHZJ6EoGlprEjWs/xTT+yLKg==', 'userType': 'admin', 'timestamp': 1770563087974}, 'params': {}, 'headers': {}}
-INFO     Hsyuan:api_utils.py:57 2.正在断言响应
-INFO     Hsyuan:api_utils.py:58 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'userType': 'admin'}}}
-INFO     Hsyuan:api_utils.py:31 resp.json{'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA2MDYyODV9.ctEXPxWjxdbwQhS1xbo8Askn_e7P23cgKvMx1dDvV8A', 'userType': 'admin'}}
-INFO     Hsyuan:api_utils.py:61 3.正在提取变量
-INFO     Hsyuan:api_utils.py:41 提取变量成功: token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA2MDYyODV9.ctEXPxWjxdbwQhS1xbo8Askn_e7P23cgKvMx1dDvV8A
-INFO     Hsyuan:api_utils.py:72 ============================================================当前接口测试执行完成============================================================
