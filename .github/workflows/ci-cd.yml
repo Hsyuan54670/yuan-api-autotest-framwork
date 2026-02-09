@@ -41,6 +41,7 @@ jobs:
         run: |
           python3 start.py
           ls -la
+          ls -la report/
 
       - name: 部署报告到 Github Pages
         uses: peaceiris/actions-gh-pages@v4
