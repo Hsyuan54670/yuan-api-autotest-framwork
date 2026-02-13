@@ -1,4 +1,4 @@
-{$name}:
+testcase_name:
   # 1. 用例元信息
   allure:
     title: ""
@@ -24,16 +24,11 @@
       status_code: 200  # 响应状态码
       response:
         code: 401       # 业务码
-        msg: ""  # 提示信息
+        msg: ""
         data:
-          # 校验data下的字段是否存在
           required_fields: ["Algorithm", "records", ""]
-          # 校验data下的字段值
           assert:
             eq:
-              Algorithm: "RSA"
-              records.items: "not_empty"
-            # 校验data下的字段值（包含关系）
             contains:
               Algorithm: "S"
             regex:
@@ -53,4 +48,4 @@
 
     # 4. 提取数据
     extract:
-      var_name: jsonpath表达式
+      var_name:

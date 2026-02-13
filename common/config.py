@@ -10,4 +10,10 @@ PUBLIC_KEY = os.getenv('PUBLIC_KEY')
 # url配置
 SERVER_URL = os.getenv("SERVER_URL")
 
+# ai_key
+API_KEY = os.getenv("API_KEY")
+
+# Ai接口URL
+AI_URL = os.getenv("AI_URL")
+
 

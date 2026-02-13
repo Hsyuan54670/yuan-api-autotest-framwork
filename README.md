@@ -35,7 +35,7 @@ pip install -r requirements.txt
 ```
 #### 配置.env文件
 ```text
-主要是设置base_url和环境变量，支持多环境切换
+主要是设置base_url和环境变量((common/config.py))，支持多环境切换
 ```
 #### 运行测试
 ###### 方法一：(命令行启动,需要手动生成Allure报告)
