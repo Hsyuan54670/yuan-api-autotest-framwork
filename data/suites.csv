@@ -1,0 +1,4 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"failed","Sat Feb 14 05:34:03 UTC 2026","Sat Feb 14 05:34:04 UTC 2026","240","testcases","test_try","","","","资金列表查询-异常场景-未鉴权访问","验证未提供有效token时，接口返回401未授权错误"
+"failed","Sat Feb 14 05:34:02 UTC 2026","Sat Feb 14 05:34:02 UTC 2026","240","testcases","test_try","","","","资金列表查询-正常场景-鉴权成功返回列表","验证管理员提供有效token时，能成功查询资金申请列表，业务响应码为200"
+"failed","Sat Feb 14 05:34:05 UTC 2026","Sat Feb 14 05:34:05 UTC 2026","241","testcases","test_try","","","","资金列表查询-边界场景-无资金申请返回空列表","验证当系统中无资金申请记录时，接口返回空列表，业务响应码为200"

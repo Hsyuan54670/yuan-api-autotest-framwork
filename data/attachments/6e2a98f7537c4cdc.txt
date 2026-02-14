@@ -1,0 +1,24 @@
+INFO     Hsyuan:conftest.py:55 初始化配置中...测试会话即将开始...
+INFO     Hsyuan:conftest.py:64 初始化配置完成,测试会话开始!
+INFO     Hsyuan:api_utils.py:74 ==================================================资金列表查询-正常场景-鉴权成功返回列表==================================================
+INFO     Hsyuan:api_utils.py:56 1.正在发送请求
+INFO     Hsyuan:api_utils.py:57 {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
+INFO     Hsyuan:api_utils.py:60 2.正在断言响应
+INFO     Hsyuan:api_utils.py:61 {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'every_item_required_fields': ['id', 'applicant', 'appliedFunds', 'appliedTime']}}, 'assert': {'type': {'records': 'list'}}}}}
+INFO     Hsyuan:response_checker.py:103 resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+ERROR    Hsyuan:response_checker.py:139 共 4 个断言失败:
+  - 响应字段: 期望 msg='操作成功', 实际 'success'
+  - 缺少字段: data.records
+  - [type] 字段不存在: data.records
+  - 列表字段不存在: data.records
+INFO     Hsyuan:api_utils.py:74 ==================================================资金列表查询-正常场景-鉴权成功返回列表==================================================
+INFO     Hsyuan:api_utils.py:56 1.正在发送请求
+INFO     Hsyuan:api_utils.py:57 {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
+INFO     Hsyuan:api_utils.py:60 2.正在断言响应
+INFO     Hsyuan:api_utils.py:61 {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'every_item_required_fields': ['id', 'applicant', 'appliedFunds', 'appliedTime']}}, 'assert': {'type': {'records': 'list'}}}}}
+INFO     Hsyuan:response_checker.py:103 resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+ERROR    Hsyuan:response_checker.py:139 共 4 个断言失败:
+  - 响应字段: 期望 msg='操作成功', 实际 'success'
+  - 缺少字段: data.records
+  - [type] 字段不存在: data.records
+  - 列表字段不存在: data.records

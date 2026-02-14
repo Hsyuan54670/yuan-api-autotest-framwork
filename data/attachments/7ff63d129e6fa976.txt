@@ -1,0 +1,20 @@
+INFO     Hsyuan:api_utils.py:74 ===================================================资金列表查询-异常场景-未鉴权访问====================================================
+INFO     Hsyuan:api_utils.py:56 1.正在发送请求
+INFO     Hsyuan:api_utils.py:57 {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
+INFO     Hsyuan:api_utils.py:60 2.正在断言响应
+INFO     Hsyuan:api_utils.py:61 {'status_code': 401, 'response': {'code': 401, 'msg': '未授权', 'data': None}}
+INFO     Hsyuan:response_checker.py:103 resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+ERROR    Hsyuan:response_checker.py:139 共 3 个断言失败:
+  - 状态码: 期望 401, 实际 200
+  - 响应字段: 期望 code=401, 实际 200
+  - 响应字段: 期望 msg='未授权', 实际 'success'
+INFO     Hsyuan:api_utils.py:74 ===================================================资金列表查询-异常场景-未鉴权访问====================================================
+INFO     Hsyuan:api_utils.py:56 1.正在发送请求
+INFO     Hsyuan:api_utils.py:57 {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
+INFO     Hsyuan:api_utils.py:60 2.正在断言响应
+INFO     Hsyuan:api_utils.py:61 {'status_code': 401, 'response': {'code': 401, 'msg': '未授权', 'data': None}}
+INFO     Hsyuan:response_checker.py:103 resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+ERROR    Hsyuan:response_checker.py:139 共 3 个断言失败:
+  - 状态码: 期望 401, 实际 200
+  - 响应字段: 期望 code=401, 实际 200
+  - 响应字段: 期望 msg='未授权', 实际 'success'
