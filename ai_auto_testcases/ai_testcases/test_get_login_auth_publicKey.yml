@@ -1,0 +1,50 @@
+get_public_key_normal_success:
+  allure:
+    title: "获取公钥-正常场景-成功返回公钥"
+    description: "验证获取公钥接口能正常返回公钥信息，业务响应码为200，响应体包含publicKey字段"
+    epic: "用户认证系统"
+    feature: "登录认证模块"
+    story: "获取公钥接口"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "publickey"
+  steps:
+    request:
+      method: "GET"
+      url: "/login/auth/publicKey"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: ""
+        data:
+          required_fields: ["publicKey"]
+          assert:
+            type:
+              publicKey: str
+    extract:
+      public_key: $.data.publicKey
+get_public_key_abnormal_server_error:
+  allure:
+    title: "获取公钥-异常场景-服务器内部错误"
+    description: "验证当服务器发生内部错误时，接口返回500状态码和错误信息，业务响应码为500"
+    epic: "用户认证系统"
+    feature: "登录认证模块"
+    story: "获取公钥接口"
+    tag: ["异常场景", "错误处理"]
+    pytest_mark: "publickey"
+  steps:
+    request:
+      method: "GET"
+      url: "/login/auth/publicKey"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 500
+      response:
+        code: 500
+        msg: "Internal Server Error"
+        data: {}

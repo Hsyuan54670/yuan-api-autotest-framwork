@@ -1,0 +1,103 @@
+approve_funds_normal_success:
+  allure:
+    title: "资金审批-正常场景-审批操作成功"
+    description: "验证管理员使用有效ID和正确请求体审批资金申请，接口返回成功响应"
+    epic: "项目管理系统"
+    feature: "资金审批模块"
+    story: "资金申请审批"
+    tag: ["正常场景", "核心功能"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/approvalFunds/1001"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${admin_token}"
+      params: {}
+      json:
+        action: "approve"
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "审批成功"
+        data:
+          required_fields: []
+approve_funds_abnormal_invalid_id:
+  allure:
+    title: "资金审批-异常场景-ID不存在"
+    description: "验证当提供的ID不存在时，接口返回资源未找到错误"
+    epic: "项目管理系统"
+    feature: "资金审批模块"
+    story: "资金申请审批"
+    tag: ["异常场景", "错误处理"]
+    pytest_mark: "error"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/approvalFunds/999999"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${admin_token}"
+      params: {}
+      json:
+        action: "approve"
+    expected:
+      status_code: 404
+      response:
+        code: 404
+        msg: "资金申请不存在"
+        data:
+          required_fields: []
+approve_funds_abnormal_missing_request_body:
+  allure:
+    title: "资金审批-异常场景-请求体缺失"
+    description: "验证当请求体为空时，接口返回参数错误"
+    epic: "项目管理系统"
+    feature: "资金审批模块"
+    story: "资金申请审批"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: "error"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/approvalFunds/1001"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${admin_token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "请求体不能为空"
+        data:
+          required_fields: []
+approve_funds_boundary_id_zero:
+  allure:
+    title: "资金审批-边界场景-ID为0"
+    description: "验证当ID为0时，接口返回参数错误，因为ID应为正整数"
+    epic: "项目管理系统"
+    feature: "资金审批模块"
+    story: "资金申请审批"
+    tag: ["边界场景", "参数校验"]
+    pytest_mark: "boundary"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/approvalFunds/0"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${admin_token}"
+      params: {}
+      json:
+        action: "approve"
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "无效的ID"
+        data:
+          required_fields: []

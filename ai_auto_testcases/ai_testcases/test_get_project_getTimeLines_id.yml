@@ -1,0 +1,99 @@
+get_time_lines_normal_valid_id:
+  allure:
+    title: "项目时间线查询-正常场景-有效ID查询成功"
+    description: "验证使用有效的项目ID（如1）查询时间线接口，能正常返回时间线数据列表，HTTP状态码200，业务响应码200"
+    epic: "项目管理系统"
+    feature: "项目时间线管理"
+    story: "查询项目时间线"
+    tag: ["正常场景", "功能测试"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getTimeLines/1"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "成功"
+        data:
+          required_fields: ["timeline"]
+          assert:
+            type:
+              timeline: list
+          list_check:
+            timeline:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "event"
+                - "timestamp"
+get_time_lines_abnormal_invalid_id_type:
+  allure:
+    title: "项目时间线查询-异常场景-路径参数ID类型错误"
+    description: "验证使用非整数的项目ID（如'abc'）查询时间线接口，返回400错误，业务响应码400"
+    epic: "项目管理系统"
+    feature: "项目时间线管理"
+    story: "查询项目时间线"
+    tag: ["异常场景", "参数验证"]
+    pytest_mark: "validation"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getTimeLines/abc"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "无效的项目ID"
+        data: {}
+get_time_lines_abnormal_nonexistent_id:
+  allure:
+    title: "项目时间线查询-异常场景-不存在ID查询失败"
+    description: "验证使用不存在的项目ID（如999）查询时间线接口，返回404错误，业务响应码404"
+    epic: "项目管理系统"
+    feature: "项目时间线管理"
+    story: "查询项目时间线"
+    tag: ["异常场景", "错误处理"]
+    pytest_mark: "error"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getTimeLines/999"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 404
+      response:
+        code: 404
+        msg: "项目不存在"
+        data: {}
+get_time_lines_boundary_id_zero:
+  allure:
+    title: "项目时间线查询-边界场景-ID为0查询"
+    description: "验证使用ID为0的项目查询时间线接口，ID=0通常无效，应返回400错误"
+    epic: "项目管理系统"
+    feature: "项目时间线管理"
+    story: "查询项目时间线"
+    tag: ["边界场景", "错误处理"]
+    pytest_mark: "boundary"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getTimeLines/0"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "项目ID无效"
+        data: {}

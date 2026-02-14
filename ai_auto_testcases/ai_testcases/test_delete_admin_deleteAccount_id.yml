@@ -1,0 +1,69 @@
+deleteAccount_normal_valid_id:
+  allure:
+    title: "删除账号-正常场景-有效ID删除成功"
+    description: "验证使用有效的账号ID（如1）删除账号，接口返回HTTP 200，业务码200，响应消息为'删除成功'，data为空对象"
+    epic: "用户中心系统"
+    feature: "账号管理模块"
+    story: "删除账号"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "DELETE"
+      url: "/admin/deleteAccount/1"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "删除成功"
+        data:
+          required_fields: []
+deleteAccount_abnormal_id_not_found:
+  allure:
+    title: "删除账号-异常场景-无效ID（不存在）"
+    description: "验证使用不存在的账号ID（如999999）删除账号，接口返回HTTP 404，业务码404，响应消息为'账号不存在'"
+    epic: "用户中心系统"
+    feature: "账号管理模块"
+    story: "删除账号"
+    tag: ["异常场景", "错误处理"]
+    pytest_mark: "error"
+  steps:
+    request:
+      method: "DELETE"
+      url: "/admin/deleteAccount/999999"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 404
+      response:
+        code: 404
+        msg: "账号不存在"
+        data:
+          required_fields: []
+deleteAccount_boundary_id_zero:
+  allure:
+    title: "删除账号-边界场景-ID为0"
+    description: "验证使用ID为0删除账号，接口返回HTTP 400，业务码400，响应消息为'ID无效'"
+    epic: "用户中心系统"
+    feature: "账号管理模块"
+    story: "删除账号"
+    tag: ["边界场景", "参数验证"]
+    pytest_mark: "boundary"
+  steps:
+    request:
+      method: "DELETE"
+      url: "/admin/deleteAccount/0"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "ID无效"
+        data:
+          required_fields: []

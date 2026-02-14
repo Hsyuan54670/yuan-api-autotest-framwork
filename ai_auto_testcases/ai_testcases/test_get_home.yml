@@ -1,0 +1,35 @@
+home_normal_success:
+  allure:
+    title: "首页-正常场景-成功获取项目列表"
+    description: "验证用户访问首页接口，能正常返回项目列表数据，业务响应码为200"
+    epic: "项目管理平台"
+    feature: "首页模块"
+    story: "首页数据查询"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/home"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"

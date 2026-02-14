@@ -1,0 +1,87 @@
+getworklist_normal_success:
+  allure:
+    title: "工作列表查询-正常场景-成功返回非空列表"
+    description: "验证管理员使用有效凭证查询工作列表接口，能正常返回项目列表数据，业务响应码为200"
+    epic: "项目管理系统"
+    feature: "工作管理模块"
+    story: "工作列表查询"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/work"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer ${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "操作成功"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+getworklist_boundary_empty_list:
+  allure:
+    title: "工作列表查询-边界场景-无数据时返回空列表"
+    description: "验证当无工作项目时，接口返回空列表，业务响应码为200"
+    epic: "项目管理系统"
+    feature: "工作管理模块"
+    story: "工作列表查询"
+    tag: ["边界场景", "功能测试"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/work"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "Bearer ${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "操作成功"
+        data:
+          required_fields: ["records"]
+          list_check:
+            records:
+              length: 0
+getworklist_abnormal_unauthorized:
+  allure:
+    title: "工作列表查询-异常场景-未认证返回401"
+    description: "验证未提供有效认证凭证时，接口返回401未授权"
+    epic: "项目管理系统"
+    feature: "工作管理模块"
+    story: "工作列表查询"
+    tag: ["异常场景", "安全测试"]
+    pytest_mark: "security"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/work"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "未认证"

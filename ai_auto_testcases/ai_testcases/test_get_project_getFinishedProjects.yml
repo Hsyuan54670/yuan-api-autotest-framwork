@@ -1,0 +1,84 @@
+getfinishedprojects_normal_success:
+  allure:
+    title: "获取已完成项目-正常场景-成功返回项目列表"
+    description: "验证用户使用有效token登录后，能正常获取已完成项目列表，业务响应码为200"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取已完成项目列表"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getFinishedProjects"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "成功"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              every_item_required_fields: ["id", "projectName", "projectType", "applicant", "funds", "status"]
+
+getfinishedprojects_abnormal_unauthorized:
+  allure:
+    title: "获取已完成项目-异常场景-未授权访问"
+    description: "验证未提供有效token时，接口返回401未授权状态码和业务码"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取已完成项目列表"
+    tag: ["异常场景"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getFinishedProjects"
+      headers:
+        Content-Type: "application/json"
+      params: {}
+      json: {}
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "未授权"
+        data: null
+
+getfinishedprojects_boundary_empty_list:
+  allure:
+    title: "获取已完成项目-边界场景-无项目时返回空列表"
+    description: "验证当无已完成项目时，接口返回空列表，业务响应码为200"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取已完成项目列表"
+    tag: ["边界场景"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getFinishedProjects"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "成功"
+        data:
+          required_fields: ["records"]
+          list_check:
+            records:
+              length: 0

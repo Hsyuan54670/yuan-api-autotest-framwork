@@ -1,0 +1,85 @@
+getFundsApprovalList_normal_default_params:
+  allure:
+    title: "资金审批列表-正常场景-默认分页参数查询成功"
+    description: "验证使用默认分页参数（page=1, size=5）查询资金审批列表，返回成功响应，包含5条记录且数据结构完整"
+    epic: "项目管理平台"
+    feature: "资金管理模块"
+    story: "资金审批列表查询"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/fundsApprovalList"
+      headers:
+        Authorization: "${admin_token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "操作成功"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectId"
+                - "applicant"
+                - "reason"
+                - "appliedFunds"
+                - "remainingFunds"
+                - "applicantId"
+                - "appliedTime"
+getFundsApprovalList_abnormal_unauthorized:
+  allure:
+    title: "资金审批列表-异常场景-未认证访问返回401"
+    description: "验证未提供认证token时访问资金审批列表接口，返回HTTP 401未授权和业务码401"
+    epic: "项目管理平台"
+    feature: "资金管理模块"
+    story: "资金审批列表查询"
+    tag: ["异常场景", "安全测试"]
+    pytest_mark: "security"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/fundsApprovalList"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "未认证"
+        data: {}
+getFundsApprovalList_boundary_page_zero:
+  allure:
+    title: "资金审批列表-边界场景-page参数为0返回参数错误"
+    description: "验证当page参数为0时，接口返回参数错误，HTTP状态码400，业务码400"
+    epic: "项目管理平台"
+    feature: "资金管理模块"
+    story: "资金审批列表查询"
+    tag: ["边界场景", "参数验证"]
+    pytest_mark: "boundary"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/fundsApprovalList"
+      headers:
+        Authorization: "${admin_token}"
+      params:
+        page: 0
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "page must be greater than 0"
+        data: {}

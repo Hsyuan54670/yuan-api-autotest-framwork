@@ -1,3 +1,5 @@
+import copy
+
 import pytest
 import time
 
@@ -24,16 +26,17 @@ class TestLoginAPI:
     def test_login(self,data):
         """测试登录接口"""
 
+        test_data = copy.deepcopy(data)
         encryptor = PasswordEncryptor()
         # public_key=read_yaml("config/extract.yaml")["publicKey"]
         public_key = PUBLIC_KEY
         pem_public_key = "-----BEGIN PUBLIC KEY-----" + public_key + "-----END PUBLIC KEY-----"
         encryptor.set_public_key(pem_public_key)
 
-        data["steps"]["request"]["json"]["password"] = encryptor.encryptPassword(data["steps"]["request"]["json"]["password"])
-        data["steps"]["request"]["json"]["timestamp"] = int(time.time() * 1000)
+        test_data["steps"]["request"]["json"]["password"] = encryptor.encryptPassword(test_data["steps"]["request"]["json"]["password"])
+        test_data["steps"]["request"]["json"]["timestamp"] = int(time.time() * 1000)
 
-        runner = ApiRunner(data)
+        runner = ApiRunner(test_data)
         runner.run()
 
 

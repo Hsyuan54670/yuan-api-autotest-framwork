@@ -1,36 +1,57 @@
-2026-02-10 20:46:28 - INFO - 初始化配置中...测试会话即将开始...
-2026-02-10 20:46:28 - INFO - 初始化配置完成,测试会话开始!
-2026-02-10 20:46:29 - INFO - ==========================================================审批列表==========================================================
-2026-02-10 20:46:29 - INFO - 1.正在发送请求
-2026-02-10 20:46:29 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': {}, 'params': {'page': 1, 'size': 5}, 'json': {}}
-2026-02-10 20:46:29 - INFO - 2.正在断言响应
-2026-02-10 20:46:29 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'page', 'pageSize'], 'assert': {'type': {'records': 'list'}}, 'list_check': {'records': {'length': 5, 'object_required_items': ['id', 'projectName', 'projectType', 'applicant', 'funds', 'status']}}}}}
-2026-02-10 20:46:29 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 19, 'records': [{'id': 11, 'projectName': '项目1', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 34243.0, 'remainingFunds': 34243.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目1.docx', 'startTime': '2026-01-07T16:53:52', 'deadline': '2026-01-08T10:58:16', 'updateTime': '2026-01-07T08:53:52', 'status': 0, 'reason': '暂未审批'}, {'id': 12, 'projectName': '项目2', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 324324.0, 'remainingFunds': 324324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目2.docx', 'startTime': '2026-01-07T16:54:18', 'deadline': '2026-03-12T00:00:00', 'updateTime': '2026-01-07T08:54:18', 'status': 0, 'reason': '暂未审批'}, {'id': 17, 'projectName': '项目6', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 432432.0, 'remainingFunds': 432432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目6.docx', 'startTime': '2026-01-07T16:56:14', 'deadline': '2028-01-14T00:00:00', 'updateTime': '2026-01-07T08:56:14', 'status': 0, 'reason': '暂未审批'}, {'id': 18, 'projectName': '项目7', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 5435435.0, 'remainingFunds': 5435435.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目7.docx', 'startTime': '2026-01-07T16:56:40', 'deadline': '2026-04-10T00:00:00', 'updateTime': '2026-01-07T08:56:40', 'status': 0, 'reason': '暂未审批'}, {'id': 19, 'projectName': '项目8', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 354.0, 'remainingFunds': 354.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目8.docx', 'startTime': '2026-01-07T16:57:29', 'deadline': '2028-02-17T00:00:00', 'updateTime': '2026-01-07T08:57:29', 'status': 0, 'reason': '暂未审批'}]}}
-2026-02-10 20:46:29 - INFO - 所有断言通过
-2026-02-10 20:46:29 - INFO - ======================================================获取登录公钥接口测试用例======================================================
-2026-02-10 20:46:29 - INFO - 1.正在发送请求
-2026-02-10 20:46:29 - INFO - {'method': 'GET', 'url': '/login/auth/publicKey', 'headers': {}, 'params': {}, 'json': {}}
-2026-02-10 20:46:29 - INFO - 2.正在断言响应
-2026-02-10 20:46:29 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['publicKey', 'timestamp', 'algorithm'], 'algorithm': 'RSA'}}}
-2026-02-10 20:46:29 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'publicKey': 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB', 'algorithm': 'RSA', 'timestamp': '1770727586003'}}
-2026-02-10 20:46:29 - INFO - 所有断言通过
-2026-02-10 20:46:29 - INFO - 3.正在提取变量
-2026-02-10 20:46:29 - INFO - 提取变量成功: publicKey = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwfJnZfq7SRJZsuYeB7xv8SVhB6dXU+q3USkoPwkxMefD6Jrg92T+7VjUcmCTyP5W98EEBQ6KvfVvqOXGCR+kimKiYw5vus+tM266+R8AC/89ujJs2onH0N1tTAJYqK+Ny7TDOih+5+jPTeszKDM1L4JLQGvYTJTb99yI024p0/VCelnc0AmTGtIJ86LMFmOZqv8d4GgYPLK4apPsk8Tqgjn5blWr653F2mV14NvKcL7cGshHkgvY26Aoytj6AIkFfabTnenrzmQiyc6k4QkZ8TBSSoqWYOiXGiRN6bo6nnyjRhzX5PLF1QQViS5jPTRDwl4eIulWFsuGxsgZcO8zEQIDAQAB
-2026-02-10 20:46:29 - INFO - =======================================================登录接口成功测试用例=======================================================
-2026-02-10 20:46:29 - INFO - 1.正在发送请求
-2026-02-10 20:46:29 - INFO - {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'WpV8MuQnnarh1mgJ6aSyC/19UyauyLZpyqxAiV3BDLPmMBLXh3dptrXnm3VkpmlmOjVwxdJ92nFHe8KMWF8CbD8/8S+Lu+8zwWK4iCD9k4s1u6IDjFeYlt1eg+NNJGJDY/uM+xY8CHmb7i+UR0LJG7M8KTpK1xGGVGY4u+cYBiPZSjrX2dTle2Zdt2K346j2niN9uMjaKnqu/AtZTdSCaFYyAGvGVH7jt6uSQ3ddazJpoI0TpoMeL+qmmxSsP8rGhbdXwuhvY2sugHlElXCemlAhifFHCevEu9pCj3H6QPqj0lNV+vRZQ3N+t9R/uWRhFjS16us2eajaE28b57/Hyg==', 'userType': 'admin', 'timestamp': 1770727589247}, 'params': {}, 'headers': {}}
-2026-02-10 20:46:29 - INFO - 2.正在断言响应
-2026-02-10 20:46:29 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'assert': {'eq': {'userType': 'admin'}}}}}
-2026-02-10 20:46:29 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA3NzA3ODZ9.WagoJVY0Q8In6oegfrporQhzOE6PSRfkvoCxQLgeQHE', 'userType': 'admin'}}
-2026-02-10 20:46:29 - INFO - 所有断言通过
-2026-02-10 20:46:29 - INFO - 3.正在提取变量
-2026-02-10 20:46:29 - INFO - 提取变量成功: token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzA3NzA3ODZ9.WagoJVY0Q8In6oegfrporQhzOE6PSRfkvoCxQLgeQHE
-2026-02-10 20:46:29 - INFO - =======================================================登录接口失败测试用例=======================================================
-2026-02-10 20:46:29 - INFO - 1.正在发送请求
-2026-02-10 20:46:29 - INFO - {'method': 'POST', 'url': '/login', 'json': {'username': 'admin', 'password': 'IHX7TGNbqv8uEwICIEIylJMFtL0D0KASt3XZ1seDjRSoCaw4uS4hYNNQK7WK8dRSCfpQTiPHs1KvD2zKegcmtVpuPJkeL94oHad1xyDWhFKAyKVccfGyBqxko25MwsllGkdsaFDFM8roUUb4FA00exHOPSH5OJHBmpjHqjoCmpGJSd9TZsaPhkM31uEmN67NbaXueQ0HQqjRoc1tCcVStUIZ5kKa9QHgR7fdZiY3ZOPGEIgf/bGZi7cKvX5MjqdEuRwXKSj7xnFdq20dRzbuJbs9pI6BKWOxnL75xvqJlwmMqvh3KyJ4tqfwxLFz6xSzS12Ou3hx21fyEZogCpy0Bw==', 'userType': 'admin', 'timestamp': 1770727589334}, 'params': {}, 'headers': {}}
-2026-02-10 20:46:29 - INFO - 2.正在断言响应
-2026-02-10 20:46:29 - INFO - {'status_code': 200, 'response': {'code': 401, 'msg': '用户名或密码错误', 'data': None}}
-2026-02-10 20:46:29 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
-2026-02-10 20:46:29 - ERROR - 共 1 个断言失败:
-  - 响应字段: 期望 code=401, 实际 400
-2026-02-10 20:46:29 - INFO - 测试会话结束...关闭测试环境...
+2026-02-13 22:31:45 - INFO - 初始化配置中...测试会话即将开始...
+2026-02-13 22:31:45 - INFO - 初始化配置完成,测试会话开始!
+2026-02-13 22:31:45 - INFO - ==================================================资金列表查询-正常场景-鉴权成功返回列表==================================================
+2026-02-13 22:31:45 - INFO - 1.正在发送请求
+2026-02-13 22:31:45 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Token': '${admin_token}'}, 'params': {}, 'json': {}}
+2026-02-13 22:31:45 - INFO - 请求失败: 401 Client Error:  for url: http://115.191.47.61/api/admin/funds
+2026-02-13 22:31:45 - INFO - 2.正在断言响应
+2026-02-13 22:31:45 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'every_item_required_fields': ['id', 'applicant', 'appliedFunds', 'appliedTime']}}, 'assert': {'type': {'records': 'list'}}}}}
+2026-02-13 22:31:46 - INFO - ==================================================资金列表查询-正常场景-鉴权成功返回列表==================================================
+2026-02-13 22:31:46 - INFO - 1.正在发送请求
+2026-02-13 22:31:46 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Token': '${admin_token}'}, 'params': {}, 'json': {}}
+2026-02-13 22:31:47 - INFO - 请求失败: 401 Client Error:  for url: http://115.191.47.61/api/admin/funds
+2026-02-13 22:31:47 - INFO - 2.正在断言响应
+2026-02-13 22:31:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'every_item_required_fields': ['id', 'applicant', 'appliedFunds', 'appliedTime']}}, 'assert': {'type': {'records': 'list'}}}}}
+2026-02-13 22:31:47 - INFO - ===================================================资金列表查询-异常场景-未鉴权访问====================================================
+2026-02-13 22:31:47 - INFO - 1.正在发送请求
+2026-02-13 22:31:47 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-13 22:31:50 - INFO - 2.正在断言响应
+2026-02-13 22:31:50 - INFO - {'status_code': 401, 'response': {'code': 401, 'msg': '未授权', 'data': None}}
+2026-02-13 22:31:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+2026-02-13 22:31:50 - ERROR - 共 3 个断言失败:
+  - 状态码: 期望 401, 实际 200
+  - 响应字段: 期望 code=401, 实际 200
+  - 响应字段: 期望 msg='未授权', 实际 'success'
+2026-02-13 22:31:51 - INFO - ===================================================资金列表查询-异常场景-未鉴权访问====================================================
+2026-02-13 22:31:51 - INFO - 1.正在发送请求
+2026-02-13 22:31:51 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-13 22:31:51 - INFO - 2.正在断言响应
+2026-02-13 22:31:51 - INFO - {'status_code': 401, 'response': {'code': 401, 'msg': '未授权', 'data': None}}
+2026-02-13 22:31:51 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+2026-02-13 22:31:51 - ERROR - 共 3 个断言失败:
+  - 状态码: 期望 401, 实际 200
+  - 响应字段: 期望 code=401, 实际 200
+  - 响应字段: 期望 msg='未授权', 实际 'success'
+2026-02-13 22:31:51 - INFO - =================================================资金列表查询-边界场景-无资金申请返回空列表=================================================
+2026-02-13 22:31:51 - INFO - 1.正在发送请求
+2026-02-13 22:31:51 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Authorization': '${admin_token}'}, 'params': {}, 'json': {}}
+2026-02-13 22:31:51 - INFO - 2.正在断言响应
+2026-02-13 22:31:51 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'length': 0}}, 'assert': {'type': {'records': 'list'}}}}}
+2026-02-13 22:31:51 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+2026-02-13 22:31:51 - ERROR - 共 4 个断言失败:
+  - 响应字段: 期望 msg='操作成功', 实际 'success'
+  - 缺少字段: data.records
+  - [type] 字段不存在: data.records
+  - 列表字段不存在: data.records
+2026-02-13 22:31:52 - INFO - =================================================资金列表查询-边界场景-无资金申请返回空列表=================================================
+2026-02-13 22:31:52 - INFO - 1.正在发送请求
+2026-02-13 22:31:52 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Authorization': '${admin_token}'}, 'params': {}, 'json': {}}
+2026-02-13 22:31:53 - INFO - 2.正在断言响应
+2026-02-13 22:31:53 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'length': 0}}, 'assert': {'type': {'records': 'list'}}}}}
+2026-02-13 22:31:53 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
+2026-02-13 22:31:53 - ERROR - 共 4 个断言失败:
+  - 响应字段: 期望 msg='操作成功', 实际 'success'
+  - 缺少字段: data.records
+  - [type] 字段不存在: data.records
+  - 列表字段不存在: data.records
+2026-02-13 22:31:53 - INFO - 测试会话结束...关闭测试环境...

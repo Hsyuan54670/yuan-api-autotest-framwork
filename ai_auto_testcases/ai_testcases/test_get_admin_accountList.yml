@@ -1,0 +1,85 @@
+getaccountlist_normal_success:
+  allure:
+    title: "账户列表查询-正常场景-查询成功"
+    description: "验证管理员使用有效token查询账户列表，返回200状态码，业务码200，数据包含正确字段"
+    epic: "账户管理系统"
+    feature: "账户管理模块"
+    story: "账户列表查询"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/accountList"
+      headers:
+        "Authorization": "${admin_token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["list"]
+          assert:
+            type:
+              list: "list"
+          list_check:
+            list:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "username"
+                - "userType"
+    extract:
+      first_user_id: $.data.list[0].id
+getaccountlist_abnormal_unauthorized:
+  allure:
+    title: "账户列表查询-异常场景-未授权访问"
+    description: "验证未提供有效token时查询账户列表，返回401状态码，业务码401"
+    epic: "账户管理系统"
+    feature: "账户管理模块"
+    story: "账户列表查询"
+    tag: ["异常场景", "安全测试"]
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/accountList"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "Unauthorized"
+getaccountlist_boundary_empty_list:
+  allure:
+    title: "账户列表查询-边界场景-无账户数据"
+    description: "验证当系统中无账户时，查询返回空列表，业务码200"
+    epic: "账户管理系统"
+    feature: "账户管理模块"
+    story: "账户列表查询"
+    tag: ["边界场景", "空数据测试"]
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/accountList"
+      headers:
+        "Authorization": "${admin_token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["list"]
+          assert:
+            type:
+              list: "list"
+          list_check:
+            list:
+              length: 0

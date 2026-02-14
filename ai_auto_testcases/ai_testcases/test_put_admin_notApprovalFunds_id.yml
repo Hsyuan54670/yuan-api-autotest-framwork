@@ -1,0 +1,72 @@
+notapprovalfunds_normal_valid_id:
+  allure:
+    title: "资金审批-正常场景-有效ID审批成功"
+    description: "验证使用有效ID（如1）和正确请求体进行资金审批，接口返回HTTP状态码200和业务码200"
+    epic: "项目管理系统"
+    feature: "资金审批模块"
+    story: "无审批资金接口"
+    tag: ["正常场景", "核心功能"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/notApprovalFunds/1"
+      headers:
+        Content-Type: "application/json"
+      json:
+        reason: "审批不通过"
+        remainingFunds: 5000.0
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "操作成功"
+        data: {}
+notapprovalfunds_abnormal_invalid_id_type:
+  allure:
+    title: "资金审批-异常场景-ID为非整数类型"
+    description: "验证当路径参数id为字符串类型时，接口返回HTTP 400和业务码400"
+    epic: "项目管理系统"
+    feature: "资金审批模块"
+    story: "无审批资金接口"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/notApprovalFunds/abc"
+      headers:
+        Content-Type: "application/json"
+      json:
+        reason: "审批不通过"
+        remainingFunds: 5000.0
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "Invalid ID format"
+        data: {}
+notapprovalfunds_abnormal_nonexistent_id:
+  allure:
+    title: "资金审批-异常场景-ID不存在"
+    description: "验证当路径参数id不存在时，接口返回HTTP 404和业务码404"
+    epic: "项目管理系统"
+    feature: "资金审批模块"
+    story: "无审批资金接口"
+    tag: ["异常场景", "业务校验"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/notApprovalFunds/999999"
+      headers:
+        Content-Type: "application/json"
+      json:
+        reason: "审批不通过"
+        remainingFunds: 5000.0
+    expected:
+      status_code: 404
+      response:
+        code: 404
+        msg: "ID not found"
+        data: {}

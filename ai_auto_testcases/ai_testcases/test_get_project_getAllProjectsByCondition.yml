@@ -1,0 +1,94 @@
+getAllProjectsByCondition_normal_valid_params:
+  allure:
+    title: "项目查询-正常场景-有效参数查询成功"
+    description: "验证使用有效查询参数（pageNum=1, pageSize=10）调用接口，能正常返回项目列表，业务响应码为200，数据结构完整"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "项目列表条件查询"
+    tag: ["正常场景", "功能测试"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers: {}
+      params:
+        params: '{"pageNum": 1, "pageSize": 10}'
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "成功"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 10
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+    extract: {}
+getAllProjectsByCondition_abnormal_missing_params:
+  allure:
+    title: "项目查询-异常场景-参数缺失返回错误"
+    description: "验证当查询参数params缺失时，接口返回参数错误提示，HTTP状态码400，业务响应码400"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "项目列表条件查询"
+    tag: ["异常场景", "功能测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "参数缺失"
+        assert:
+          contains:
+            msg: "params"
+    extract: {}
+getAllProjectsByCondition_boundary_pageSize_0:
+  allure:
+    title: "项目查询-边界场景-pageSize为0返回空列表"
+    description: "验证当pageSize参数为0时，接口返回空项目列表，业务响应码200，列表长度为0"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "项目列表条件查询"
+    tag: ["边界场景", "功能测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers: {}
+      params:
+        params: '{"pageSize": 0}'
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "成功"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 0
+    extract: {}

@@ -1,0 +1,101 @@
+getprojectsapprovallist_normal_default_params:
+  allure:
+    title: "项目审批列表查询-正常场景-默认分页参数查询成功"
+    description: "验证使用默认分页参数(page=1,size=5)查询项目审批列表，接口返回成功状态和有效数据，业务响应码为200"
+    epic: "项目管理系统"
+    feature: "项目审批模块"
+    story: "项目审批列表查询"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsApprovalList"
+      headers: {}
+      params:
+        page: 1
+        size: 5
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "成功"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+    extract:
+      first_project_id: $.data.records[0].id
+      first_project_name: $.data.records[0].projectName
+getprojectsapprovallist_abnormal_invalid_page:
+  allure:
+    title: "项目审批列表查询-异常场景-page参数为负数"
+    description: "验证当page参数为负数时，接口返回参数错误提示，业务响应码为400"
+    epic: "项目管理系统"
+    feature: "项目审批模块"
+    story: "项目审批列表查询"
+    tag: ["异常场景", "参数验证"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsApprovalList"
+      headers: {}
+      params:
+        page: -1
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "page参数必须大于0"
+        data: {}
+getprojectsapprovallist_boundary_max_size:
+  allure:
+    title: "项目审批列表查询-边界场景-size参数为最大值"
+    description: "验证size参数为最大值(1000)时，接口返回完整数据列表，业务响应码为200"
+    epic: "项目管理系统"
+    feature: "项目审批模块"
+    story: "项目审批列表查询"
+    tag: ["边界场景", "性能测试"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsApprovalList"
+      headers: {}
+      params:
+        size: 1000
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "成功"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 1000
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"

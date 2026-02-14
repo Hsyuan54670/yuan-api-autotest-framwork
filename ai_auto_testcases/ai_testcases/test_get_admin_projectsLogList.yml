@@ -1,0 +1,110 @@
+getprojectsloglist_normal_default_params:
+  allure:
+    title: "项目日志列表-正常场景-默认分页参数查询成功"
+    description: "验证使用默认分页参数(page=1,size=5)调用接口，返回成功状态及项目列表数据"
+    epic: "项目管理系统"
+    feature: "项目日志模块"
+    story: "项目日志列表查询"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {}
+      params:
+        page: 1
+        size: 5
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: ""
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+    extract:
+      project_records: $.data.records
+
+getprojectsloglist_boundary_min_page:
+  allure:
+    title: "项目日志列表-边界场景-最小分页值查询"
+    description: "验证page=0时接口自动重置为默认值，返回完整分页数据"
+    epic: "项目管理系统"
+    feature: "项目日志模块"
+    story: "项目日志列表查询"
+    tag: ["边界场景", "分页测试"]
+    pytest_mark: "boundary"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {}
+      params:
+        page: 0
+        size: 5
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: ""
+        data:
+          required_fields: ["records"]
+          assert:
+            eq:
+              records: []
+          list_check:
+            records:
+              length: 0
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+
+getprojectsloglist_abnormal_negative_page:
+  allure:
+    title: "项目日志列表-异常场景-负分页值查询失败"
+    description: "验证page=-1时接口返回参数错误，业务码400"
+    epic: "项目管理系统"
+    feature: "项目日志模块"
+    story: "项目日志列表查询"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: "exception"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {}
+      params:
+        page: -1
+        size: 5
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "page must be greater than or equal to 1"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 400
+            contains:
+              msg: "page"

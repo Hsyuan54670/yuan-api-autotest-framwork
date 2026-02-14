@@ -14,7 +14,7 @@ import logging
 # 配置日志记录器
 logger = logging.getLogger("Hsyuan")
 
-@pytest.fixture(scope='module',autouse=False)
+@pytest.fixture(scope='session',autouse=True)
 def get_admin_token():
 
     username = 'admin'

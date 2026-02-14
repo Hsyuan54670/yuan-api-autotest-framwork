@@ -1,0 +1,71 @@
+uploadcontent_normal_upload_file:
+  allure:
+    title: "内容上传-正常场景-成功上传文件"
+    description: "验证上传有效文件时接口返回成功响应，业务响应码为200，包含正确数据结构"
+    epic: "项目管理系统"
+    feature: "内容上传模块"
+    story: "文件上传功能"
+    tag: ["正常场景", "核心功能"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "POST"
+      url: "/upload"
+      headers:
+        Content-Type: "multipart/form-data"
+      params:
+        file: "valid_file.bin"
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "上传成功"
+        assert:
+          eq:
+            code: 200
+            msg: "上传成功"
+          type:
+            code: int
+            msg: str
+        data:
+          required_fields: []
+          assert:
+            type:
+              data: dict
+    extract: {}
+uploadcontent_abnormal_missing_file:
+  allure:
+    title: "内容上传-异常场景-缺少file参数"
+    description: "验证未提供file查询参数时接口返回参数缺失错误，业务响应码为400"
+    epic: "项目管理系统"
+    feature: "内容上传模块"
+    story: "文件上传功能"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "POST"
+      url: "/upload"
+      headers:
+        Content-Type: "multipart/form-data"
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "file参数缺失"
+        assert:
+          eq:
+            code: 400
+            msg: "file参数缺失"
+          type:
+            code: int
+            msg: str
+        data:
+          required_fields: []
+          assert:
+            eq:
+              data: null
+    extract: {}

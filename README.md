@@ -1,6 +1,6 @@
 # 接口自动化测试框架
-### 技术栈：Python + Pytest + Requests + Github Actions(CI/CD) + Allure
-针对个人项目 **InvEntropy** 打造的轻量级接口自动化测试框架，
+### 技术栈：Python + Pytest + Requests + Github Actions(CI/CD) + Allure + OpenAI API + Swagger
+针对个人项目 **InvEntropy** 打造的轻量级接口自动化智能测试框架，
 解决手工测试效率低、回归测试成本高、接口质量难监控的问题，落地测试开发核心思想。  
 
 
@@ -10,7 +10,7 @@
 ✅ 可视化报告：Allure 生成详细报告，支持本地查看+Github Pages 远程部署  
 ✅ CI/CD 自动化：Github Actions 实现「代码提交→自动测试→报告部署」全流程  
 ✅ 易用性：一键运行脚本，新手快速上手  
-
+✅ 智能化(Beta)：集成 OpenAI API，自动生成测试用例和测试数据，提升测试覆盖率和效率(测试版本，由于Swagger报告的不完善，导致生成的测试用例不够准确，后续会优化这一部分功能)
 
 
 #### 相关仓库
