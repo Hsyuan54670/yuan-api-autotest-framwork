@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ================================================获取项目列表-边界场景-页码超出范围返回空列表=================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/admin/projectsList', 'params': {'page': 999, 'size': 5}, 'headers': {}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'type': {'records': 'list'}}, 'list_check': {'records': {'length': 0}}}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 999, 'pageSize': 5, 'total': 26, 'records': []}}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

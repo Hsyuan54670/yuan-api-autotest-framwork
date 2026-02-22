@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ================================================获取已完成项目-边界场景-无已完成项目返回空列表================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/project/getFinishedProjects', 'headers': {'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODg2MTF9.ZSe0AKIzdUiUCDBLZHdOYZbU9PL-vFEpGqwqbcdXr7U'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 16, 'projectName': '项目5', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 3242.0, 'remainingFunds': 3242.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目5.docx', 'startTime': '2026-01-07T16:55:57', 'deadline': '2026-08-28T00:00:00', 'updateTime': '2026-01-07T09:06:14', 'status': 4, 'reason': '暂未审批'}, {'id': 1, 'projectName': '通过', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 10000.0, 'remainingFunds': 5000.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目1.docx', 'startTime': '2025-12-26T11:20:56', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-01-07T09:28:43', 'status': 5, 'reason': '暂未审批'}]}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

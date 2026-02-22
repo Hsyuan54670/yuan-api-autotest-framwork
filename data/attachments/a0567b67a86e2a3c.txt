@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ====================================================申请经费-异常场景-缺少项目ID====================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'PUT', 'url': '/user/commitPayFunds', 'headers': {'Content-Type': 'application/json'}, 'json': {'applicant': '李四', 'reason': '设备维护', 'appliedFunds': 3000.0, 'remainingFunds': 17000.0, 'appliedTime': '2026-02-22 07:30:20'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

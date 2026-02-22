@@ -1,0 +1,9 @@
+INFO     Hsyuan:api_utils.py:86 ===================================================新增账号-正常场景-创建新账号成功====================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/admin/addAccount', 'headers': {'Content-Type': 'application/json'}, 'json': {'age': 32, 'college': '计算机学院', 'name': 'test_J13e5Z', 'gender': 'M', 'phone': '13800138000'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 400, 'msg': '该账户已存在', 'data': None}
+ERROR    Hsyuan:response_checker.py:179 共 2 个断言失败:
+  - 响应字段: 期望 code=200, 实际 400
+  - 响应字段: 期望 msg='success', 实际 '该账户已存在'

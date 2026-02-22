@@ -1,0 +1,9 @@
+INFO     Hsyuan:api_utils.py:86 ================================================获取项目时间线-异常场景-无效项目ID返回失败=================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/project/getTimeLines/-1', 'headers': {'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODg2MTF9.ZSe0AKIzdUiUCDBLZHdOYZbU9PL-vFEpGqwqbcdXr7U'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': []}
+ERROR    Hsyuan:response_checker.py:179 共 2 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+  - 响应字段: 期望 msg='出错啦~', 实际 'success'

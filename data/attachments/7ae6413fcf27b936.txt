@@ -1,0 +1,8 @@
+INFO     Hsyuan:api_utils.py:86 ================================================获取经费类型列表-正常场景-成功返回经费类型列表================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/admin/funds', 'headers': None}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['totalFunds', 'totalRemainingFunds'], 'assert': {'type': {'totalFunds': 'float', 'totalRemainingFunds': 'float'}}}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160832678.0, 'totalRemainingFunds': 160822953.0}}
+INFO     Hsyuan:response_checker.py:182 所有断言通过
+INFO     Hsyuan:api_utils.py:76 3.正在提取变量

@@ -1,0 +1,4 @@
+INFO     Hsyuan:api_utils.py:86 ====================================================上传文件-正常场景-文件上传成功====================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/upload', 'headers': None, 'files': {'path': 'docx/项目1.docx'}}
+INFO     Hsyuan:api_utils.py:29 正在处理文件上传，原始文件路径: docx/项目1.docx

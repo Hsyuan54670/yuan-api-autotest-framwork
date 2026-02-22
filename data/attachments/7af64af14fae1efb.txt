@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ===================================================提交项目-正常场景-纵向项目提交成功===================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '纵向研究项目bc9b7128-01cf-426d-bc53-b86d351e45d2', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': '', 'funds': 50000, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/纵向项目.docx', 'deadline': '2026-12-31T00:00:00'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': None}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

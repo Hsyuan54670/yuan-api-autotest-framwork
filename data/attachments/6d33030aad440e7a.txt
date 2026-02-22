@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ================================================获取用户信息-正常场景-已登录用户成功获取信息=================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/homes/userInfo', 'headers': None}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['id', 'name', 'gender', 'age', 'phone', 'college', 'passedProjects', 'finishedProjects', 'ingProjects']}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': {'id': 2, 'name': '小明', 'gender': 'M', 'age': 33, 'phone': '13312341234', 'college': '信息工程学院', 'passedProjects': 4, 'finishedProjects': 1, 'ingProjects': 3}}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

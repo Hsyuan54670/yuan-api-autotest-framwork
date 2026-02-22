@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ===================================================申请经费-正常场景-参数正确提交成功===================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'PUT', 'url': '/user/commitPayFunds', 'headers': {'Content-Type': 'application/json'}, 'json': {'projectId': 14, 'applicant': '', 'reason': '购买实验材料', 'appliedFunds': 5000.0, 'remainingFunds': 43500.0, 'applicantId': 0}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': None}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

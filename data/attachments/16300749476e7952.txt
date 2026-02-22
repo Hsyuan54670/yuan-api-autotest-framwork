@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ====================================================用户登录-异常场景-缺少用户名=====================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'password': 'kJtR8Br66/ULxI8dCB6HUaj7Q1mr+8y97grOCtvUqdVyWE+0XfGJXwBFQxAI8sN1d5iJLZe4i4DCFy3d2GfqZdQEZqP05EoRo3RGf0qxSlRYcFt259a+p/WC5gtIHXWisL6VUYutjw1couz3SJOnvB1WdIXTVKQXBdQ79cLMjJ0oec1ZF9lkIbDFVoH8g7pRMc/Gapi9dPH1yIeWoO46u3H7TkOeVTHchUkMLBN62PDPmvqe0WYWrMaSoIuRHhe5s3ORInP+4KB7hrmlIeu4qTnuFBBbfqJjTKFUprwWmCQPPWCOUGAe7x6OPzjHrmEvSthplBmmV52lhXheNlphIA==', 'userType': 'admin', 'timestamp': 1771745411550}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 400, 'msg': '用户名或密码错误', 'data': {}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

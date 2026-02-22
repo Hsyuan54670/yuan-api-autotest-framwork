@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ==================================================获取项目列表-异常场景-页码参数类型错误==================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/admin/projectsList', 'params': {'page': 'abc', 'size': 5}, 'headers': {}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

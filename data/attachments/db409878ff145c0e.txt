@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ====================================================新增账号-异常场景-用户名重复=====================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/admin/addAccount', 'headers': {'Content-Type': 'application/json'}, 'json': {'age': 32, 'college': '计算机学院', 'name': 'test_Y3Ov5P', 'gender': 'M', 'phone': '13312341234'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 400, 'msg': '该账户已存在', 'data': None}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 400, 'msg': '该账户已存在', 'data': None}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

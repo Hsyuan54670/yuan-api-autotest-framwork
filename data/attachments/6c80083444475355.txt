@@ -1,0 +1,8 @@
+INFO     Hsyuan:api_utils.py:86 ==================================================获取账号列表-正常场景-成功返回账号列表==================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/admin/accountList', 'headers': None}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'type': 'list', 'length': 5, 'object_required_items': ['id', 'username', 'name', 'phone']}}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 2, 'username': 'NCHU13312341234', 'name': '小明', 'phone': '13312341234'}, {'id': 3, 'username': 'NCHU13343214321', 'name': '小白', 'phone': '13343214321'}, {'id': 7, 'username': 'NCHU13314921921', 'name': '张三', 'phone': '13314921921'}, {'id': 9, 'username': 'NCHU18112341234', 'name': '李四', 'phone': '18112341234'}, {'id': 10, 'username': 'NCHU13955555555', 'name': '王五', 'phone': '13955555555'}, {'id': 28, 'username': 'NCHU13800138000', 'name': 'test_D39OeF', 'phone': '13800138000'}, {'id': 30, 'username': 'NCHUnull', 'name': 'test_6ZqAI7', 'phone': None}]}
+ERROR    Hsyuan:response_checker.py:179 共 1 个断言失败:
+  - [length] data: 期望 5, 实际 7

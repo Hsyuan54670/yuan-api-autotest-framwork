@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ====================================================提交项目-异常场景-缺少申请人=====================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目67cdf852-c32d-4365-ba8e-1a07d76a7c08', 'projectType': '横向项目', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 400}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

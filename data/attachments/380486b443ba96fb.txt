@@ -1,0 +1,8 @@
+INFO     Hsyuan:api_utils.py:86 ====================================================提交项目-边界场景-经费为负数=====================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目2411a22e-eeaf-4774-ac44-33acdf283ef1', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': -1000, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 400}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': None}
+ERROR    Hsyuan:response_checker.py:179 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200

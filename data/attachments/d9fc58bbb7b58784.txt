@@ -1,0 +1,9 @@
+INFO     Hsyuan:api_utils.py:86 =================================================获取项目审批列表-边界场景-页码为最小值0==================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': None, 'params': {'page': 0, 'size': 5}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'eq': {'page': 1}}, 'list_check': {'records': {'length': 5, 'every_item_required_fields': ['projectName', 'startTime', 'deadline', 'content', 'applicant', 'funds']}}}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 0, 'pageSize': 5, 'total': 45, 'records': []}}
+ERROR    Hsyuan:response_checker.py:179 共 2 个断言失败:
+  - [eq] data.page: 期望 1, 实际 0
+  - [length] data.records: 期望 5, 实际 0

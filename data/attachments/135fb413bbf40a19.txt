@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ================================================获取项目时间线-正常场景-有效项目ID查询成功=================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/project/getTimeLines/16', 'headers': None}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'object_required_items': ['id', 'projectId', 'oldStatus', 'newStatus', 'reason', 'createTime', 'approverId']}}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 34, 'projectId': 16, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:55:57', 'approverId': 2}, {'id': 51, 'projectId': 16, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2026-01-07T09:04:01', 'approverId': 1}, {'id': 60, 'projectId': 16, 'oldStatus': 4, 'newStatus': 4, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:06:14', 'approverId': 1}]}
+INFO     Hsyuan:response_checker.py:182 所有断言通过

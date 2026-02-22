@@ -1,0 +1,9 @@
+INFO     Hsyuan:api_utils.py:86 ==================================================用户登录-正常场景-正确账号密码登录成功==================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'username': 'admin', 'password': 'Hes27UYm/N2MQCFHF+k0oVeErnJoCBvehd3GXe63MED6vDHHejDpNjA1JLlMTMWNZ0UPaX2IH/JVusDwBIH2s2VBnUkiPG5KdgRwZTvlDayBN3egaMBZHu/U5JvXeVWBfws7WDkX5gxN0okwLtUHkLiSYYrclZCPmfDSP0+V1WD6ETfIlWmN3XimcBMEWlNPO5jPImh6Y0vbujmXQOaEmpuR+kQXSTCkNKY9Ec2DLdT65srE6UimuoD9K6rPSoADQj29YLBpHsBIKsefL+PQgslgmmRROPxsct8oVgSKVTC0ZViK7bIFuCKAuYG+pbvdtnecEW7NAdvo44NV6oCxRg==', 'userType': 'admin', 'timestamp': 1771745410178}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'assert': {'eq': {'userType': 'admin'}, 'type': {'userType': 'str', 'token': 'str'}}}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODg2MTF9.ZSe0AKIzdUiUCDBLZHdOYZbU9PL-vFEpGqwqbcdXr7U', 'userType': 'admin'}}
+INFO     Hsyuan:response_checker.py:182 所有断言通过
+INFO     Hsyuan:api_utils.py:76 3.正在提取变量
+INFO     Hsyuan:api_utils.py:56 提取变量成功: login_token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODg2MTF9.ZSe0AKIzdUiUCDBLZHdOYZbU9PL-vFEpGqwqbcdXr7U

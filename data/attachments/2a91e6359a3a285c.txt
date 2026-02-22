@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ===================================================获取工作类型列表-正常场景-请求成功===================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/admin/work', 'headers': {}, 'params': {}, 'json': {}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['projectsRecords', 'fundsRecords', 'projectsOverTime']}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': {'projectsRecords': 45, 'fundsRecords': 10, 'projectsOverTime': 20}}
+INFO     Hsyuan:response_checker.py:182 所有断言通过
