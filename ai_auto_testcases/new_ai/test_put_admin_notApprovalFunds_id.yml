@@ -1,0 +1,103 @@
+reject_funds_approval_normal_with_comment:
+  allure:
+    title: "驳回经费审批-正常场景-提供有效驳回原因"
+    description: "验证管理员对经费申请进行驳回操作，提供有效的驳回原因，接口返回成功响应"
+    epic: "项目管理平台"
+    feature: "经费审批模块"
+    story: "驳回经费审批"
+    tag: ["正常场景", "核心流程"]
+    pytest_mark: "approval"
+
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/notApprovalFunds/2001"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        comment: "材料不完整"
+
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 200
+            contains:
+              msg: "success"
+
+    extract: {}
+
+reject_funds_approval_abnormal_missing_comment:
+  allure:
+    title: "驳回经费审批-异常场景-缺少驳回原因"
+    description: "验证管理员在驳回经费申请时未提供驳回原因，接口应返回参数校验失败"
+    epic: "项目管理平台"
+    feature: "经费审批模块"
+    story: "驳回经费审批"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: "approval"
+
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/notApprovalFunds/2001"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json: {}
+
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "请求参数错误"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 400
+            contains:
+              msg: "失败"
+
+    extract: {}
+
+reject_funds_approval_abnormal_empty_comment:
+  allure:
+    title: "驳回经费审批-异常场景-驳回原因为空字符串"
+    description: "验证管理员提交空字符串作为驳回原因时，接口应返回参数校验失败"
+    epic: "项目管理平台"
+    feature: "经费审批模块"
+    story: "驳回经费审批"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "approval"
+
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/notApprovalFunds/2001"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        comment: ""
+
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "驳回原因不能为空"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 400
+            contains:
+              msg: "驳回原因不能为空"
+
+    extract: {}

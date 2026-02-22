@@ -1,4 +1,5 @@
 import os
+from pickle import FALSE
 
 from common.config import SERVER_URL, PUBLIC_KEY
 import pytest
@@ -14,7 +15,7 @@ import logging
 # 配置日志记录器
 logger = logging.getLogger("Hsyuan")
 
-@pytest.fixture(scope='session',autouse=True)
+@pytest.fixture(scope='session',autouse=False)
 def get_admin_token():
 
     username = 'admin'
@@ -45,6 +46,39 @@ def get_admin_token():
     yield session
 
     session.close()
+
+@pytest.fixture(scope='session',autouse=False)
+def get_user_token():
+
+    username = 'NCHU13312341234'
+    password = "123456"
+    user_type = "user"
+
+    entrytor = PasswordEncryptor()
+    pem_public_key = "-----BEGIN PUBLIC KEY-----"+PUBLIC_KEY+"-----END PUBLIC KEY-----"
+    entrytor.set_public_key(pem_public_key)
+    password_rsa = entrytor.encryptPassword(password)
+
+    params = {
+        "username": username,
+        "password": password_rsa,
+        "userType": user_type,
+        "timestamp": int(time.time() * 1000)
+    }
+
+    session = requests.Session()
+    resp = session.request("POST", SERVER_URL+"/login", json=params)
+    resp.raise_for_status()
+    token = resp.json()["data"]["token"]
+    session.headers.update({
+        "Token": token
+    })
+    extract_yaml("init_token", token)
+
+    yield session
+
+    session.close()
+
 
 
 

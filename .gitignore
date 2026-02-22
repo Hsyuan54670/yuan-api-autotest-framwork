@@ -5,3 +5,6 @@ scripts/
 config/config.yaml
 report/
 temps/
+.claude/
+data/ai_testcases/z_unuse/
+docx/

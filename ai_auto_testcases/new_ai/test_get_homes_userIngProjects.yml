@@ -1,0 +1,70 @@
+get_user_ing_projects_normal_success:
+  allure:
+    title: 获取进行中项目-正常场景-成功获取当前用户进行中项目列表
+    description: 验证已登录用户调用接口能成功获取当前用户进行中的项目列表，业务响应码为200，返回数据结构正确
+    epic: 项目管理平台
+    feature: 项目查询模块
+    story: 获取进行中项目
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: smoke
+  steps:
+    request:
+      method: GET
+      url: /homes/userIngProjects
+      headers:
+        Authorization: "${login_token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records"]
+          assert:
+            eq:
+              msg: "success"
+            type:
+              code: int
+              msg: str
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+    extract:
+      ing_project_list: $.data.records
+
+get_user_ing_projects_abnormal_unauthorized:
+  allure:
+    title: 获取进行中项目-异常场景-未登录访问被拒绝
+    description: 验证未携带token的用户调用接口时，系统拒绝访问并返回401或400错误码
+    epic: 项目管理平台
+    feature: 项目查询模块
+    story: 获取进行中项目
+    tag: ["异常场景", "安全测试"]
+    pytest_mark: regression
+  steps:
+    request:
+      method: GET
+      url: /homes/userIngProjects
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "请求失败"
+        data:
+          assert:
+            contains:
+              msg: "失败"
+            type:
+              code: int

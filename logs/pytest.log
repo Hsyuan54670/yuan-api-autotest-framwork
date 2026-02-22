@@ -1,57 +1,573 @@
-2026-02-13 22:31:45 - INFO - 初始化配置中...测试会话即将开始...
-2026-02-13 22:31:45 - INFO - 初始化配置完成,测试会话开始!
-2026-02-13 22:31:45 - INFO - ==================================================资金列表查询-正常场景-鉴权成功返回列表==================================================
-2026-02-13 22:31:45 - INFO - 1.正在发送请求
-2026-02-13 22:31:45 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Token': '${admin_token}'}, 'params': {}, 'json': {}}
-2026-02-13 22:31:45 - INFO - 请求失败: 401 Client Error:  for url: http://115.191.47.61/api/admin/funds
-2026-02-13 22:31:45 - INFO - 2.正在断言响应
-2026-02-13 22:31:45 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'every_item_required_fields': ['id', 'applicant', 'appliedFunds', 'appliedTime']}}, 'assert': {'type': {'records': 'list'}}}}}
-2026-02-13 22:31:46 - INFO - ==================================================资金列表查询-正常场景-鉴权成功返回列表==================================================
-2026-02-13 22:31:46 - INFO - 1.正在发送请求
-2026-02-13 22:31:46 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Token': '${admin_token}'}, 'params': {}, 'json': {}}
-2026-02-13 22:31:47 - INFO - 请求失败: 401 Client Error:  for url: http://115.191.47.61/api/admin/funds
-2026-02-13 22:31:47 - INFO - 2.正在断言响应
-2026-02-13 22:31:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'every_item_required_fields': ['id', 'applicant', 'appliedFunds', 'appliedTime']}}, 'assert': {'type': {'records': 'list'}}}}}
-2026-02-13 22:31:47 - INFO - ===================================================资金列表查询-异常场景-未鉴权访问====================================================
-2026-02-13 22:31:47 - INFO - 1.正在发送请求
-2026-02-13 22:31:47 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
-2026-02-13 22:31:50 - INFO - 2.正在断言响应
-2026-02-13 22:31:50 - INFO - {'status_code': 401, 'response': {'code': 401, 'msg': '未授权', 'data': None}}
-2026-02-13 22:31:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
-2026-02-13 22:31:50 - ERROR - 共 3 个断言失败:
-  - 状态码: 期望 401, 实际 200
-  - 响应字段: 期望 code=401, 实际 200
-  - 响应字段: 期望 msg='未授权', 实际 'success'
-2026-02-13 22:31:51 - INFO - ===================================================资金列表查询-异常场景-未鉴权访问====================================================
-2026-02-13 22:31:51 - INFO - 1.正在发送请求
-2026-02-13 22:31:51 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {}, 'params': {}, 'json': {}}
-2026-02-13 22:31:51 - INFO - 2.正在断言响应
-2026-02-13 22:31:51 - INFO - {'status_code': 401, 'response': {'code': 401, 'msg': '未授权', 'data': None}}
-2026-02-13 22:31:51 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
-2026-02-13 22:31:51 - ERROR - 共 3 个断言失败:
-  - 状态码: 期望 401, 实际 200
-  - 响应字段: 期望 code=401, 实际 200
-  - 响应字段: 期望 msg='未授权', 实际 'success'
-2026-02-13 22:31:51 - INFO - =================================================资金列表查询-边界场景-无资金申请返回空列表=================================================
-2026-02-13 22:31:51 - INFO - 1.正在发送请求
-2026-02-13 22:31:51 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Authorization': '${admin_token}'}, 'params': {}, 'json': {}}
-2026-02-13 22:31:51 - INFO - 2.正在断言响应
-2026-02-13 22:31:51 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'length': 0}}, 'assert': {'type': {'records': 'list'}}}}}
-2026-02-13 22:31:51 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
-2026-02-13 22:31:51 - ERROR - 共 4 个断言失败:
-  - 响应字段: 期望 msg='操作成功', 实际 'success'
-  - 缺少字段: data.records
-  - [type] 字段不存在: data.records
-  - 列表字段不存在: data.records
-2026-02-13 22:31:52 - INFO - =================================================资金列表查询-边界场景-无资金申请返回空列表=================================================
-2026-02-13 22:31:52 - INFO - 1.正在发送请求
-2026-02-13 22:31:52 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Authorization': '${admin_token}'}, 'params': {}, 'json': {}}
-2026-02-13 22:31:53 - INFO - 2.正在断言响应
-2026-02-13 22:31:53 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': '操作成功', 'data': {'required_fields': ['records'], 'list_check': {'records': {'length': 0}}, 'assert': {'type': {'records': 'list'}}}}}
-2026-02-13 22:31:53 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160604594.0, 'totalRemainingFunds': 160597181.0}}
-2026-02-13 22:31:53 - ERROR - 共 4 个断言失败:
-  - 响应字段: 期望 msg='操作成功', 实际 'success'
-  - 缺少字段: data.records
-  - [type] 字段不存在: data.records
-  - 列表字段不存在: data.records
-2026-02-13 22:31:53 - INFO - 测试会话结束...关闭测试环境...
+2026-02-22 14:24:46 - INFO - 初始化配置中...测试会话即将开始...
+2026-02-22 14:24:46 - INFO - 初始化配置完成,测试会话开始!
+2026-02-22 14:24:46 - INFO - ==================================================获取账号列表-正常场景-成功返回账号列表==================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/accountList', 'headers': None}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'type': 'list', 'length': 5, 'object_required_items': ['id', 'username', 'name', 'phone']}}}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 2, 'username': 'NCHU13312341234', 'name': '小明', 'phone': '13312341234'}, {'id': 3, 'username': 'NCHU13343214321', 'name': '小白', 'phone': '13343214321'}, {'id': 7, 'username': 'NCHU13314921921', 'name': '张三', 'phone': '13314921921'}, {'id': 9, 'username': 'NCHU18112341234', 'name': '李四', 'phone': '18112341234'}, {'id': 10, 'username': 'NCHU13955555555', 'name': '王五', 'phone': '13955555555'}]}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ==================================================获取账号列表-异常场景-未登录访问被拒绝==================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/accountList', 'headers': {'Token': ''}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'code': 401}
+2026-02-22 14:24:46 - INFO - resp.json: {}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ===============================================获取账号列表-异常场景-使用无效Token访问被拒绝===============================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/accountList', 'headers': {'Token': 'Bearer invalid_token_123'}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'code': 401}
+2026-02-22 14:24:46 - INFO - resp.json: {}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ================================================获取经费类型列表-正常场景-成功返回经费类型列表================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': None}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['totalFunds', 'totalRemainingFunds'], 'assert': {'type': {'totalFunds': 'float', 'totalRemainingFunds': 'float'}}}}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'totalFunds': 160663466.0, 'totalRemainingFunds': 160653741.0}}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - 3.正在提取变量
+2026-02-22 14:24:46 - INFO - ================================================获取经费类型列表-异常场景-未登录访问返回401================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/funds', 'headers': {'Token': ''}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 401}
+2026-02-22 14:24:46 - INFO - resp.json: {}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ================================================获取经费审批列表-正常场景-默认分页参数查询成功================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsApprovalList', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'pageSize', 'page'], 'assert': {'type': {'total': 'int', 'pageSize': 'int', 'page': 'int', 'records': 'list'}}, 'list_check': {'records': {'length': 5, 'every_item_required_fields': ['id', 'projectId', 'applicant', 'reason', 'appliedFunds', 'remainingFunds', 'applicantId', 'appliedTime']}}}}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 7, 'records': [{'id': 3, 'projectId': 4, 'applicant': '小白', 'reason': '我没白学', 'appliedFunds': 79754.0, 'remainingFunds': 794859.0, 'applicantId': None, 'appliedTime': '2025-12-26T06:48:26'}, {'id': 10, 'projectId': 9, 'applicant': '小明', 'reason': '11', 'appliedFunds': 0.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-04T12:13:58'}, {'id': 14, 'projectId': 9, 'applicant': '小明', 'reason': '要花', 'appliedFunds': 100.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:48:02'}, {'id': 15, 'projectId': 9, 'applicant': '小明', 'reason': '要花', 'appliedFunds': 100.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:48:04'}, {'id': 17, 'projectId': 14, 'applicant': '小明', 'reason': '好吧', 'appliedFunds': 321.0, 'remainingFunds': 43500.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:56:28'}]}}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ===============================================获取经费审批列表-正常场景-自定义分页条数查询成功================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsApprovalList', 'headers': {}, 'params': {'page': 1, 'size': 10}, 'json': {}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'lte': {'pageSize': 10}}, 'list_check': {'records': {'every_item_required_fields': ['id', 'projectId', 'applicant', 'reason', 'appliedFunds', 'remainingFunds', 'applicantId', 'appliedTime']}}}}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 10, 'total': 7, 'records': [{'id': 3, 'projectId': 4, 'applicant': '小白', 'reason': '我没白学', 'appliedFunds': 79754.0, 'remainingFunds': 794859.0, 'applicantId': None, 'appliedTime': '2025-12-26T06:48:26'}, {'id': 10, 'projectId': 9, 'applicant': '小明', 'reason': '11', 'appliedFunds': 0.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-04T12:13:58'}, {'id': 14, 'projectId': 9, 'applicant': '小明', 'reason': '要花', 'appliedFunds': 100.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:48:02'}, {'id': 15, 'projectId': 9, 'applicant': '小明', 'reason': '要花', 'appliedFunds': 100.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:48:04'}, {'id': 17, 'projectId': 14, 'applicant': '小明', 'reason': '好吧', 'appliedFunds': 321.0, 'remainingFunds': 43500.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:56:28'}, {'id': 18, 'projectId': 14, 'applicant': '小明', 'reason': '学习', 'appliedFunds': 123.0, 'remainingFunds': 43500.0, 'applicantId': None, 'appliedTime': '2026-02-20T16:10:37'}, {'id': 19, 'projectId': 14, 'applicant': '小明', 'reason': '购买实验材料', 'appliedFunds': 5000.0, 'remainingFunds': 43500.0, 'applicantId': None, 'appliedTime': '2026-02-20T16:14:49'}]}}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - =================================================获取经费审批列表-异常场景-页码非数字类型==================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsApprovalList', 'headers': {}, 'params': {'page': 'abc', 'size': 5}, 'json': {}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ================================================获取经费审批列表-异常场景-每页条数超过最大限制================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsApprovalList', 'headers': {}, 'params': {'page': 1, 'size': 200}, 'json': {}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'type': {'records': 'list'}}}}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 200, 'total': 7, 'records': [{'id': 3, 'projectId': 4, 'applicant': '小白', 'reason': '我没白学', 'appliedFunds': 79754.0, 'remainingFunds': 794859.0, 'applicantId': None, 'appliedTime': '2025-12-26T06:48:26'}, {'id': 10, 'projectId': 9, 'applicant': '小明', 'reason': '11', 'appliedFunds': 0.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-04T12:13:58'}, {'id': 14, 'projectId': 9, 'applicant': '小明', 'reason': '要花', 'appliedFunds': 100.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:48:02'}, {'id': 15, 'projectId': 9, 'applicant': '小明', 'reason': '要花', 'appliedFunds': 100.0, 'remainingFunds': 4900.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:48:04'}, {'id': 17, 'projectId': 14, 'applicant': '小明', 'reason': '好吧', 'appliedFunds': 321.0, 'remainingFunds': 43500.0, 'applicantId': None, 'appliedTime': '2026-01-07T09:56:28'}, {'id': 18, 'projectId': 14, 'applicant': '小明', 'reason': '学习', 'appliedFunds': 123.0, 'remainingFunds': 43500.0, 'applicantId': None, 'appliedTime': '2026-02-20T16:10:37'}, {'id': 19, 'projectId': 14, 'applicant': '小明', 'reason': '购买实验材料', 'appliedFunds': 5000.0, 'remainingFunds': 43500.0, 'applicantId': None, 'appliedTime': '2026-02-20T16:14:49'}]}}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ================================================获取经费审批列表-异常场景-未携带认证Token================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsApprovalList', 'headers': {'Token': ''}, 'params': {'page': 1, 'size': 5}, 'json': {}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 401}
+2026-02-22 14:24:46 - INFO - resp.json: {}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ================================================获取经费日志列表-正常场景-默认分页参数查询成功================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsLogList', 'headers': None, 'params': {'page': 1, 'size': 5}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'pageSize', 'page'], 'assert': {'eq': {'pageSize': 5, 'page': 1}, 'type': {'total': 'int'}}, 'list_check': {'records': {'length': 5, 'every_item_required_fields': ['id', 'projectId', 'applicantId', 'reason', 'appliedFunds', 'appliedTime', 'comment', 'status', 'approverId', 'updateTime']}}}}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 10, 'records': [{'id': 1, 'projectId': 1, 'applicantId': 2, 'reason': '5000', 'appliedFunds': 0.0, 'appliedTime': '2025-12-26T03:38:42', 'approverId': 1, 'comment': '可以', 'updateTime': '2025-12-26T03:38:50', 'status': 2}, {'id': 2, 'projectId': 1, 'applicantId': 2, 'reason': '要用', 'appliedFunds': 5000.0, 'appliedTime': '2025-12-26T03:41:27', 'approverId': 1, 'comment': '可以', 'updateTime': '2025-12-26T03:41:37', 'status': 2}, {'id': 4, 'projectId': 4, 'applicantId': 3, 'reason': '吃多点好的', 'appliedFunds': 2313.0, 'appliedTime': '2025-12-26T06:49:33', 'approverId': 1, 'comment': '同意', 'updateTime': '2025-12-26T09:25:28', 'status': 2}, {'id': 5, 'projectId': 4, 'applicantId': 3, 'reason': '为', 'appliedFunds': 2312.0, 'appliedTime': '2025-12-26T09:05:00', 'approverId': 1, 'comment': 'xx', 'updateTime': '2026-02-20T14:32:45', 'status': 2}, {'id': 6, 'projectId': 4, 'applicantId': 3, 'reason': '为', 'appliedFunds': 321321312.0, 'appliedTime': '2025-12-26T09:05:21', 'approverId': 1, 'comment': 'xx', 'updateTime': '2025-12-26T09:19:00', 'status': 2}]}}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ===============================================获取经费日志列表-正常场景-自定义每页条数查询成功================================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsLogList', 'headers': {'Authorization': ''}, 'params': {'page': 1, 'size': 10}}
+2026-02-22 14:24:46 - INFO - 2.正在断言响应
+2026-02-22 14:24:46 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'lte': {'pageSize': 10}, 'eq': {'page': 1}}, 'list_check': {'records': {'every_item_required_fields': ['id', 'projectId', 'applicantId', 'reason', 'appliedFunds', 'appliedTime', 'comment', 'status', 'approverId', 'updateTime']}}}}}
+2026-02-22 14:24:46 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 10, 'total': 10, 'records': [{'id': 1, 'projectId': 1, 'applicantId': 2, 'reason': '5000', 'appliedFunds': 0.0, 'appliedTime': '2025-12-26T03:38:42', 'approverId': 1, 'comment': '可以', 'updateTime': '2025-12-26T03:38:50', 'status': 2}, {'id': 2, 'projectId': 1, 'applicantId': 2, 'reason': '要用', 'appliedFunds': 5000.0, 'appliedTime': '2025-12-26T03:41:27', 'approverId': 1, 'comment': '可以', 'updateTime': '2025-12-26T03:41:37', 'status': 2}, {'id': 4, 'projectId': 4, 'applicantId': 3, 'reason': '吃多点好的', 'appliedFunds': 2313.0, 'appliedTime': '2025-12-26T06:49:33', 'approverId': 1, 'comment': '同意', 'updateTime': '2025-12-26T09:25:28', 'status': 2}, {'id': 5, 'projectId': 4, 'applicantId': 3, 'reason': '为', 'appliedFunds': 2312.0, 'appliedTime': '2025-12-26T09:05:00', 'approverId': 1, 'comment': 'xx', 'updateTime': '2026-02-20T14:32:45', 'status': 2}, {'id': 6, 'projectId': 4, 'applicantId': 3, 'reason': '为', 'appliedFunds': 321321312.0, 'appliedTime': '2025-12-26T09:05:21', 'approverId': 1, 'comment': 'xx', 'updateTime': '2025-12-26T09:19:00', 'status': 2}, {'id': 7, 'projectId': 4, 'applicantId': 3, 'reason': '为', 'appliedFunds': 232432432.0, 'appliedTime': '2025-12-26T09:05:40', 'approverId': 1, 'comment': 'ww', 'updateTime': '2025-12-26T09:18:00', 'status': 2}, {'id': 8, 'projectId': 9, 'applicantId': 2, 'reason': '', 'appliedFunds': 0.0, 'appliedTime': '2026-01-04T10:49:09', 'approverId': 1, 'comment': '行吧', 'updateTime': '2026-01-07T09:29:01', 'status': 2}, {'id': 12, 'projectId': 9, 'applicantId': 2, 'reason': '要花', 'appliedFunds': 100.0, 'appliedTime': '2026-01-07T09:46:48', 'approverId': 1, 'comment': '不合适', 'updateTime': '2026-01-07T09:46:57', 'status': 1}, {'id': 13, 'projectId': 9, 'applicantId': 2, 'reason': '要花', 'appliedFunds': 100.0, 'appliedTime': '2026-01-07T09:48:00', 'approverId': 1, 'comment': '可以', 'updateTime': '2026-01-07T09:48:11', 'status': 2}, {'id': 16, 'projectId': 9, 'applicantId': 2, 'reason': '可以吗', 'appliedFunds': -1.0, 'appliedTime': '2026-01-07T09:54:14', 'approverId': 1, 'comment': '不行', 'updateTime': '2026-01-07T09:54:38', 'status': 1}]}}
+2026-02-22 14:24:46 - INFO - 所有断言通过
+2026-02-22 14:24:46 - INFO - ==============================================获取经费日志列表-异常场景-页码超出最大范围返回空数据===============================================
+2026-02-22 14:24:46 - INFO - 1.正在发送请求
+2026-02-22 14:24:46 - INFO - {'method': 'GET', 'url': '/admin/fundsLogList', 'headers': None, 'params': {'page': 999, 'size': 5}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 999, 'pageSize': 5, 'total': 10, 'records': []}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ============================================获取经费日志列表-异常场景-未携带Token认证信息被拒绝访问=============================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/fundsLogList', 'headers': {'Token': ''}, 'params': {'page': 1, 'size': 5}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 401}
+2026-02-22 14:24:47 - INFO - resp.json: {}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ===================================================获取项目种类列表-正常场景-请求成功===================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/kinds', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['projects', 'projectsOf2', 'projectsOf3', 'projectsOf4', 'projectsOf5']}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'projects': 22, 'projectsOf2': 16, 'projectsOf3': 3, 'projectsOf4': 1, 'projectsOf5': 2}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ===============================================获取项目种类列表-异常场景-未携带Token认证信息===============================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/kinds', 'headers': {'Token': ''}, 'params': {}, 'json': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 401}
+2026-02-22 14:24:47 - INFO - resp.json: {}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ================================================获取项目审批列表-正常场景-默认页码和每页条数=================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': None, 'params': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'pageSize', 'page'], 'assert': {'type': {'total': 'int', 'pageSize': 'int', 'page': 'int'}}, 'list_check': {'records': {'length': 5, 'every_item_required_fields': ['projectName', 'startTime', 'deadline', 'content', 'applicant', 'funds']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 22, 'records': [{'id': 12, 'projectName': '项目2', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 324324.0, 'remainingFunds': 324324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目2.docx', 'startTime': '2026-01-07T16:54:18', 'deadline': '2026-03-12T00:00:00', 'updateTime': '2026-01-07T08:54:18', 'status': 0, 'reason': '暂未审批'}, {'id': 17, 'projectName': '项目6', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 432432.0, 'remainingFunds': 432432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目6.docx', 'startTime': '2026-01-07T16:56:14', 'deadline': '2028-01-14T00:00:00', 'updateTime': '2026-01-07T08:56:14', 'status': 0, 'reason': '暂未审批'}, {'id': 18, 'projectName': '项目7', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 5435435.0, 'remainingFunds': 5435435.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目7.docx', 'startTime': '2026-01-07T16:56:40', 'deadline': '2026-04-10T00:00:00', 'updateTime': '2026-01-07T08:56:40', 'status': 0, 'reason': '暂未审批'}, {'id': 19, 'projectName': '项目8', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 354.0, 'remainingFunds': 354.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目8.docx', 'startTime': '2026-01-07T16:57:29', 'deadline': '2028-02-17T00:00:00', 'updateTime': '2026-01-07T08:57:29', 'status': 0, 'reason': '暂未审批'}, {'id': 20, 'projectName': '项目9', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 34325345.0, 'remainingFunds': 34325345.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目9.docx', 'startTime': '2026-01-07T16:58:08', 'deadline': '2026-04-30T00:00:00', 'updateTime': '2026-01-07T08:58:08', 'status': 0, 'reason': '暂未审批'}]}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ================================================获取项目审批列表-正常场景-自定义页码和每页条数================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': None, 'params': {'page': 1, 'size': 10}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'pageSize', 'page'], 'assert': {'lte': {'pageSize': 10}, 'type': {'total': 'int', 'page': 'int'}}, 'list_check': {'records': {'length': 10, 'every_item_required_fields': ['projectName', 'startTime', 'deadline', 'content', 'applicant', 'funds']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 10, 'total': 22, 'records': [{'id': 12, 'projectName': '项目2', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 324324.0, 'remainingFunds': 324324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目2.docx', 'startTime': '2026-01-07T16:54:18', 'deadline': '2026-03-12T00:00:00', 'updateTime': '2026-01-07T08:54:18', 'status': 0, 'reason': '暂未审批'}, {'id': 17, 'projectName': '项目6', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 432432.0, 'remainingFunds': 432432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目6.docx', 'startTime': '2026-01-07T16:56:14', 'deadline': '2028-01-14T00:00:00', 'updateTime': '2026-01-07T08:56:14', 'status': 0, 'reason': '暂未审批'}, {'id': 18, 'projectName': '项目7', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 5435435.0, 'remainingFunds': 5435435.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目7.docx', 'startTime': '2026-01-07T16:56:40', 'deadline': '2026-04-10T00:00:00', 'updateTime': '2026-01-07T08:56:40', 'status': 0, 'reason': '暂未审批'}, {'id': 19, 'projectName': '项目8', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 354.0, 'remainingFunds': 354.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目8.docx', 'startTime': '2026-01-07T16:57:29', 'deadline': '2028-02-17T00:00:00', 'updateTime': '2026-01-07T08:57:29', 'status': 0, 'reason': '暂未审批'}, {'id': 20, 'projectName': '项目9', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 34325345.0, 'remainingFunds': 34325345.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目9.docx', 'startTime': '2026-01-07T16:58:08', 'deadline': '2026-04-30T00:00:00', 'updateTime': '2026-01-07T08:58:08', 'status': 0, 'reason': '暂未审批'}, {'id': 22, 'projectName': '项目11', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 213123.0, 'remainingFunds': 213123.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目11.docx', 'startTime': '2026-01-07T16:59:00', 'deadline': '2027-01-29T00:00:00', 'updateTime': '2026-01-07T08:59:00', 'status': 0, 'reason': '暂未审批'}, {'id': 27, 'projectName': '项目17', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 123213.0, 'remainingFunds': 123213.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目17.docx', 'startTime': '2026-01-07T17:00:52', 'deadline': '2027-01-09T00:00:00', 'updateTime': '2026-01-07T09:00:52', 'status': 0, 'reason': '暂未审批'}, {'id': 28, 'projectName': '项目18', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 99910000.0, 'remainingFunds': 99910000.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目18.docx', 'startTime': '2026-01-07T17:01:13', 'deadline': '2027-01-16T00:00:00', 'updateTime': '2026-01-07T09:01:13', 'status': 0, 'reason': '暂未审批'}, {'id': 29, 'projectName': '项目19', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 23100.0, 'remainingFunds': 23100.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目19.docx', 'startTime': '2026-01-07T17:01:38', 'deadline': '2028-01-14T00:00:00', 'updateTime': '2026-01-07T09:01:38', 'status': 0, 'reason': '暂未审批'}, {'id': 30, 'projectName': '项目20', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 2341.0, 'remainingFunds': 2341.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目20.docx', 'startTime': '2026-01-07T17:02:03', 'deadline': '2026-04-25T00:00:00', 'updateTime': '2026-01-07T09:02:03', 'status': 0, 'reason': '暂未审批'}]}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ==================================================获取项目审批列表-异常场景-未登录访问===================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': {'Token': ''}, 'params': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 401}
+2026-02-22 14:24:47 - INFO - resp.json: {}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - =================================================获取项目审批列表-边界场景-页码为最小值0==================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': None, 'params': {'page': 0, 'size': 5}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'eq': {'page': 1}}, 'list_check': {'records': {'length': 5, 'every_item_required_fields': ['projectName', 'startTime', 'deadline', 'content', 'applicant', 'funds']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 0, 'pageSize': 5, 'total': 22, 'records': []}}
+2026-02-22 14:24:47 - ERROR - 共 2 个断言失败:
+  - [eq] data.page: 期望 1, 实际 0
+  - [length] data.records: 期望 5, 实际 0
+2026-02-22 14:24:47 - INFO - ==================================================获取项目审批列表-边界场景-页码为极大值==================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsApprovalList', 'headers': None, 'params': {'page': 9999, 'size': 5}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'type': {'total': 'int', 'pageSize': 'int', 'page': 'int'}}, 'list_check': {'records': {'length': 0}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 9999, 'pageSize': 5, 'total': 22, 'records': []}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - =================================================获取项目列表-正常场景-默认分页参数查询成功=================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsList', 'params': {}, 'headers': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'pageSize', 'page'], 'assert': {'lte': {'pageSize': 5}, 'eq': {'page': 1}, 'type': {'total': 'int', 'records': 'list'}}, 'list_check': {'records': {'length': 5, 'every_item_required_fields': ['id', 'projectName', 'applicantId', 'projectType', 'applicant', 'funds', 'remainingFunds', 'status', 'content', 'startTime', 'deadline']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 23, 'records': [{'id': 6, 'projectName': '项目12', 'projectType': '纵向项目', 'applicant': '小白', 'applicantId': 3, 'funds': 324432.0, 'remainingFunds': 324432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目12.docx', 'startTime': '2024-12-26T14:45:33', 'deadline': '2025-01-29T00:00:00', 'updateTime': '2026-01-07T09:19:24', 'status': 5, 'reason': '暂未审批'}, {'id': 1, 'projectName': '通过', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 10000.0, 'remainingFunds': 5000.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目1.docx', 'startTime': '2025-12-26T11:20:56', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-01-07T09:28:43', 'status': 5, 'reason': '暂未审批'}, {'id': 2, 'projectName': '不通过', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 9999999.0, 'remainingFunds': 9999999.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目2.docx', 'startTime': '2025-12-26T11:21:12', 'deadline': '2025-12-29T00:00:00', 'updateTime': '2026-01-07T09:05:37', 'status': 2, 'reason': '没钱'}, {'id': 3, 'projectName': '速通', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 100.0, 'remainingFunds': 100.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目3.docx', 'startTime': '2025-12-26T12:48:05', 'deadline': '2025-12-27T00:00:00', 'updateTime': '2026-01-04T09:59:26', 'status': 2, 'reason': '暂未审批'}, {'id': 4, 'projectName': '我白学了吗', 'projectType': '校内项目', 'applicant': '小白', 'applicantId': 3, 'funds': 799484.0, 'remainingFunds': 794859.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目4.docx', 'startTime': '2025-12-26T14:44:23', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-02-20T14:32:45', 'status': 2, 'reason': '暂未审批'}]}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ================================================获取项目列表-正常场景-自定义分页条数查询成功=================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsList', 'params': {'page': 1, 'size': 10}, 'headers': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'eq': {'page': 1}}, 'list_check': {'records': {'every_item_required_fields': ['id', 'projectName', 'applicantId', 'projectType', 'applicant', 'funds', 'remainingFunds', 'status', 'content', 'startTime', 'deadline']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 10, 'total': 23, 'records': [{'id': 6, 'projectName': '项目12', 'projectType': '纵向项目', 'applicant': '小白', 'applicantId': 3, 'funds': 324432.0, 'remainingFunds': 324432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目12.docx', 'startTime': '2024-12-26T14:45:33', 'deadline': '2025-01-29T00:00:00', 'updateTime': '2026-01-07T09:19:24', 'status': 5, 'reason': '暂未审批'}, {'id': 1, 'projectName': '通过', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 10000.0, 'remainingFunds': 5000.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目1.docx', 'startTime': '2025-12-26T11:20:56', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-01-07T09:28:43', 'status': 5, 'reason': '暂未审批'}, {'id': 2, 'projectName': '不通过', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 9999999.0, 'remainingFunds': 9999999.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目2.docx', 'startTime': '2025-12-26T11:21:12', 'deadline': '2025-12-29T00:00:00', 'updateTime': '2026-01-07T09:05:37', 'status': 2, 'reason': '没钱'}, {'id': 3, 'projectName': '速通', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 100.0, 'remainingFunds': 100.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目3.docx', 'startTime': '2025-12-26T12:48:05', 'deadline': '2025-12-27T00:00:00', 'updateTime': '2026-01-04T09:59:26', 'status': 2, 'reason': '暂未审批'}, {'id': 4, 'projectName': '我白学了吗', 'projectType': '校内项目', 'applicant': '小白', 'applicantId': 3, 'funds': 799484.0, 'remainingFunds': 794859.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目4.docx', 'startTime': '2025-12-26T14:44:23', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-02-20T14:32:45', 'status': 2, 'reason': '暂未审批'}, {'id': 5, 'projectName': '项目10', 'projectType': '横向项目', 'applicant': '小白', 'applicantId': 3, 'funds': 45673.0, 'remainingFunds': 45673.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目10.docx', 'startTime': '2025-12-26T14:45:09', 'deadline': '2025-12-31T00:00:00', 'updateTime': '2026-01-04T09:59:26', 'status': 2, 'reason': '暂未审批'}, {'id': 7, 'projectName': '项目23', 'projectType': '横向项目', 'applicant': '小白', 'applicantId': 3, 'funds': 2313.0, 'remainingFunds': 2313.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目20.docx', 'startTime': '2025-12-26T15:33:09', 'deadline': '2025-12-30T00:00:00', 'updateTime': '2026-01-04T09:59:26', 'status': 2, 'reason': '暂未审批'}, {'id': 8, 'projectName': '项目18', 'projectType': '纵向项目', 'applicant': '小白', 'applicantId': 3, 'funds': 24324.0, 'remainingFunds': 24324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目18.docx', 'startTime': '2025-12-26T15:33:31', 'deadline': '2025-12-29T00:00:00', 'updateTime': '2026-01-04T09:59:26', 'status': 2, 'reason': '暂未审批'}, {'id': 9, 'projectName': '111', 'projectType': '纵向项目', 'applicant': '小白', 'applicantId': 2, 'funds': 5000.0, 'remainingFunds': 4900.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/资料提交要求_数据库原理课程设计.doc', 'startTime': '2026-01-04T18:37:00', 'deadline': '2026-01-15T00:00:00', 'updateTime': '2026-02-19T17:07:41', 'status': 2, 'reason': '暂未审批'}, {'id': 10, 'projectName': '111', 'projectType': '纵向项目', 'applicant': 'aaaa', 'applicantId': 2, 'funds': 111.0, 'remainingFunds': 111.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/计划书.docx', 'startTime': '2026-01-04T19:52:59', 'deadline': '2026-01-31T00:00:00', 'updateTime': '2026-02-19T17:07:41', 'status': 2, 'reason': '暂未审批'}]}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ================================================获取项目列表-边界场景-页码超出范围返回空列表=================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsList', 'params': {'page': 999, 'size': 5}, 'headers': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'type': {'records': 'list'}}, 'list_check': {'records': {'length': 0}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 999, 'pageSize': 5, 'total': 23, 'records': []}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ==================================================获取项目列表-异常场景-页码参数类型错误==================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsList', 'params': {'page': 'abc', 'size': 5}, 'headers': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ===================================================获取项目列表-边界场景-页码为负数====================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsList', 'params': {'page': -1, 'size': 5}, 'headers': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'data': {'list_check': {'records': {'every_item_required_fields': ['id', 'projectName', 'applicantId', 'projectType', 'applicant', 'funds', 'remainingFunds', 'status', 'content', 'startTime', 'deadline']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': -1, 'pageSize': 5, 'total': 23, 'records': []}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ================================================获取项目日志列表-正常场景-默认分页参数查询成功================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsLogList', 'headers': {}, 'params': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records', 'total', 'pageSize', 'page'], 'assert': {'lte': {'pageSize': 5}, 'type': {'total': 'int', 'page': 'int'}}, 'list_check': {'records': {'every_item_required_fields': ['id', 'oldStatus', 'newStatus', 'reason', 'approverId', 'createTime']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 96, 'records': [{'id': 62, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:07:17', 'approverId': 1}, {'id': 21, 'projectId': 1, 'oldStatus': 3, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 68, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:28:43', 'approverId': 1}, {'id': 55, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:05:30', 'approverId': 1}, {'id': 61, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:07:17', 'approverId': 1}]}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ===============================================获取项目日志列表-正常场景-自定义分页参数查询成功================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsLogList', 'headers': {}, 'params': {'page': 1, 'size': 10}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'assert': {'eq': {'page': 1, 'pageSize': 10}}, 'list_check': {'records': {'length': 10, 'every_item_required_fields': ['id', 'oldStatus', 'newStatus', 'reason', 'approverId', 'createTime']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 10, 'total': 96, 'records': [{'id': 55, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:05:30', 'approverId': 1}, {'id': 61, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:07:17', 'approverId': 1}, {'id': 62, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:07:17', 'approverId': 1}, {'id': 68, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:28:43', 'approverId': 1}, {'id': 21, 'projectId': 1, 'oldStatus': 3, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 53, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:05:27', 'approverId': 1}, {'id': 52, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:05:27', 'approverId': 1}, {'id': 3, 'projectId': 1, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2025-12-26T03:37:29', 'approverId': 1}, {'id': 1, 'projectId': 1, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T03:20:56', 'approverId': 2}, {'id': 54, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:05:30', 'approverId': 1}]}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - =================================================获取项目日志列表-异常场景-未登录访问被拒绝=================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsLogList', 'headers': {'Token': ''}, 'params': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 401}
+2026-02-22 14:24:47 - INFO - resp.json: {}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ==============================================获取项目日志列表-边界场景-最小页码值（page=0）===============================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsLogList', 'headers': {}, 'params': {'page': 0, 'size': 5}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'data': {'list_check': {'records': {'every_item_required_fields': ['id', 'oldStatus', 'newStatus', 'reason', 'approverId', 'createTime']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 0, 'pageSize': 5, 'total': 96, 'records': []}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - =============================================获取项目日志列表-边界场景-最大每页条数（size=100）=============================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/projectsLogList', 'headers': {}, 'params': {'page': 1, 'size': 100}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'data': {'assert': {'type': {'pageSize': 'int'}, 'eq': {'page': 1}}, 'list_check': {'records': {'every_item_required_fields': ['id', 'oldStatus', 'newStatus', 'reason', 'approverId', 'createTime']}}}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 100, 'total': 96, 'records': [{'id': 52, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:05:27', 'approverId': 1}, {'id': 3, 'projectId': 1, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2025-12-26T03:37:29', 'approverId': 1}, {'id': 1, 'projectId': 1, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T03:20:56', 'approverId': 2}, {'id': 53, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:05:27', 'approverId': 1}, {'id': 54, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:05:30', 'approverId': 1}, {'id': 55, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:05:30', 'approverId': 1}, {'id': 61, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:07:17', 'approverId': 1}, {'id': 62, 'projectId': 1, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:07:17', 'approverId': 1}, {'id': 68, 'projectId': 1, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:28:43', 'approverId': 1}, {'id': 21, 'projectId': 1, 'oldStatus': 3, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 2, 'projectId': 2, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T03:21:12', 'approverId': 2}, {'id': 56, 'projectId': 2, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:05:35', 'approverId': 1}, {'id': 57, 'projectId': 2, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:05:35', 'approverId': 1}, {'id': 58, 'projectId': 2, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:05:37', 'approverId': 1}, {'id': 59, 'projectId': 2, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:05:37', 'approverId': 1}, {'id': 20, 'projectId': 2, 'oldStatus': 1, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 4, 'projectId': 2, 'oldStatus': 0, 'newStatus': 1, 'reason': '没钱', 'createTime': '2025-12-26T03:37:34', 'approverId': 1}, {'id': 5, 'projectId': 3, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T04:48:05', 'approverId': 2}, {'id': 6, 'projectId': 3, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2025-12-26T04:48:12', 'approverId': 1}, {'id': 24, 'projectId': 3, 'oldStatus': 4, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 7, 'projectId': 3, 'oldStatus': 4, 'newStatus': 4, 'reason': '经过讨论决定', 'createTime': '2025-12-26T04:48:19', 'approverId': 1}, {'id': 11, 'projectId': 4, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2025-12-26T06:45:42', 'approverId': 1}, {'id': 22, 'projectId': 4, 'oldStatus': 3, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 8, 'projectId': 4, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T06:44:23', 'approverId': 3}, {'id': 17, 'projectId': 5, 'oldStatus': 4, 'newStatus': 4, 'reason': '经过讨论决定', 'createTime': '2025-12-26T08:11:33', 'approverId': 1}, {'id': 9, 'projectId': 5, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T06:45:09', 'approverId': 3}, {'id': 25, 'projectId': 5, 'oldStatus': 4, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 16, 'projectId': 5, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2025-12-26T07:36:06', 'approverId': 1}, {'id': 10, 'projectId': 6, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T06:45:32', 'approverId': 3}, {'id': 12, 'projectId': 6, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2025-12-26T06:45:45', 'approverId': 1}, {'id': 13, 'projectId': 6, 'oldStatus': 3, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2025-12-26T07:13:06', 'approverId': 1}, {'id': 63, 'projectId': 6, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:14:55', 'approverId': 1}, {'id': 64, 'projectId': 6, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:14:55', 'approverId': 1}, {'id': 67, 'projectId': 6, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:19:24', 'approverId': 1}, {'id': 66, 'projectId': 6, 'oldStatus': 5, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-07T09:15:24', 'approverId': 1}, {'id': 65, 'projectId': 6, 'oldStatus': 5, 'newStatus': 5, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:15:23', 'approverId': 1}, {'id': 18, 'projectId': 7, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2025-12-26T09:31:10', 'approverId': 1}, {'id': 14, 'projectId': 7, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T07:33:09', 'approverId': 3}, {'id': 23, 'projectId': 7, 'oldStatus': 3, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 15, 'projectId': 8, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2025-12-26T07:33:31', 'approverId': 3}, {'id': 19, 'projectId': 8, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-01-04T09:59:26', 'approverId': 1}, {'id': 75, 'projectId': 9, 'oldStatus': 3, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 27, 'projectId': 9, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2026-01-04T10:48:33', 'approverId': 2}, {'id': 26, 'projectId': 9, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-04T10:36:59', 'approverId': 2}, {'id': 76, 'projectId': 10, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 28, 'projectId': 10, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-04T11:52:58', 'approverId': 2}, {'id': 77, 'projectId': 11, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 29, 'projectId': 11, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:53:51', 'approverId': 2}, {'id': 30, 'projectId': 12, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:54:18', 'approverId': 2}, {'id': 49, 'projectId': 13, 'oldStatus': 0, 'newStatus': 1, 'reason': '不好', 'createTime': '2026-01-07T09:03:37', 'approverId': 1}, {'id': 31, 'projectId': 13, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:54:36', 'approverId': 2}, {'id': 50, 'projectId': 14, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2026-01-07T09:03:43', 'approverId': 1}, {'id': 32, 'projectId': 14, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:55:04', 'approverId': 2}, {'id': 33, 'projectId': 15, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:55:36', 'approverId': 2}, {'id': 70, 'projectId': 15, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2026-01-07T09:50:52', 'approverId': 1}, {'id': 51, 'projectId': 16, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2026-01-07T09:04:01', 'approverId': 1}, {'id': 34, 'projectId': 16, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:55:57', 'approverId': 2}, {'id': 60, 'projectId': 16, 'oldStatus': 4, 'newStatus': 4, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:06:14', 'approverId': 1}, {'id': 35, 'projectId': 17, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:56:13', 'approverId': 2}, {'id': 36, 'projectId': 18, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:56:39', 'approverId': 2}, {'id': 37, 'projectId': 19, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:57:28', 'approverId': 2}, {'id': 38, 'projectId': 20, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:58:08', 'approverId': 2}, {'id': 39, 'projectId': 21, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:58:29', 'approverId': 2}, {'id': 78, 'projectId': 21, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 40, 'projectId': 22, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:58:59', 'approverId': 2}, {'id': 41, 'projectId': 23, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:59:19', 'approverId': 2}, {'id': 71, 'projectId': 23, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2026-01-07T09:50:55', 'approverId': 1}, {'id': 79, 'projectId': 24, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 42, 'projectId': 24, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:59:38', 'approverId': 2}, {'id': 80, 'projectId': 25, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 43, 'projectId': 25, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:59:56', 'approverId': 2}, {'id': 44, 'projectId': 26, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T09:00:36', 'approverId': 2}, {'id': 81, 'projectId': 26, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 45, 'projectId': 27, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T09:00:51', 'approverId': 2}, {'id': 46, 'projectId': 28, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T09:01:12', 'approverId': 2}, {'id': 47, 'projectId': 29, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T09:01:37', 'approverId': 2}, {'id': 48, 'projectId': 30, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T09:02:03', 'approverId': 2}, {'id': 69, 'projectId': 31, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T09:50:29', 'approverId': 2}, {'id': 82, 'projectId': 32, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 72, 'projectId': 32, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T12:27:59', 'approverId': 9}, {'id': 73, 'projectId': 33, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T12:28:45', 'approverId': 9}, {'id': 83, 'projectId': 33, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 74, 'projectId': 34, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T13:37:35', 'approverId': 2}, {'id': 84, 'projectId': 34, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-19T17:07:41', 'approverId': 1}, {'id': 85, 'projectId': 35, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T16:59:40', 'approverId': 2}, {'id': 86, 'projectId': 36, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:04:33', 'approverId': 2}, {'id': 87, 'projectId': 37, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:12', 'approverId': 2}, {'id': 88, 'projectId': 38, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:12', 'approverId': 2}, {'id': 89, 'projectId': 39, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'approverId': 2}, {'id': 90, 'projectId': 40, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'approverId': 2}, {'id': 91, 'projectId': 41, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'approverId': 2}, {'id': 92, 'projectId': 42, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'approverId': 2}, {'id': 93, 'projectId': 43, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'approverId': 2}, {'id': 94, 'projectId': 44, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'approverId': 2}, {'id': 95, 'projectId': 45, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'approverId': 2}, {'id': 96, 'projectId': 45, 'oldStatus': 0, 'newStatus': 2, 'reason': '超时过期', 'createTime': '2026-02-22T14:24:47', 'approverId': 1}]}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ===================================================获取工作类型列表-正常场景-请求成功===================================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/work', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-22 14:24:47 - INFO - 2.正在断言响应
+2026-02-22 14:24:47 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['projectsRecords', 'fundsRecords', 'projectsOverTime']}}}
+2026-02-22 14:24:47 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'projectsRecords': 21, 'fundsRecords': 7, 'projectsOverTime': 17}}
+2026-02-22 14:24:47 - INFO - 所有断言通过
+2026-02-22 14:24:47 - INFO - ===============================================获取工作类型列表-异常场景-未携带Token认证信息===============================================
+2026-02-22 14:24:47 - INFO - 1.正在发送请求
+2026-02-22 14:24:47 - INFO - {'method': 'GET', 'url': '/admin/work', 'headers': {'Token': ''}, 'params': {}, 'json': {}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 401}
+2026-02-22 14:24:48 - INFO - resp.json: {}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ==============================================条件查询项目-正常场景-携带有效查询参数成功返回项目列表==============================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'GET', 'url': '/project/getAllProjectsByCondition', 'params': {'page': 1, 'size': 5, 'projectId': '', 'applicant': '小'}, 'headers': None}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['records'], 'list_check': {'records': {'object_required_items': ['id', 'projectName', 'projectType', 'applicant', 'applicantId', 'funds', 'remainingFunds', 'content', 'startTime']}}}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'page': 1, 'pageSize': 5, 'total': 19, 'records': [{'id': 6, 'projectName': '项目12', 'projectType': '纵向项目', 'applicant': '小白', 'applicantId': 3, 'funds': 324432.0, 'remainingFunds': 324432.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目12.docx', 'startTime': '2024-12-26T14:45:33', 'deadline': '2025-01-29T00:00:00', 'updateTime': '2026-01-07T09:19:24', 'status': 5, 'reason': '暂未审批'}, {'id': 1, 'projectName': '通过', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 10000.0, 'remainingFunds': 5000.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目1.docx', 'startTime': '2025-12-26T11:20:56', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-01-07T09:28:43', 'status': 5, 'reason': '暂未审批'}, {'id': 2, 'projectName': '不通过', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 9999999.0, 'remainingFunds': 9999999.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目2.docx', 'startTime': '2025-12-26T11:21:12', 'deadline': '2025-12-29T00:00:00', 'updateTime': '2026-01-07T09:05:37', 'status': 2, 'reason': '没钱'}, {'id': 3, 'projectName': '速通', 'projectType': '横向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 100.0, 'remainingFunds': 100.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目3.docx', 'startTime': '2025-12-26T12:48:05', 'deadline': '2025-12-27T00:00:00', 'updateTime': '2026-01-04T09:59:26', 'status': 2, 'reason': '暂未审批'}, {'id': 4, 'projectName': '我白学了吗', 'projectType': '校内项目', 'applicant': '小白', 'applicantId': 3, 'funds': 799484.0, 'remainingFunds': 794859.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目4.docx', 'startTime': '2025-12-26T14:44:23', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-02-20T14:32:45', 'status': 2, 'reason': '暂未审批'}]}}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ===================================================新增账号-正常场景-创建新账号成功====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/admin/addAccount', 'headers': {'Content-Type': 'application/json'}, 'json': {'age': 32, 'college': '计算机学院', 'name': 'test_D39OeF', 'gender': 'M', 'phone': '13800138000'}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ===================================================新增账号-异常场景-缺少用户名参数====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/admin/addAccount', 'headers': {'Content-Type': 'application/json'}, 'json': {'age': 32, 'college': '计算机学院', 'gender': 'M', 'phone': '13800138003'}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '添加失败', 'data': None}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 400, 'msg': '添加失败', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ====================================================新增账号-异常场景-缺少密码参数====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/admin/addAccount', 'headers': {'Content-Type': 'application/json'}, 'json': {'age': 32, 'college': '计算机学院', 'name': 'test_6ZqAI7', 'gender': 'M'}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:48 - ERROR - 共 2 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+  - 响应字段: 期望 msg='出错啦~', 实际 'success'
+2026-02-22 14:24:48 - INFO - ====================================================新增账号-异常场景-用户名重复=====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/admin/addAccount', 'headers': {'Content-Type': 'application/json'}, 'json': {'age': 32, 'college': '计算机学院', 'name': 'test_2e9BhC', 'gender': 'M', 'phone': '13312341234'}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '该账户已存在', 'data': None}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 400, 'msg': '该账户已存在', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ======================================================获取登录公钥接口测试用例======================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'GET', 'url': '/login/auth/publicKey', 'headers': {}, 'params': {}, 'json': {}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['publicKey', 'timestamp', 'algorithm'], 'algorithm': 'RSA'}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'publicKey': 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7a5FW9aPpalpEi9B4dGmOTTHfBlugzqecPramtccDcUKno69rebn6elrwBvlTPv2EvCR/Z4ySVh8ytlJWxG2AhiEzQXurPAwpR55vW8j0J/YSuBtg8AHo3RFLHaJGwymDt7oMUf3l5w38rroNkNziU3nYYEzIVY2DTsgmp6MZDKgcura81bdJZWVp7icnTqcKvkSCJRmwzxqYJc20dXcb/WbnxjhyXNsIGloKTi+9uHPZ8YfA8jdUnAy5goKVMs7Z6jqKTaKjQuNsLmBd4jixZtrQxJM6WztQmU9A8I5vHrUYY4L8bVbi7MNK5fUk1codAX14Ligc/6t4T1CJEr85wIDAQAB', 'algorithm': 'RSA', 'timestamp': '1771741488107'}}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - 3.正在提取变量
+2026-02-22 14:24:48 - INFO - 提取变量成功: publicKey = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA7a5FW9aPpalpEi9B4dGmOTTHfBlugzqecPramtccDcUKno69rebn6elrwBvlTPv2EvCR/Z4ySVh8ytlJWxG2AhiEzQXurPAwpR55vW8j0J/YSuBtg8AHo3RFLHaJGwymDt7oMUf3l5w38rroNkNziU3nYYEzIVY2DTsgmp6MZDKgcura81bdJZWVp7icnTqcKvkSCJRmwzxqYJc20dXcb/WbnxjhyXNsIGloKTi+9uHPZ8YfA8jdUnAy5goKVMs7Z6jqKTaKjQuNsLmBd4jixZtrQxJM6WztQmU9A8I5vHrUYY4L8bVbi7MNK5fUk1codAX14Ligc/6t4T1CJEr85wIDAQAB
+2026-02-22 14:24:48 - INFO - ==================================================用户登录-正常场景-正确账号密码登录成功==================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'username': 'admin', 'password': 'Vv60Zz8bw+NH9a8rGFu2D19kjygByJPTP75fqj94X/5tgaBwabYPHkOcgykdFI02KBKEtwtGpUOJmr6o/4F6i7nPPl9BnW14jew9PllCONCL0fcnfVIdUrMTmYY2B/ZNkYOhJNpTtMCmfPmxuQ8v93BGAKWilX7nOvpW8pSkWQhNxO/wZDrnYGnIId1d3KmS+G9M9Z8S3IxeYfIMVuX5k4CyCTh3M15xpd0+uAf+N8OdsoT4yqJ2Pz1NEGeHRSBjaYZBu7bJ/vnp4kJzk84vNctnuzNigi6DZd/Jvyt1xsa/2Q/lEiMu7YbJOsMhbp/xE5CxOP0EwJUVxhyzifaPeA==', 'userType': 'admin', 'timestamp': 1771741488336}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['userType', 'token'], 'assert': {'eq': {'userType': 'admin'}, 'type': {'userType': 'str', 'token': 'str'}}}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'token': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODQ2ODh9.2VNHKr_JVXfkxsM8VimQez5mXfeZutSwSf1Spu6b_Ro', 'userType': 'admin'}}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - 3.正在提取变量
+2026-02-22 14:24:48 - INFO - 提取变量成功: login_token = eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODQ2ODh9.2VNHKr_JVXfkxsM8VimQez5mXfeZutSwSf1Spu6b_Ro
+2026-02-22 14:24:48 - INFO - ====================================================用户登录-异常场景-缺少用户名=====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'password': 'aewAcRURZrfMgUlUwpLibW8NM/vm182rOy9f4pEo03/N4XXCP7+56DEoMu0ltofzzO4NdxBxg5yszCpiMnIF0SydhuD50bptJMvcDdFza32RwVgwASMa+wxs8E1R7XnUJ6CVXDaI1QhQZKg9MVbM73LOnpwB9enAl8QuQWIk2HuYvHzMtSzTA2GwOaS4aDuEZ3YtvA3JcmuKoQhXXXwQxA+N2yC4sfoewKjQqWuAbmIfXRwvxtioD+Hbh1zu27T8hbpxeRLezZwEyijUJgQPD5gXrZR8aSzjsgUseDVhJVo3XnZMpMpbmxEhmvGCPCd9j+yG/h0K/iFDe5RgAIliDw==', 'userType': 'admin', 'timestamp': 1771741488384}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '用户名或密码错误', 'data': {}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - =====================================================用户登录-异常场景-缺少密码=====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'username': 'admin', 'userType': 'admin', 'password': 'Lo2eeUkF0LbNh3z/Bq1K43ziQNCA96EprERJiQXqxgKeeR5Entlo8y4RKYL7/gwxbsuZ8m4ayiiiuwX5jYuOesTCTK3mJSw6eX5dgOTX+pCiOWfcp6/ajbIhI8AonpvomCJ+Lv+894vHzguavd2U/kP6UndRGCsxpYeVOfAyuJGAj3Khr6iQF1Pbt7qLC6iA/ScqxTxJ7rxCXnv49PoHWmE2M1X1V7o0VpYD3SO0sMGRCBl1GwAEgVHcnnkuZKE4LB36RDVH5xZhbY1zgeR5YPCr95nh5eAeX0jT82dtqiuSredZ0g/2cYNBE5SoJmq4D39HgUQ7Sg58eGIfhSQjqg==', 'timestamp': 1771741488428}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '用户名或密码错误', 'data': {}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ====================================================用户登录-异常场景-缺少用户类型====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'username': 'admin', 'password': 'fhkVi8fp+Uz1w1C+wv1fpbrl4Y2MFshdg2vStPJqhilV6pPWif/0Fq6En8LiQG5lbuupp4JDy8EDFKaXyAUKmc3YqhDpBomkzo9tP0nFYfmLxrsLIGSQP3alcJyEvbK2zw6GiwB6xOsiVNt0/JyryHrvnfB90sb0JA9KOXm5MLUg1XVDnG88dmcXerRGWvgf6SGph6ku60zKizki4ZS+nb/j/A6JNOnTzpMrsEpmz9RL82sf6ESpHaGmNx8cP11rfii7EZRGHHnxhrXDRnv8ZlWLfE71NmVvwhoni2Pl+7A1qCPX+5m7cTkSW+UZsmlMSi+ByvRCRHJkMjRlBxAxMQ==', 'timestamp': 1771741488471}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '用户名或密码错误', 'data': {}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - =====================================================用户登录-异常场景-密码错误=====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'username': 'admin', 'password': '14E4U9yv6ENsJIWrJUJnoL3Cq1z/ameKQJ5c/wuXKhYPLLEX3dF818xZ4ICsPNqvQQY3ELRHLdVHcZwzgAeyEIzdjxg+0L8rvUdO6dGl/V9e97IPPvToINB8m70B7FCGHSqo5neWyPCI+TdBHOJ48QoOJqdpqdgztUUXJg5CRY3r8VGWkCwFV2oq3JrpEYniNIJKS5VqkpJHGBDRrhaBuw3MIX1JiyXRM0ASLT9zFnuiyXglFtuy4CWxXy2Mv0B9rCtVpNLsGG9MdTFT81kZV3RM0rA6flr+PRMs7G3xmfpYMxbcWEpTxUgiav2S8nlx9bJtkxQNiiKje+IuiDGSuA==', 'userType': 'admin', 'timestamp': 1771741488516}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '用户名或密码错误', 'data': {}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ===================================================用户登录-异常场景-无效的用户类型====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/login', 'headers': None, 'json': {'username': 'admin', 'password': 'wHBHtfPW8mqjfw5GaJUgSjfCAcvciCJJjilAp9v0JSODB1z9WdDZhba4m85ZGCXfqF8qZXVITTVDn6XSiyZGL7nFqD+gBd+IcoA7vwjJm/vJwSY3K+bU63ape7ZJug6wCothvdLf/xEIi8HqI7spavwMAf2Tjd38aGK5KZeSAdCYNLgv5DXUxiSLKdfJ+7At0HDLtslJc1ztC4OFL3E9zMaI4YC0AZt9hNkxEBVzCiN5UdXihBSFcEUkSwvbnDaa8nkPD8YmTIBtw0RsDme/3A3x++gEtftiLaAVEnE/DgTb9920QAP44eXpOIentRgDk/PZr3soHMKznWIlwea3cg==', 'userType': 'invalid_type', 'timestamp': 1771741488560}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '用户名或密码错误', 'data': {}}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 400, 'msg': '用户名或密码错误', 'data': None}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ====================================================上传文件-正常场景-文件上传成功====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/upload', 'headers': None, 'files': {'path': 'docx/项目1.docx'}}
+2026-02-22 14:24:48 - INFO - 2.正在断言响应
+2026-02-22 14:24:48 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:48 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目1.docx'}
+2026-02-22 14:24:48 - INFO - 所有断言通过
+2026-02-22 14:24:48 - INFO - ====================================================上传文件-异常场景-缺少文件参数====================================================
+2026-02-22 14:24:48 - INFO - 1.正在发送请求
+2026-02-22 14:24:48 - INFO - {'method': 'POST', 'url': '/upload', 'headers': {'Token': ''}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~'}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取用户信息-正常场景-已登录用户成功获取信息=================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/homes/userInfo', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['id', 'name', 'gender', 'age', 'phone', 'college', 'passedProjects', 'finishedProjects', 'ingProjects']}}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': {'id': 2, 'name': '小明', 'gender': 'M', 'age': 33, 'phone': '13312341234', 'college': '信息工程学院', 'passedProjects': 4, 'finishedProjects': 1, 'ingProjects': 3}}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ===============================================获取用户信息-异常场景-未携带Token访问被拒绝================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/homes/userInfo', 'headers': {'Token': ''}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 401}
+2026-02-22 14:24:49 - INFO - resp.json: {}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取进行中项目-正常场景-成功返回进行中项目列表================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/homes/userIngProjects', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'object_required_items': ['id', 'projectName', 'projectType', 'applicant', 'funds', 'remainingFunds', 'status']}}}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 14, 'projectName': '项目3', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 43500.0, 'remainingFunds': 43500.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目3.docx', 'startTime': '2026-01-07T16:55:05', 'deadline': '2028-01-01T00:00:00', 'updateTime': '2026-01-07T09:03:43', 'status': 3, 'reason': '暂未审批'}, {'id': 15, 'projectName': '项目4', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 4324.0, 'remainingFunds': 4324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目4.docx', 'startTime': '2026-01-07T16:55:36', 'deadline': '2026-05-22T00:00:00', 'updateTime': '2026-01-07T09:50:52', 'status': 3, 'reason': '暂未审批'}, {'id': 23, 'projectName': '项目12', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 213123.0, 'remainingFunds': 213123.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目12.docx', 'startTime': '2026-01-07T16:59:19', 'deadline': '2027-03-19T00:00:00', 'updateTime': '2026-01-07T09:50:55', 'status': 3, 'reason': '暂未审批'}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取进行中项目-异常场景-未登录访问返回401=================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/homes/userIngProjects', 'headers': {'Token': ''}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 401}
+2026-02-22 14:24:49 - INFO - resp.json: {}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取进行中项目-边界场景-无进行中项目返回空列表================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/homes/userIngProjects', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 14, 'projectName': '项目3', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 43500.0, 'remainingFunds': 43500.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目3.docx', 'startTime': '2026-01-07T16:55:05', 'deadline': '2028-01-01T00:00:00', 'updateTime': '2026-01-07T09:03:43', 'status': 3, 'reason': '暂未审批'}, {'id': 15, 'projectName': '项目4', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 4324.0, 'remainingFunds': 4324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目4.docx', 'startTime': '2026-01-07T16:55:36', 'deadline': '2026-05-22T00:00:00', 'updateTime': '2026-01-07T09:50:52', 'status': 3, 'reason': '暂未审批'}, {'id': 23, 'projectName': '项目12', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 213123.0, 'remainingFunds': 213123.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目12.docx', 'startTime': '2026-01-07T16:59:19', 'deadline': '2027-03-19T00:00:00', 'updateTime': '2026-01-07T09:50:55', 'status': 3, 'reason': '暂未审批'}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取已完成项目-正常场景-成功返回已完成项目列表================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getFinishedProjects', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'object_required_items': ['id', 'projectName', 'projectType', 'applicant', 'funds', 'status', 'remainingFunds', 'startTime', 'deadline', 'updateTime']}}}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 16, 'projectName': '项目5', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 3242.0, 'remainingFunds': 3242.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目5.docx', 'startTime': '2026-01-07T16:55:57', 'deadline': '2026-08-28T00:00:00', 'updateTime': '2026-01-07T09:06:14', 'status': 4, 'reason': '暂未审批'}, {'id': 1, 'projectName': '通过', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 10000.0, 'remainingFunds': 5000.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目1.docx', 'startTime': '2025-12-26T11:20:56', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-01-07T09:28:43', 'status': 5, 'reason': '暂未审批'}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取已完成项目-异常场景-未登录访问返回401=================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getFinishedProjects', 'headers': {'Token': ''}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - None
+2026-02-22 14:24:49 - INFO - 未设置预期结果，跳过断言
+2026-02-22 14:24:49 - INFO - ================================================获取已完成项目-边界场景-无已完成项目返回空列表================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getFinishedProjects', 'headers': {'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODQ2ODh9.2VNHKr_JVXfkxsM8VimQez5mXfeZutSwSf1Spu6b_Ro'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 16, 'projectName': '项目5', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 3242.0, 'remainingFunds': 3242.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目5.docx', 'startTime': '2026-01-07T16:55:57', 'deadline': '2026-08-28T00:00:00', 'updateTime': '2026-01-07T09:06:14', 'status': 4, 'reason': '暂未审批'}, {'id': 1, 'projectName': '通过', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': 2, 'funds': 10000.0, 'remainingFunds': 5000.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2025/12/项目1.docx', 'startTime': '2025-12-26T11:20:56', 'deadline': '2026-01-01T00:00:00', 'updateTime': '2026-01-07T09:28:43', 'status': 5, 'reason': '暂未审批'}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取进行中项目-正常场景-成功返回进行中项目列表================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getIngProjects', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'object_required_items': ['id', 'projectName', 'projectType', 'applicant', 'funds', 'remainingFunds', 'status']}}}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 14, 'projectName': '项目3', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 43500.0, 'remainingFunds': 43500.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目3.docx', 'startTime': '2026-01-07T16:55:05', 'deadline': '2028-01-01T00:00:00', 'updateTime': '2026-01-07T09:03:43', 'status': 3, 'reason': '暂未审批'}, {'id': 15, 'projectName': '项目4', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 4324.0, 'remainingFunds': 4324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目4.docx', 'startTime': '2026-01-07T16:55:36', 'deadline': '2026-05-22T00:00:00', 'updateTime': '2026-01-07T09:50:52', 'status': 3, 'reason': '暂未审批'}, {'id': 23, 'projectName': '项目12', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 213123.0, 'remainingFunds': 213123.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目12.docx', 'startTime': '2026-01-07T16:59:19', 'deadline': '2027-03-19T00:00:00', 'updateTime': '2026-01-07T09:50:55', 'status': 3, 'reason': '暂未审批'}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ===============================================获取进行中项目-异常场景-未携带Token认证信息================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getIngProjects', 'headers': {'Token': ''}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 401}
+2026-02-22 14:24:49 - INFO - resp.json: {}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ===============================================获取进行中项目-边界场景-用户无进行中项目返回空列表===============================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getIngProjects', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 14, 'projectName': '项目3', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 43500.0, 'remainingFunds': 43500.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目3.docx', 'startTime': '2026-01-07T16:55:05', 'deadline': '2028-01-01T00:00:00', 'updateTime': '2026-01-07T09:03:43', 'status': 3, 'reason': '暂未审批'}, {'id': 15, 'projectName': '项目4', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 4324.0, 'remainingFunds': 4324.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目4.docx', 'startTime': '2026-01-07T16:55:36', 'deadline': '2026-05-22T00:00:00', 'updateTime': '2026-01-07T09:50:52', 'status': 3, 'reason': '暂未审批'}, {'id': 23, 'projectName': '项目12', 'projectType': '校内项目', 'applicant': '小明', 'applicantId': 2, 'funds': 213123.0, 'remainingFunds': 213123.0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/01/项目12.docx', 'startTime': '2026-01-07T16:59:19', 'deadline': '2027-03-19T00:00:00', 'updateTime': '2026-01-07T09:50:55', 'status': 3, 'reason': '暂未审批'}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取项目时间线-正常场景-有效项目ID查询成功=================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getTimeLines/16', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'object_required_items': ['id', 'projectId', 'oldStatus', 'newStatus', 'reason', 'createTime', 'approverId']}}}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 34, 'projectId': 16, 'oldStatus': -1, 'newStatus': 0, 'reason': '创建项目', 'createTime': '2026-01-07T08:55:57', 'approverId': 2}, {'id': 51, 'projectId': 16, 'oldStatus': 0, 'newStatus': 3, 'reason': '审批通过', 'createTime': '2026-01-07T09:04:01', 'approverId': 1}, {'id': 60, 'projectId': 16, 'oldStatus': 4, 'newStatus': 4, 'reason': '经过讨论决定', 'createTime': '2026-01-07T09:06:14', 'approverId': 1}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ================================================获取项目时间线-异常场景-无效项目ID返回失败=================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getTimeLines/-1', 'headers': {'Authorization': 'eyJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwidXNlclR5cGUiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4iLCJleHAiOjE3NzE3ODQ2ODh9.2VNHKr_JVXfkxsM8VimQez5mXfeZutSwSf1Spu6b_Ro'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': []}
+2026-02-22 14:24:49 - ERROR - 共 2 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+  - 响应字段: 期望 msg='出错啦~', 实际 'success'
+2026-02-22 14:24:49 - INFO - ==============================================获取未通过项目-正常场景-成功返回未通过审批的项目列表===============================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getUnpassedProjects', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'list_data': {'object_required_items': ['id', 'projectName', 'approver', 'reason', 'createTime', 'status']}}}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 0, 'projectName': '项目90a5d0c6-befe-4abc-a75a-668d75af5bab', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 1, 'projectName': '', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 2, 'projectName': '项目3c6f1236-8e2e-4d12-9d57-36847df9612c', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 3, 'projectName': '项目906e17d9-1206-4ede-8746-380b1cab99ac', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 4, 'projectName': '项目ffbdba1f-17cf-4151-a8fd-a3023b3163e3', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 5, 'projectName': '项目da705952-0caf-4e81-b380-ab8b3aae8d7f', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 6, 'projectName': '纵向研究项目5f810933-546f-430d-a7b7-24baf1adf4d9', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:12', 'status': 0}, {'id': 7, 'projectName': '项目d26e7a90-dba8-4669-8818-19f05e1c0a8a', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:12', 'status': 0}, {'id': 8, 'projectName': '项目41d23678-7c8e-498d-ad75-c0f89f8742b1', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:04:33', 'status': 0}, {'id': 9, 'projectName': '项目13', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T16:59:40', 'status': 0}, {'id': 10, 'projectName': '数据太少了怎么办', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:50:29', 'status': 0}, {'id': 11, 'projectName': '项目3', 'approver': '管理员1号', 'reason': '不好', 'createTime': '2026-01-07T09:03:37', 'status': 1}, {'id': 12, 'projectName': '项目20', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:02:03', 'status': 0}, {'id': 13, 'projectName': '项目19', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:01:37', 'status': 0}, {'id': 14, 'projectName': '项目18', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:01:12', 'status': 0}, {'id': 15, 'projectName': '项目17', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:00:51', 'status': 0}, {'id': 16, 'projectName': '项目11', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:58:59', 'status': 0}, {'id': 17, 'projectName': '项目9', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:58:08', 'status': 0}, {'id': 18, 'projectName': '项目8', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:57:28', 'status': 0}, {'id': 19, 'projectName': '项目7', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:56:39', 'status': 0}, {'id': 20, 'projectName': '项目6', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:56:13', 'status': 0}, {'id': 21, 'projectName': '项目2', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:54:18', 'status': 0}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ==============================================获取未通过项目-异常场景-未携带认证Token访问被拒绝==============================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getUnpassedProjects', 'headers': {'Token': ''}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 401}
+2026-02-22 14:24:49 - INFO - resp.json: {}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ==============================================获取未通过项目-边界场景-用户无未通过项目时返回空列表===============================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'GET', 'url': '/project/getUnpassedProjects', 'headers': None}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': [{'id': 0, 'projectName': '项目90a5d0c6-befe-4abc-a75a-668d75af5bab', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 1, 'projectName': '', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 2, 'projectName': '项目3c6f1236-8e2e-4d12-9d57-36847df9612c', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 3, 'projectName': '项目906e17d9-1206-4ede-8746-380b1cab99ac', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 4, 'projectName': '项目ffbdba1f-17cf-4151-a8fd-a3023b3163e3', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 5, 'projectName': '项目da705952-0caf-4e81-b380-ab8b3aae8d7f', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:13', 'status': 0}, {'id': 6, 'projectName': '纵向研究项目5f810933-546f-430d-a7b7-24baf1adf4d9', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:12', 'status': 0}, {'id': 7, 'projectName': '项目d26e7a90-dba8-4669-8818-19f05e1c0a8a', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:12:12', 'status': 0}, {'id': 8, 'projectName': '项目41d23678-7c8e-498d-ad75-c0f89f8742b1', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T17:04:33', 'status': 0}, {'id': 9, 'projectName': '项目13', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-02-20T16:59:40', 'status': 0}, {'id': 10, 'projectName': '数据太少了怎么办', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:50:29', 'status': 0}, {'id': 11, 'projectName': '项目3', 'approver': '管理员1号', 'reason': '不好', 'createTime': '2026-01-07T09:03:37', 'status': 1}, {'id': 12, 'projectName': '项目20', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:02:03', 'status': 0}, {'id': 13, 'projectName': '项目19', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:01:37', 'status': 0}, {'id': 14, 'projectName': '项目18', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:01:12', 'status': 0}, {'id': 15, 'projectName': '项目17', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T09:00:51', 'status': 0}, {'id': 16, 'projectName': '项目11', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:58:59', 'status': 0}, {'id': 17, 'projectName': '项目9', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:58:08', 'status': 0}, {'id': 18, 'projectName': '项目8', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:57:28', 'status': 0}, {'id': 19, 'projectName': '项目7', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:56:39', 'status': 0}, {'id': 20, 'projectName': '项目6', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:56:13', 'status': 0}, {'id': 21, 'projectName': '项目2', 'approver': '小明', 'reason': '创建项目', 'createTime': '2026-01-07T08:54:18', 'status': 0}]}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ==================================================提交项目-正常场景-项目信息完整提交成功==================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目42b080c0-ded2-4b9b-8cbe-8539ffc1f46b', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ===================================================提交项目-正常场景-纵向项目提交成功===================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '纵向研究项目92bb40b1-3f0a-4f67-87dd-fc8febcf286e', 'projectType': '纵向项目', 'applicant': '小明', 'applicantId': '', 'funds': 50000, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/纵向项目.docx', 'deadline': '2026-12-31T00:00:00'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ====================================================提交项目-异常场景-缺少项目名称====================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ====================================================提交项目-异常场景-缺少项目类型====================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目0398d0f1-ba90-4cff-b4fe-be05907a0536', 'applicant': '小红', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:49 - ERROR - 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+2026-02-22 14:24:49 - INFO - ====================================================提交项目-异常场景-缺少申请人=====================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目4538bafe-0b8a-456f-a5c2-c52f1ca5637d', 'projectType': '横向项目', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ====================================================提交项目-异常场景-缺少经费金额====================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目2cfd32a3-531b-4452-87a0-007589b63882', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:49 - INFO - 所有断言通过
+2026-02-22 14:24:49 - INFO - ===================================================提交项目-异常场景-无效的项目类型====================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目8dbf281b-e5f3-41f0-a26b-7ca68303d58b', 'projectType': '非法项目类型', 'applicant': '小红', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:49 - INFO - 2.正在断言响应
+2026-02-22 14:24:49 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:49 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:49 - ERROR - 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+2026-02-22 14:24:49 - INFO - ====================================================提交项目-边界场景-经费为负数=====================================================
+2026-02-22 14:24:49 - INFO - 1.正在发送请求
+2026-02-22 14:24:49 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目cc049340-0e7d-4cef-a062-1915eb970461', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': -1000, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:50 - ERROR - 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+2026-02-22 14:24:50 - INFO - =====================================================提交项目-边界场景-经费为零=====================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目0037d7dd-025e-4a10-9365-1df99640f6d9', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': 0, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:50 - ERROR - 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+2026-02-22 14:24:50 - INFO - ====================================================提交项目-边界场景-项目名称为空====================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:50 - ERROR - 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+2026-02-22 14:24:50 - INFO - ====================================================提交项目-边界场景-申请人为空=====================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目8bf6c3e0-1b11-4641-bf7b-6775c6e061ef', 'projectType': '横向项目', 'applicant': '', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:50 - ERROR - 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+2026-02-22 14:24:50 - INFO - ==================================================提交项目-边界场景-截止日期为过去时间===================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目6bde4586-5c2e-4f9d-bd18-ca9631172af9', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2020-01-01T00:00:00'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:50 - ERROR - 共 1 个断言失败:
+  - 响应字段: 期望 code=400, 实际 200
+2026-02-22 14:24:50 - INFO - ===================================================提交项目-异常场景-截止日期格式错误===================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目c84ee773-a28e-4da6-8ab0-641188b1cea0', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': 1234, 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026/02/28'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:50 - INFO - 所有断言通过
+2026-02-22 14:24:50 - INFO - ====================================================提交项目-异常场景-经费类型错误====================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'POST', 'url': '/project/submit', 'headers': {}, 'json': {'projectName': '项目69189091-5ab1-44e2-9558-c989153bd5d1', 'projectType': '横向项目', 'applicant': '小红', 'applicantId': '', 'funds': '一千元', 'content': 'https://inventropy.oss-cn-hangzhou.aliyuncs.com/2026/02/项目13.docx', 'deadline': '2026-02-28T00:00:00'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:50 - INFO - 所有断言通过
+2026-02-22 14:24:50 - INFO - ===================================================申请经费-正常场景-参数正确提交成功===================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'PUT', 'url': '/user/commitPayFunds', 'headers': {'Content-Type': 'application/json'}, 'json': {'projectId': 14, 'applicant': '', 'reason': '购买实验材料', 'appliedFunds': 5000.0, 'remainingFunds': 43500.0, 'applicantId': 0}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': None}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 200, 'msg': 'success', 'data': None}
+2026-02-22 14:24:50 - INFO - 所有断言通过
+2026-02-22 14:24:50 - INFO - ====================================================申请经费-异常场景-缺少项目ID====================================================
+2026-02-22 14:24:50 - INFO - 1.正在发送请求
+2026-02-22 14:24:50 - INFO - {'method': 'PUT', 'url': '/user/commitPayFunds', 'headers': {'Content-Type': 'application/json'}, 'json': {'applicant': '李四', 'reason': '设备维护', 'appliedFunds': 3000.0, 'remainingFunds': 17000.0, 'appliedTime': '2026-02-22 14:24:50'}}
+2026-02-22 14:24:50 - INFO - 2.正在断言响应
+2026-02-22 14:24:50 - INFO - {'status_code': 200, 'response': {'code': 400, 'msg': '出错啦~', 'data': None}}
+2026-02-22 14:24:50 - INFO - resp.json: {'code': 400, 'msg': '出错啦~', 'data': None}
+2026-02-22 14:24:50 - INFO - 所有断言通过
+2026-02-22 14:24:50 - INFO - 测试会话结束...关闭测试环境...

@@ -1,0 +1,59 @@
+get_public_key_normal_success:
+  allure:
+    title: "获取公钥-正常场景-成功获取公钥"
+    description: "验证用户在未登录状态下可以成功获取登录加密所需的公钥，接口返回200状态码和正确的业务响应码"
+    epic: "用户中心系统"
+    feature: "用户认证模块"
+    story: "获取登录公钥"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/login/auth/publicKey"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["Algorithm", "PublicKey"]
+          assert:
+            eq:
+              Algorithm: "RSA"
+            regex:
+              PublicKey: "^[A-Za-z0-9+/=]+$"
+            type:
+              Algorithm: str
+              PublicKey: str
+    extract:
+      rsa_public_key: $.data.PublicKey
+      algorithm: $.data.Algorithm
+
+get_public_key_abnormal_client_error:
+  allure:
+    title: "获取公钥-异常场景-请求失败返回400"
+    description: "模拟客户端错误请求（如非法参数），验证接口是否正确返回400状态码及对应的业务失败码"
+    epic: "用户中心系统"
+    feature: "用户认证模块"
+    story: "获取登录公钥"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/login/auth/publicKey"
+      headers:
+        Content-Type: "application/xml"
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "fail"
+        data:
+          required_fields: []

@@ -1,0 +1,154 @@
+apply_funds_normal_success:
+  allure:
+    title: "申请经费-正常场景-提交经费申请成功"
+    description: "验证用户提交合法的经费申请数据，接口能正常接收并返回成功响应，业务响应码为200"
+    epic: "项目管理平台"
+    feature: "经费管理模块"
+    story: "申请经费"
+    tag: ["正常场景", "核心流程"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "PUT"
+      url: "/user/commitPayFunds"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 2001
+        projectId: 1001
+        applicant: "张三"
+        reason: "购买实验材料"
+        appliedFunds: 5000.0
+        remainingFunds: 15000.0
+        applicantId: 1001
+        appliedTime: "2026-02-15T10:30:00"
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 200
+            contains:
+              msg: "success"
+    extract: {}
+
+apply_funds_abnormal_missing_project_id:
+  allure:
+    title: "申请经费-异常场景-缺少项目ID时申请失败"
+    description: "验证当请求体中缺少必填字段projectId时，接口返回参数错误，业务码为400"
+    epic: "项目管理平台"
+    feature: "经费管理模块"
+    story: "申请经费"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "PUT"
+      url: "/user/commitPayFunds"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 2001
+        applicant: "张三"
+        reason: "购买实验材料"
+        appliedFunds: 5000.0
+        remainingFunds: 15000.0
+        applicantId: 1001
+        appliedTime: "2026-02-15T10:30:00"
+    expected:
+      status_code: 200
+      response:
+        code: 400
+        msg: "请求参数缺失"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 400
+            contains:
+              msg: "缺失"
+    extract: {}
+
+apply_funds_abnormal_invalid_applied_funds_negative:
+  allure:
+    title: "申请经费-异常场景-申请金额为负数时申请失败"
+    description: "验证当申请金额appliedFunds为负数时，接口应拒绝请求并返回业务错误码400"
+    epic: "项目管理平台"
+    feature: "经费管理模块"
+    story: "申请经费"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "PUT"
+      url: "/user/commitPayFunds"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 2001
+        projectId: 1001
+        applicant: "张三"
+        reason: "购买实验材料"
+        appliedFunds: -1000.0
+        remainingFunds: 15000.0
+        applicantId: 1001
+        appliedTime: "2026-02-15T10:30:00"
+    expected:
+      status_code: 200
+      response:
+        code: 400
+        msg: "申请金额不能为负数"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 400
+            contains:
+              msg: "负数"
+    extract: {}
+
+apply_funds_boundary_max_amount:
+  allure:
+    title: "申请经费-边界场景-申请最大允许金额"
+    description: "验证当申请金额为系统允许的最大值时，接口能正确处理并返回成功"
+    epic: "项目管理平台"
+    feature: "经费管理模块"
+    story: "申请经费"
+    tag: ["边界场景", "高风险路径"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "PUT"
+      url: "/user/commitPayFunds"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 2001
+        projectId: 1001
+        applicant: "张三"
+        reason: "设备升级"
+        appliedFunds: 9999999.99
+        remainingFunds: 0.01
+        applicantId: 1001
+        appliedTime: "2026-02-15T10:30:00"
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 200
+            type:
+              data: null
+    extract: {}

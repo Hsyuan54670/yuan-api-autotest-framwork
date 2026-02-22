@@ -1,0 +1,183 @@
+get_projects_approval_list_normal_default_page_size:
+  allure:
+    title: "获取项目审批列表-正常场景-默认页码和每页条数"
+    description: "验证管理员分页获取待审批项目列表接口，使用默认页码和每页条数，能正常返回数据"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "获取项目审批列表"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsApprovalList
+      headers:
+        Authorization: "${admin_token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            eq:
+              size: 5
+              current: 1
+            type:
+              total: int
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+                - "remainingFunds"
+    extract:
+      approval_list_total: $.data.total
+      first_project_id: $.data.records[0].id
+
+get_projects_approval_list_normal_custom_page_size:
+  allure:
+    title: "获取项目审批列表-正常场景-自定义页码和每页条数"
+    description: "验证管理员分页获取待审批项目列表接口，使用自定义页码和每页条数，能正常返回指定分页数据"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "获取项目审批列表"
+    tag: ["正常场景", "分页测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsApprovalList
+      headers:
+        Authorization: "${admin_token}"
+      params:
+        page: 2
+        size: 10
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            eq:
+              current: 2
+              size: 10
+            type:
+              total: int
+              records: list
+          list_check:
+            records:
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+                - "remainingFunds"
+
+get_projects_approval_list_abnormal_unauthorized:
+  allure:
+    title: "获取项目审批列表-异常场景-未登录访问"
+    description: "验证未登录用户访问获取项目审批列表接口，应返回401未授权错误"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "获取项目审批列表"
+    tag: ["异常场景", "权限测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsApprovalList
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "请求失败"
+        data:
+          assert:
+            contains:
+              msg: "token"
+
+get_projects_approval_list_boundary_min_page:
+  allure:
+    title: "获取项目审批列表-边界场景-最小页码0"
+    description: "验证页码为0时，接口是否正确处理边界值，默认返回第一页数据"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "获取项目审批列表"
+    tag: ["边界场景", "健壮性测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsApprovalList
+      headers:
+        Authorization: "${admin_token}"
+      params:
+        page: 0
+        size: 5
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            eq:
+              current: 1
+            type:
+              total: int
+              records: list
+
+get_projects_approval_list_boundary_max_page:
+  allure:
+    title: "获取项目审批列表-边界场景-超大页码查询空数据"
+    description: "验证页码超出总页数时，接口返回空记录但状态正常"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "获取项目审批列表"
+    tag: ["边界场景", "分页测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsApprovalList
+      headers:
+        Authorization: "${admin_token}"
+      params:
+        page: 9999
+        size: 5
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            eq:
+              current: 9999
+            type:
+              total: int
+          list_check:
+            records:
+              length: 0

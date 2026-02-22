@@ -18,19 +18,13 @@ getfundslist_normal_success:
       status_code: 200
       response:
         code: 200
-        msg: "操作成功"
+        msg: "success"
         data:
-          required_fields: ["records"]
-          list_check:
-            records:
-              every_item_required_fields:
-                - "id"
-                - "applicant"
-                - "appliedFunds"
-                - "appliedTime"
+          required_fields: ["totalFunds","totalRemainingFunds"]
           assert:
             type:
-              records: list
+                totalFunds: float
+                totalRemainingFunds: float
     extract: {}
 getfundslist_abnormal_unauthorized:
   allure:
@@ -52,7 +46,7 @@ getfundslist_abnormal_unauthorized:
       status_code: 401
       response:
         code: 401
-        msg: "未授权"
+        msg: "fail"
         data: null
 getfundslist_boundary_empty_list:
   allure:
@@ -74,7 +68,7 @@ getfundslist_boundary_empty_list:
       status_code: 200
       response:
         code: 200
-        msg: "操作成功"
+        msg: "success"
         data:
           required_fields: ["records"]
           list_check:

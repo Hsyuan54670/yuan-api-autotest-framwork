@@ -1,0 +1,96 @@
+upload_file_normal_success:
+  allure:
+    title: "上传文件-正常场景-文件上传成功返回URL"
+    description: "验证用户上传合法文件，接口能正常接收并返回文件存储后的访问URL，业务响应码为200"
+    epic: "文件服务系统"
+    feature: "文件上传模块"
+    story: "上传文件"
+    tag: ["正常场景", "核心功能"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: POST
+      url: /upload
+      headers:
+        Content-Type: "multipart/form-data"
+      params:
+        file: "${test_file}"
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["fileUrl"]
+          assert:
+            contains:
+              msg: "success"
+            regex:
+              data.fileUrl: "^https?://.*\\.(jpg|png|pdf|docx?)$"
+            type:
+              code: int
+              msg: str
+              data: dict
+              data.fileUrl: str
+    extract:
+      uploaded_file_url: $.data.fileUrl
+
+upload_file_abnormal_missing_file:
+  allure:
+    title: "上传文件-异常场景-未上传文件返回400"
+    description: "验证用户未选择文件直接提交上传请求，接口应返回参数缺失错误，业务码为400"
+    epic: "文件服务系统"
+    feature: "文件上传模块"
+    story: "上传文件"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: POST
+      url: /upload
+      headers:
+        Content-Type: "multipart/form-data"
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "请求失败"
+        data:
+          assert:
+            eq:
+              code: 400
+            contains:
+              msg: "失败"
+
+upload_file_boundary_empty_filename:
+  allure:
+    title: "上传文件-边界场景-上传空文件名文件校验"
+    description: "验证上传一个空文件名的文件（如空白名称）时，接口是否能正确处理并返回合理响应"
+    epic: "文件服务系统"
+    feature: "文件上传模块"
+    story: "上传文件"
+    tag: ["边界场景", "健壮性测试"]
+    pytest_mark: "boundary"
+  steps:
+    request:
+      method: POST
+      url: /upload
+      headers:
+        Content-Type: "multipart/form-data"
+      params:
+        file: ""
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "请求失败"
+        data:
+          assert:
+            type:
+              msg: str
+            contains:
+              msg: "失败"

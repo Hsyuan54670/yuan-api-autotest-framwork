@@ -1,0 +1,202 @@
+get_project_list_normal_default_page_size:
+  allure:
+    title: "获取项目列表-正常场景-默认页码和每页条数"
+    description: "验证不传分页参数时，接口默认返回第一页、每页5条数据的项目列表，业务响应码为200"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取项目列表"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsList
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            eq:
+              size: 5
+              current: 1
+            type:
+              total: int
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "remainingFunds"
+                - "status"
+    extract:
+      project_list_total: $.data.total
+      first_project_id: $.data.records[0].id
+
+get_project_list_normal_custom_page_size:
+  allure:
+    title: "获取项目列表-正常场景-自定义页码和每页条数"
+    description: "验证传入page=1, size=10时，接口返回第一页10条数据的项目列表，业务响应码为200"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取项目列表"
+    tag: ["正常场景", "分页测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsList
+      headers: {}
+      params:
+        page: 1
+        size: 10
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            eq:
+              current: 1
+              size: 10
+            type:
+              total: int
+              records: list
+          list_check:
+            records:
+              length: 10
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "remainingFunds"
+                - "status"
+
+get_project_list_abnormal_page_negative:
+  allure:
+    title: "获取项目列表-异常场景-页码为负数"
+    description: "验证当page传入负数时，接口仍能正确处理并返回数据，体现参数容错能力"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取项目列表"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsList
+      headers: {}
+      params:
+        page: -1
+        size: 5
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            type:
+              records: list
+            eq:
+              size: 5
+
+get_project_list_abnormal_size_exceed_max:
+  allure:
+    title: "获取项目列表-异常场景-每页条数超过常规范围"
+    description: "验证当size传入极大值（如1000）时，接口是否进行限制或合理响应"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取项目列表"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsList
+      headers: {}
+      params:
+        page: 1
+        size: 1000
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            type:
+              total: int
+              records: list
+          list_check:
+            records:
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "remainingFunds"
+                - "status"
+
+get_project_list_with_auth_header:
+  allure:
+    title: "获取项目列表-正常场景-携带JWT Token鉴权访问"
+    description: "验证在请求头中携带有效的Authorization Token时，可以成功获取项目列表"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取项目列表"
+    tag: ["正常场景", "鉴权测试"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: GET
+      url: /admin/projectsList
+      headers:
+        Authorization: "${login_token}"
+      params:
+        page: 1
+        size: 5
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "size", "current"]
+          assert:
+            eq:
+              current: 1
+              size: 5
+            type:
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "remainingFunds"
+                - "status"

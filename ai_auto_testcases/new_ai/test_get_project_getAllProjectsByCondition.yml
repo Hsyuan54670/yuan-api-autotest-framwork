@@ -1,0 +1,170 @@
+project_getAllProjectsByCondition_normal_with_valid_params:
+  allure:
+    title: "条件查询项目-正常场景-携带有效查询参数成功返回项目列表"
+    description: "验证用户通过合法的查询条件能够正确筛选出匹配的项目列表，响应状态码为200，业务码为200"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "条件查询项目"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      params:
+        name: "科研"
+        projectType: "科研类"
+        status: 1
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "pageNum", "pageSize"]
+          assert:
+            type:
+              records: list
+              total: int
+              pageNum: int
+              pageSize: int
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+    extract:
+      project_list_total: $.data.total
+      first_project_id: $.data.records[0].id
+
+project_getAllProjectsByCondition_abnormal_missing_params:
+  allure:
+    title: "条件查询项目-异常场景-未传入任何查询参数返回失败"
+    description: "验证当未传入必要查询参数时，接口应返回参数缺失提示或空结果集，但HTTP状态码仍为200，业务码可能为400"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "条件查询项目"
+    tag: ["异常场景", "参数校验"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      params: {}
+    expected:
+      status_code: 200
+      response:
+        code: 400
+        msg: "请求参数不能为空"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              data: null
+
+project_getAllProjectsByCondition_boundary_empty_string_params:
+  allure:
+    title: "条件查询项目-边界场景-查询参数为空字符串"
+    description: "验证当查询参数值为空字符串时，接口的行为是否符合预期（如模糊匹配忽略或返回空列表）"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "条件查询项目"
+    tag: ["边界场景", "参数校验"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      params:
+        name: ""
+        projectType: ""
+        status: ""
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        data:
+          required_fields: ["records", "total"]
+          assert:
+            type:
+              records: list
+            eq:
+              data.total: 0
+          list_check:
+            records:
+              length: 0
+
+project_getAllProjectsByCondition_unauthorized_without_token:
+  allure:
+    title: "条件查询项目-异常场景-未携带Token认证信息被拒绝访问"
+    description: "验证未在请求头中提供JWT Token时，接口应返回401未授权错误"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "条件查询项目"
+    tag: ["异常场景", "安全校验"]
+    pytest_mark: "security"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers:
+        Content-Type: "application/json"
+      params:
+        name: "科研"
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "用户未登录或登录已过期"
+        data:
+          assert:
+            eq:
+              data: null
+
+project_getAllProjectsByCondition_filter_by_status_only:
+  allure:
+    title: "条件查询项目-正常场景-仅按状态过滤项目"
+    description: "验证仅使用status字段进行筛选时，返回的数据均为指定状态的项目"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "条件查询项目"
+    tag: ["正常场景", "功能测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getAllProjectsByCondition"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      params:
+        status: 1
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        data:
+          required_fields: ["records"]
+          list_check:
+            records:
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "status"
+              assert:
+                eq:
+                  status: 1

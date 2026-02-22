@@ -88,6 +88,33 @@ def _check_list(data: dict, list_config: dict, path: str, errors: list):
             for idx, item in enumerate(actual_list):
                 _run_assertions(item, config["every_item_assert"], f"{full}[{idx}]", errors)
 
+def _check_list_data(data: dict,list_config: dict, path: str, errors: list):
+    """列表校验 - 只做最实用的三件事"""
+    if list_config:
+        config = list_config
+        full = f"{path}"
+        actual_list = data
+
+        if not isinstance(actual_list, list):
+            errors.append(f"{full} 不是 list")
+
+        # 1. 长度校验
+        if "length" in config:
+            if len(actual_list) != config["length"]:
+                errors.append(f"[length] {full}: 期望 {config['length']}, 实际 {len(actual_list)}")
+
+        # 2. 每个元素的必需字段
+        if "object_required_items" in config:
+            for idx, item in enumerate(actual_list):
+                for field in config["object_required_items"]:
+                    if field and field not in item:
+                        errors.append(f"缺少字段: {full}[{idx}].{field}")
+
+        # 3. 每个元素的断言
+        if "every_item_assert" in config:
+            for idx, item in enumerate(actual_list):
+                _run_assertions(item, config["every_item_assert"], f"{full}[{idx}]", errors)
+
 
 class ResponseChecker:
     def __init__(self, resp):
@@ -98,8 +125,17 @@ class ResponseChecker:
             logger.info("未设置预期结果，跳过断言")
             return
 
+        if self.resp is None:
+            raise AssertionError("请求失败，响应对象为空")
+
         errors = []
-        json_data = self.resp.json()
+
+        # 处理非JSON响应的错误
+        try:
+            json_data = self.resp.json()
+        except Exception:
+            json_data = {}
+
         logger.info(f"resp.json: {json_data}")
 
         # 1. HTTP 状态码
@@ -132,6 +168,10 @@ class ResponseChecker:
 
             if "list_check" in data_config:
                 _check_list(data, data_config["list_check"], "data", errors)
+
+            if "list_data" in data_config:
+                _check_list_data(data,data_config["list_data"], "data", errors)
+
 
         # 4. 结果
         if errors:

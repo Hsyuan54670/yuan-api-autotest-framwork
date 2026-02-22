@@ -1,0 +1,167 @@
+update_project_deadline_normal_success:
+  allure:
+    title: "更新项目截止时间-正常场景-成功修改截止时间及状态"
+    description: "验证管理员或项目负责人更新项目截止时间及状态，接口返回成功响应，业务码为200"
+    epic: "项目管理平台"
+    feature: "项目更新模块"
+    story: "更新项目截止时间"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "PUT"
+      url: "/project/updateDeadline"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 1001
+        newDeadline: "2026-03-01T00:00:00"
+        newStatus: 2
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: []
+        assert:
+          eq:
+            code: 200
+          contains:
+            msg: "success"
+    extract: {}
+
+update_project_deadline_abnormal_missing_id:
+  allure:
+    title: "更新项目截止时间-异常场景-缺少项目ID"
+    description: "验证当请求体中未提供项目ID时，接口应返回参数错误，业务码为400"
+    epic: "项目管理平台"
+    feature: "项目更新模块"
+    story: "更新项目截止时间"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "PUT"
+      url: "/project/updateDeadline"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        newDeadline: "2026-03-01T00:00:00"
+        newStatus: 1
+    expected:
+      status_code: 200
+      response:
+        code: 400
+        msg: "参数校验失败"
+        data:
+          required_fields: []
+        assert:
+          eq:
+            code: 400
+          contains:
+            msg: "参数校验失败"
+    extract: {}
+
+update_project_deadline_abnormal_invalid_status:
+  allure:
+    title: "更新项目截止时间-异常场景-新状态值非法"
+    description: "验证当newStatus传入非法值（如5）时，接口应返回业务失败，校验状态合法性"
+    epic: "项目管理平台"
+    feature: "项目更新模块"
+    story: "更新项目截止时间"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "PUT"
+      url: "/project/updateDeadline"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 1001
+        newDeadline: "2026-03-01T00:00:00"
+        newStatus: 5
+    expected:
+      status_code: 200
+      response:
+        code: 400
+        msg: "无效的状态值"
+        data:
+          required_fields: []
+        assert:
+          eq:
+            code: 400
+          contains:
+            msg: "无效的状态值"
+    extract: {}
+
+update_project_deadline_abnormal_missing_newDeadline:
+  allure:
+    title: "更新项目截止时间-异常场景-缺少新的截止时间"
+    description: "验证当请求体中未提供newDeadline字段时，接口应返回参数校验失败"
+    epic: "项目管理平台"
+    feature: "项目更新模块"
+    story: "更新项目截止时间"
+    tag: ["异常场景", "必填项校验"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "PUT"
+      url: "/project/updateDeadline"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 1001
+        newStatus: 2
+    expected:
+      status_code: 200
+      response:
+        code: 400
+        msg: "参数校验失败"
+        data:
+          required_fields: []
+        assert:
+          eq:
+            code: 400
+          contains:
+            msg: "参数校验失败"
+    extract: {}
+
+update_project_deadline_boundary_minimal_time:
+  allure:
+    title: "更新项目截止时间-边界场景-设置截止时间为最小合法时间"
+    description: "验证将截止时间设置为系统允许的最小合法时间（当前时间之前），检查业务逻辑是否允许"
+    epic: "项目管理平台"
+    feature: "项目更新模块"
+    story: "更新项目截止时间"
+    tag: ["边界场景", "逻辑校验"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "PUT"
+      url: "/project/updateDeadline"
+      headers:
+        Content-Type: "application/json"
+        Authorization: "${token}"
+      json:
+        id: 1001
+        newDeadline: "2024-01-01T00:00:00"
+        newStatus: 2
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: []
+        assert:
+          eq:
+            code: 200
+          type:
+            msg: str
+    extract: {}

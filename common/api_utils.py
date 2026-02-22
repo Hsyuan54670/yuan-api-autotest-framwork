@@ -1,11 +1,11 @@
 import logging
 import jsonpath
 import requests
-import re
+import os
 from common.config import SERVER_URL
 from common.response_checker import ResponseChecker
 from utils.allure_utils import AllureUtils
-from utils.data_utils import extract_yaml
+from utils.data_utils import extract_yaml, resolve_dynamic_params
 
 logger = logging.getLogger("Hsyuan")
 
@@ -14,16 +14,28 @@ class ApiRunner:
 
     resp = None
     allure_utils = AllureUtils()
-    def __init__(self,data,session=requests.Session()):
+    def __init__(self, data, session=requests.Session()):
         self.session = session
+        # 解析动态参数
+        data = resolve_dynamic_params(data)
         self.steps = data["steps"]
         self.allure = data["allure"]
 
-    def send_request(self,**kwargs):
+    def send_request(self, **kwargs):
         try:
             kwargs["url"] = SERVER_URL + kwargs.get("url", "")
-            response = self.session.request(**kwargs)
-            response.raise_for_status()  # 检查HTTP错误
+            if kwargs.get("files"):
+                # 处理文件路径中的动态参数
+                logger.info(f'正在处理文件上传，原始文件路径: {kwargs["files"]["path"]}')
+                with open(kwargs["files"]["path"], "rb") as f:
+                    kwargs["files"] = {
+                        'file': (os.path.basename(kwargs["files"]["path"]), f,
+                                 'application/vnd.openxmlformats-officedocument.wordprocessingml.document')
+                    }
+                    response = self.session.request(**kwargs)
+            else:
+                response = self.session.request(**kwargs)
+            # 不使用 raise_for_status()，让4xx/5xx响应也能被断言
             return response
         except requests.RequestException as e:
             logger.info(f"请求失败: {e}")

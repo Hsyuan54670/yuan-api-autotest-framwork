@@ -1,0 +1,95 @@
+get_finished_projects_normal_success:
+  allure:
+    title: "获取已完成项目-正常场景-用户成功获取已完成项目列表"
+    description: "验证已登录用户能够成功获取当前用户已完成的项目列表，响应状态码为200，业务码为200，返回数据结构正确"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取已完成项目"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getFinishedProjects"
+      headers:
+        Authorization: "${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records"]
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "remainingFunds"
+                - "status"
+                - "startTime"
+                - "deadline"
+                - "updateTime"
+    extract:
+      finished_project_count: $.data.records.length
+
+get_finished_projects_abnormal_unauthorized:
+  allure:
+    title: "获取已完成项目-异常场景-未登录访问接口被拒绝"
+    description: "验证未登录用户（无token）访问获取已完成项目接口时，系统拒绝请求并返回401或400错误"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取已完成项目"
+    tag: ["异常场景", "安全测试"]
+    pytest_mark: ""
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getFinishedProjects"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 400
+      response:
+        code: 400
+        msg: "请求失败"
+        data: null
+    extract: {}
+
+get_finished_projects_boundary_empty_list:
+  allure:
+    title: "获取已完成项目-边界场景-用户无已完成项目返回空列表"
+    description: "验证当当前用户没有任何已完成项目时，接口应正常返回200，data中records为空数组"
+    epic: "项目管理平台"
+    feature: "项目查询模块"
+    story: "获取已完成项目"
+    tag: ["边界场景", "功能测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/project/getFinishedProjects"
+      headers:
+        Authorization: "${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records"]
+          assert:
+            eq:
+              records: []

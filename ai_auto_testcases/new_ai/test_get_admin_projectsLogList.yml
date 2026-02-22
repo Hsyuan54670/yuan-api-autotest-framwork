@@ -1,0 +1,180 @@
+get_project_logs_normal_default_page_size:
+  allure:
+    title: "获取项目日志列表-正常场景-默认分页参数查询成功"
+    description: "验证管理员使用默认分页参数（page=1, size=5）调用接口，能正常返回项目审批日志列表，业务响应码为200"
+    epic: "项目管理平台"
+    feature: "项目日志模块"
+    story: "获取项目日志列表"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {"Authorization": "${token}"}
+      params:
+        page: 1
+        size: 5
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: ["records", "total", "pageNum", "pageSize"]
+          assert:
+            type:
+              total: int
+              pageNum: int
+              pageSize: int
+          list_check:
+            records:
+              length: 5
+              every_item_required_fields:
+                - "id"
+                - "projectName"
+                - "projectType"
+                - "applicant"
+                - "funds"
+                - "status"
+                - "updateTime"
+    extract:
+      log_list_total: $.data.total
+      first_log_id: $.data.records[0].id
+
+get_project_logs_normal_custom_page_size:
+  allure:
+    title: "获取项目日志列表-正常场景-自定义分页条数查询成功"
+    description: "验证管理员设置自定义分页参数（page=1, size=10）调用接口，能正确返回10条项目日志数据"
+    epic: "项目管理平台"
+    feature: "项目日志模块"
+    story: "获取项目日志列表"
+    tag: ["正常场景", "分页测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {"Authorization": "${token}"}
+      params:
+        page: 1
+        size: 10
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          assert:
+            eq:
+              pageNum: 1
+              pageSize: 10
+          list_check:
+            records:
+              length: 10
+
+get_project_logs_abnormal_page_negative:
+  allure:
+    title: "获取项目日志列表-异常场景-页码为负数返回正常但数据为空"
+    description: "验证当page参数为负数时，接口仍能正常响应，但返回数据为空或默认处理"
+    epic: "项目管理平台"
+    feature: "项目日志模块"
+    story: "获取项目日志列表"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {"Authorization": "${token}"}
+      params:
+        page: -1
+        size: 5
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        data:
+          assert:
+            type:
+              records: list
+          list_check:
+            records:
+              length: 0
+
+get_project_logs_abnormal_size_exceed_limit:
+  allure:
+    title: "获取项目日志列表-异常场景-每页条数超过系统上限自动截断"
+    description: "验证当size参数超过合理范围（如1000）时，接口自动截断至最大允许值或返回最多可用数据"
+    epic: "项目管理平台"
+    feature: "项目日志模块"
+    story: "获取项目日志列表"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {"Authorization": "${token}"}
+      params:
+        page: 1
+        size: 1000
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        data:
+          assert:
+            type:
+              pageSize: int
+          list_check:
+            records:
+              length: 50
+    extract:
+      actual_page_size: $.data.pageSize
+
+get_project_logs_without_auth:
+  allure:
+    title: "获取项目日志列表-异常场景-未携带Token认证信息被拒绝访问"
+    description: "验证未在请求头中携带Authorization Token时，接口返回401未授权错误"
+    epic: "项目管理平台"
+    feature: "项目日志模块"
+    story: "获取项目日志列表"
+    tag: ["异常场景", "安全测试"]
+    pytest_mark: "security"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {}
+      params:
+        page: 1
+        size: 5
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "Unauthorized"
+
+get_project_logs_with_invalid_token:
+  allure:
+    title: "获取项目日志列表-异常场景-携带无效Token被拒绝访问"
+    description: "验证使用伪造或过期的JWT Token调用接口，服务端返回401未授权"
+    epic: "项目管理平台"
+    feature: "项目日志模块"
+    story: "获取项目日志列表"
+    tag: ["异常场景", "安全测试"]
+    pytest_mark: "security"
+  steps:
+    request:
+      method: "GET"
+      url: "/admin/projectsLogList"
+      headers: {"Authorization": "Bearer invalid.token.value"}
+      params:
+        page: 1
+        size: 5
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "Unauthorized"

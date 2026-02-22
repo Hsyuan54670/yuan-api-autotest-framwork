@@ -16,13 +16,16 @@ class TestLoginAPI:
 
     @pytest.mark.api
     @pytest.mark.parametrize("data", read_yaml_list("data/test_data/login_public_key.yaml"))
+    @pytest.mark.final
     def test_get_public_key(self,data):
         """测试获取RSA公钥接口"""
         runner = ApiRunner(data)
         runner.run()
 
-    @pytest.mark.api
-    @pytest.mark.parametrize("data", read_yaml_list("data/test_data/login.yaml"))
+
+    @pytest.mark.login
+    @pytest.mark.parametrize("data", read_yaml_list("data/ai_testcases/login/test_post_login.yml"))
+    @pytest.mark.final
     def test_login(self,data):
         """测试登录接口"""
 
@@ -42,5 +45,4 @@ class TestLoginAPI:
 
 
 
-if __name__ == "__main__":
-    TestLoginAPI.test_get_public_key()
+

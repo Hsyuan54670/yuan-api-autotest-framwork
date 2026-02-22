@@ -1,0 +1,89 @@
+approval_project_normal_success:
+  allure:
+    title: "项目审批-正常场景-管理员审核通过指定项目成功"
+    description: "验证管理员对指定项目进行审批通过操作，接口返回成功响应，业务状态码为200"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "通过项目审批"
+    tag: ["正常场景", "冒烟用例"]
+    pytest_mark: "smoke"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/approvalProject/1001"
+      headers:
+        Authorization: "${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 200
+        msg: "success"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              msg: "success"
+            type:
+              code: int
+    extract: {}
+
+approval_project_abnormal_project_not_exist:
+  allure:
+    title: "项目审批-异常场景-项目ID不存在时审批失败"
+    description: "验证当项目ID不存在时，管理员审批项目接口应返回请求失败，业务码400"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "通过项目审批"
+    tag: ["异常场景", "边界值测试"]
+    pytest_mark: "regression"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/approvalProject/99999"
+      headers:
+        Authorization: "${token}"
+      params: {}
+      json: {}
+    expected:
+      status_code: 200
+      response:
+        code: 400
+        msg: "请求失败"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 400
+            contains:
+              msg: "失败"
+    extract: {}
+
+approval_project_abnormal_no_auth:
+  allure:
+    title: "项目审批-异常场景-未登录时审批项目被拒绝"
+    description: "验证未携带认证Token时，管理员审批项目接口应返回权限不足或要求登录"
+    epic: "项目管理平台"
+    feature: "项目审批模块"
+    story: "通过项目审批"
+    tag: ["异常场景", "安全测试"]
+    pytest_mark: "security"
+  steps:
+    request:
+      method: "PUT"
+      url: "/admin/approvalProject/1001"
+      headers: {}
+      params: {}
+      json: {}
+    expected:
+      status_code: 401
+      response:
+        code: 401
+        msg: "Unauthorized"
+        data:
+          required_fields: []
+          assert:
+            eq:
+              code: 401
+    extract: {}
