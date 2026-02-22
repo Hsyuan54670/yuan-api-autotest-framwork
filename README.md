@@ -1,4 +1,4 @@
-# 接口自动化测试框架
+# 智能接口自动化测试框架
 ### 技术栈：Python + Pytest + Requests + Github Actions(CI/CD) + Allure + OpenAI API + Swagger
 针对个人项目 **InvEntropy** 打造的轻量级接口自动化智能测试框架，
 解决手工测试效率低、回归测试成本高、接口质量难监控的问题，落地测试开发核心思想。  
@@ -21,8 +21,9 @@
 
 
 ## 效果展示
-![img/img.png](img/img.png)
 Allure 报告在线查看：[GitHub Pages](https://Hsyuan54670.github.io/yuan-api-autotest-framwork/)
+![img/img.png](img/img.png)
+
 
 ### 快速开始
 #### 克隆项目
