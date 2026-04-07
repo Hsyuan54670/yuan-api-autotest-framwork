@@ -1,0 +1,9 @@
+INFO     Hsyuan:api_utils.py:86 ======================================================获取登录公钥接口测试用例======================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/login/auth/publicKey', 'headers': {}, 'params': {}, 'json': {}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 200, 'response': {'code': 200, 'msg': 'success', 'data': {'required_fields': ['publicKey', 'timestamp', 'algorithm'], 'algorithm': 'RSA'}}}
+INFO     Hsyuan:response_checker.py:139 resp.json: {'code': 200, 'msg': 'success', 'data': {'publicKey': 'MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArt5E8LEGg3ynbYZ9r8sKNqX4NhzJr/uwVIKLYzeRejTrjof4RW5eOoOAKBEAg5yhsGjO+dNbCDOV9mCAfKYfa9ktpaxBkciIbGfV+GWBm5MCGeWizye6zhaNtH6ZsF+MrJLVdL7K4t/RHsdPH6Q7PF+c8lfp0qp0/WvMC5cGajeAq8gcMuzkh53rQQEtuoApqVCzvtLmyAT0Gx+Ov32cuenmvz1NzsZbvvNdTEj2QpP/fDhfAKbcGpBz6CjatT5viwX0n+afAWqh40JsnLZCyH3SnlOO+DpDz9ba4bgU2SmM29Q1ATzVkp2rmF+kbjZLEpfkhqFncBRijD2gr0FE7wIDAQAB', 'algorithm': 'RSA', 'timestamp': '1775556091737'}}
+INFO     Hsyuan:response_checker.py:182 所有断言通过
+INFO     Hsyuan:api_utils.py:76 3.正在提取变量
+INFO     Hsyuan:api_utils.py:56 提取变量成功: publicKey = MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEArt5E8LEGg3ynbYZ9r8sKNqX4NhzJr/uwVIKLYzeRejTrjof4RW5eOoOAKBEAg5yhsGjO+dNbCDOV9mCAfKYfa9ktpaxBkciIbGfV+GWBm5MCGeWizye6zhaNtH6ZsF+MrJLVdL7K4t/RHsdPH6Q7PF+c8lfp0qp0/WvMC5cGajeAq8gcMuzkh53rQQEtuoApqVCzvtLmyAT0Gx+Ov32cuenmvz1NzsZbvvNdTEj2QpP/fDhfAKbcGpBz6CjatT5viwX0n+afAWqh40JsnLZCyH3SnlOO+DpDz9ba4bgU2SmM29Q1ATzVkp2rmF+kbjZLEpfkhqFncBRijD2gr0FE7wIDAQAB

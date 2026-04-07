@@ -1,0 +1,6 @@
+INFO     Hsyuan:api_utils.py:86 ================================================获取已完成项目-异常场景-未登录访问返回401=================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/project/getFinishedProjects', 'headers': {'Token': ''}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 None
+INFO     Hsyuan:response_checker.py:125 未设置预期结果，跳过断言

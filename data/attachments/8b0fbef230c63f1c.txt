@@ -1,0 +1,7 @@
+INFO     Hsyuan:api_utils.py:86 ===============================================获取进行中项目-异常场景-未携带Token认证信息================================================
+INFO     Hsyuan:api_utils.py:68 1.正在发送请求
+INFO     Hsyuan:api_utils.py:69 {'method': 'GET', 'url': '/project/getIngProjects', 'headers': {'Token': ''}}
+INFO     Hsyuan:api_utils.py:72 2.正在断言响应
+INFO     Hsyuan:api_utils.py:73 {'status_code': 401}
+INFO     Hsyuan:response_checker.py:139 resp.json: {}
+INFO     Hsyuan:response_checker.py:182 所有断言通过
