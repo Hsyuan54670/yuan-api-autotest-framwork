@@ -90,10 +90,11 @@ def setup_and_teardown():
 
     clear_extract_yaml()
     # 未获取公钥的情况下
-    # get_public_key = TestLoginAPI()
-    # get_public_key.test_get_public_key(read_yaml_list("data/test_data/login_public_key.yaml")[0])
-    #
-    # PUBLIC_KEY=read_yaml("config/extract.yaml")["publicKey"]
+    get_public_key = TestLoginAPI()
+    get_public_key.test_get_public_key(read_yaml_list("data/test_data/login_public_key.yaml")[0])
+
+    PUBLIC_KEY=read_yaml("config/extract.yaml")["publicKey"]
+    os.environ["PUBLIC_KEY"] = PUBLIC_KEY
 
     logger.info("初始化配置完成,测试会话开始!")
     yield
